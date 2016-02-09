@@ -1,0 +1,653 @@
+Archive member included because of file (symbol)
+
+c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+                              c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o (exit)
+c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+                              buttons.o (__do_copy_data)
+c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+                              nock_machine.o (__do_clear_bss)
+c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+                              eepromworker.o (__eerd_block_m8)
+c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+                              eepromworker.o (__eewr_block_m8)
+c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+                              c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o) (__eewr_r18_m8)
+
+Allocating common symbols
+Common symbol       size              file
+
+g_nocks             0xb7              nock_machine.o
+g_flags             0x5               nock_machine.o
+rx_buffer           0x80              uart_logger.o
+g_timer             0x1e              softtimer.o
+op_status           0x1               rf73_spi.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+LOAD buttons.o
+LOAD eepromworker.o
+LOAD leds.o
+LOAD main.o
+LOAD my_ext_irq.o
+LOAD nock_machine.o
+LOAD softtimer.o
+LOAD uart_logger.o
+LOAD colibrator.o
+LOAD send_machine.o
+LOAD rf73_spi.o
+LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a
+LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a
+LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xf68
+ *(.vectors)
+ .vectors       0x00000000       0x26 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table
+                0x00000026       0x10 nock_machine.o
+ *(.progmem*)
+                0x00000036                . = ALIGN (0x2)
+                0x00000036                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000036        0x0 linker stubs
+ *(.trampolines*)
+                0x00000036                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000036                __ctors_start = .
+ *(.ctors)
+                0x00000036                __ctors_end = .
+                0x00000036                __dtors_start = .
+ *(.dtors)
+                0x00000036                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000036        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+                0x00000036                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000036        0xc c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000042       0x16 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+                0x00000042                __do_copy_data
+ .init4         0x00000058       0x10 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+                0x00000058                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000068        0x4 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+ *(.init9)
+ *(.text)
+ .text          0x0000006c        0x2 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+                0x0000006c                __vector_1
+                0x0000006c                __vector_12
+                0x0000006c                __bad_interrupt
+                0x0000006c                __vector_6
+                0x0000006c                __vector_3
+                0x0000006c                __vector_13
+                0x0000006c                __vector_17
+                0x0000006c                __vector_7
+                0x0000006c                __vector_5
+                0x0000006c                __vector_4
+                0x0000006c                __vector_9
+                0x0000006c                __vector_2
+                0x0000006c                __vector_15
+                0x0000006c                __vector_10
+                0x0000006c                __vector_16
+                0x0000006c                __vector_18
+ .text          0x0000006e       0x84 buttons.o
+                0x0000006e                buttonsInit
+                0x000000d2                buttonIsPressed
+ .text          0x000000f2       0x78 eepromworker.o
+                0x000000f2                eepromInit
+                0x000000f4                eepromWrite
+                0x00000100                eepromRead
+                0x0000010c                eepromReadToMark
+ .text          0x0000016a       0xa6 leds.o
+                0x0000016a                ledInit
+                0x000001ae                ledOn
+                0x000001ce                ledOff
+                0x000001f0                ledTaggle
+ .text          0x00000210       0x24 main.o
+                0x00000210                main
+ .text          0x00000234       0xc0 my_ext_irq.o
+                0x00000234                setNextSence
+                0x0000025a                setFixedSence
+                0x0000026c                initMyExtIRQ
+                0x0000029a                __vector_14
+ .text          0x000002f4      0x3ea nock_machine.o
+                0x000002f4                getNock
+                0x00000310                initGVals
+                0x0000036c                changeFlag
+                0x00000378                getFlag
+                0x00000384                processWaitNoise
+                0x000003d2                processCheckNock
+                0x00000420                nockReadFromEEPROM
+                0x0000044a                initNockMachine
+                0x00000454                nockWriteToEEPROM
+                0x00000476                nockMachine_2
+                0x000005b8                userNewNockCommandMachine_1
+                0x000005fa                doorSignalMachine_4
+ .text          0x000006de      0x13e softtimer.o
+                0x000006de                initHardWareTimer
+                0x000006f4                timerSet
+                0x00000716                timerIsElapsed
+                0x0000073e                timerGetCurrent
+                0x0000075a                timerInit
+                0x00000786                __vector_8
+ .text          0x0000081c      0x132 uart_logger.o
+                0x0000081c                GPIO_Configuration
+                0x00000820                USART_Configuration
+                0x00000832                loggerInit
+                0x00000838                loggerWrite
+                0x0000084c                loggerWriteByteInBit
+                0x000008ae                loggerWriteToMarker
+                0x000008c4                __vector_11
+                0x00000908                getData
+ .text          0x0000094e       0xbc colibrator.o
+                0x0000094e                colibrateDetector
+ .text          0x00000a0a      0x174 send_machine.o
+                0x00000a0a                initSendMachine
+                0x00000a16                processWait
+                0x00000a4e                sendMachine_3
+ .text          0x00000b7e      0x39a rf73_spi.o
+                0x00000b7e                Init_Spi
+                0x00000b8e                ReadWrite_Spi
+                0x00000b98                SPI_Write_Reg
+                0x00000bbc                SPI_Read_Reg
+                0x00000bcc                SPI_Read_Buf
+                0x00000c16                SPI_Write_Buf
+                0x00000c62                SwitchToRxMode
+                0x00000c84                SwitchToTxMode
+                0x00000c9c                SwitchCFG
+                0x00000cbc                SetChannelNum
+                0x00000cc4                RFM73_Initialize
+                0x00000e72                RFM73_SetPower
+                0x00000e82                Send_Packet
+                0x00000ecc                Receive_Packet
+ .text          0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .text          0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+ .text          0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+ .text          0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+ .text          0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+ .text          0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+                0x00000f18                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000f18        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x00000f18       0x20 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+                0x00000f18                __eerd_block_m8
+                0x00000f1c                __eerd_blraw_m8
+ .text.avr-libc
+                0x00000f38       0x12 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+                0x00000f38                __eewr_block_m8
+ .text.avr-libc
+                0x00000f4a       0x1a c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+                0x00000f4a                __eewr_byte_m8
+                0x00000f4c                __eewr_r18_m8
+                0x00000f64                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000f64        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+                0x00000f64                _exit
+                0x00000f64                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000f64        0x4 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000f68                _etext = .
+
+.data           0x00800060       0x8c load address 0x00000f68
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+ .data          0x00800060        0x2 buttons.o
+                0x00800060                button_pins
+ .data          0x00800062        0x0 eepromworker.o
+ .data          0x00800062        0x4 leds.o
+                0x00800062                led_pins
+ .data          0x00800066        0x0 main.o
+ .data          0x00800066        0x1 my_ext_irq.o
+                0x00800066                sence
+ .data          0x00800067        0x1 nock_machine.o
+ .data          0x00800068        0x0 softtimer.o
+ .data          0x00800068        0x0 uart_logger.o
+ .data          0x00800068        0x0 colibrator.o
+ .data          0x00800068        0x8 send_machine.o
+ .data          0x00800070       0x7b rf73_spi.o
+                0x00800070                Bank1_Reg0_13
+                0x008000a8                Bank1_Reg14
+                0x008000b3                Bank0_Reg
+                0x008000e1                RX0_Address
+                0x008000e6                RX1_Address
+ .data          0x008000eb        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .data          0x008000eb        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+ .data          0x008000eb        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+ .data          0x008000eb        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+ .data          0x008000eb        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+ .data          0x008000eb        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x008000ec                . = ALIGN (0x2)
+ *fill*         0x008000eb        0x1 00
+                0x008000ec                _edata = .
+                0x008000ec                PROVIDE (__data_end, .)
+
+.bss            0x008000ec      0x1a2
+                0x008000ec                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x008000ec        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x008000ec        0x0 buttons.o
+ .bss           0x008000ec        0x0 eepromworker.o
+ .bss           0x008000ec        0x0 leds.o
+ .bss           0x008000ec        0x0 main.o
+ .bss           0x008000ec        0x0 my_ext_irq.o
+ .bss           0x008000ec        0x3 nock_machine.o
+ .bss           0x008000ef        0x0 softtimer.o
+ .bss           0x008000ef        0x1 uart_logger.o
+                0x008000ef                rx_counter
+ .bss           0x008000f0        0x1 colibrator.o
+ .bss           0x008000f1       0x42 send_machine.o
+ .bss           0x00800133        0x0 rf73_spi.o
+ .bss           0x00800133        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .bss           0x00800133        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+ .bss           0x00800133        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x00800133        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+ .bss           0x00800133        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+ .bss           0x00800133        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800133       0xbc nock_machine.o
+                0x00800133                g_nocks
+                0x008001ea                g_flags
+ COMMON         0x008001ef       0x1e softtimer.o
+                0x008001ef                g_timer
+ COMMON         0x0080020d       0x80 uart_logger.o
+                0x0080020d                rx_buffer
+ COMMON         0x0080028d        0x1 rf73_spi.o
+                0x0080028d                op_status
+                0x0080028e                PROVIDE (__bss_end, .)
+                0x00000f68                __data_load_start = LOADADDR (.data)
+                0x00000ff4                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080028e        0x0
+                0x0080028e                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080028e                PROVIDE (__noinit_end, .)
+                0x0080028e                _end = .
+                0x0080028e                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x948
+ *(.stab)
+ .stab          0x00000000      0x6cc c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+ .stab          0x000006cc      0x108 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+                                0x114 (size before relaxing)
+ .stab          0x000007d4       0x9c c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+                                 0xa8 (size before relaxing)
+ .stab          0x00000870       0xd8 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+                                 0xe4 (size before relaxing)
+
+.stabstr        0x00000000      0x1b0
+ *(.stabstr)
+ .stabstr       0x00000000      0x1b0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x160
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 buttons.o
+ .debug_aranges
+                0x00000020       0x20 eepromworker.o
+ .debug_aranges
+                0x00000040       0x20 leds.o
+ .debug_aranges
+                0x00000060       0x20 main.o
+ .debug_aranges
+                0x00000080       0x20 my_ext_irq.o
+ .debug_aranges
+                0x000000a0       0x20 nock_machine.o
+ .debug_aranges
+                0x000000c0       0x20 softtimer.o
+ .debug_aranges
+                0x000000e0       0x20 uart_logger.o
+ .debug_aranges
+                0x00000100       0x20 colibrator.o
+ .debug_aranges
+                0x00000120       0x20 send_machine.o
+ .debug_aranges
+                0x00000140       0x20 rf73_spi.o
+
+.debug_pubnames
+                0x00000000      0x59d
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x46 buttons.o
+ .debug_pubnames
+                0x00000046       0x55 eepromworker.o
+ .debug_pubnames
+                0x0000009b       0x4e leds.o
+ .debug_pubnames
+                0x000000e9       0x1b main.o
+ .debug_pubnames
+                0x00000104       0x60 my_ext_irq.o
+ .debug_pubnames
+                0x00000164      0x114 nock_machine.o
+ .debug_pubnames
+                0x00000278       0x85 softtimer.o
+ .debug_pubnames
+                0x000002fd       0xca uart_logger.o
+ .debug_pubnames
+                0x000003c7       0x28 colibrator.o
+ .debug_pubnames
+                0x000003ef       0x48 send_machine.o
+ .debug_pubnames
+                0x00000437      0x166 rf73_spi.o
+
+.debug_info     0x00000000     0x1c2b
+ *(.debug_info)
+ .debug_info    0x00000000      0x161 buttons.o
+ .debug_info    0x00000161      0x16c eepromworker.o
+ .debug_info    0x000002cd      0x175 leds.o
+ .debug_info    0x00000442       0xd0 main.o
+ .debug_info    0x00000512      0x18f my_ext_irq.o
+ .debug_info    0x000006a1      0x466 nock_machine.o
+ .debug_info    0x00000b07      0x2a1 softtimer.o
+ .debug_info    0x00000da8      0x29d uart_logger.o
+ .debug_info    0x00001045      0x29b colibrator.o
+ .debug_info    0x000012e0      0x267 send_machine.o
+ .debug_info    0x00001547      0x6e4 rf73_spi.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0xd35
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x106 buttons.o
+ .debug_abbrev  0x00000106       0x9f eepromworker.o
+ .debug_abbrev  0x000001a5       0xd4 leds.o
+ .debug_abbrev  0x00000279       0x78 main.o
+ .debug_abbrev  0x000002f1       0xcd my_ext_irq.o
+ .debug_abbrev  0x000003be      0x1e0 nock_machine.o
+ .debug_abbrev  0x0000059e      0x18f softtimer.o
+ .debug_abbrev  0x0000072d      0x15d uart_logger.o
+ .debug_abbrev  0x0000088a      0x13f colibrator.o
+ .debug_abbrev  0x000009c9      0x113 send_machine.o
+ .debug_abbrev  0x00000adc      0x259 rf73_spi.o
+
+.debug_line     0x00000000     0x1981
+ *(.debug_line)
+ .debug_line    0x00000000      0x122 buttons.o
+ .debug_line    0x00000122       0xd3 eepromworker.o
+ .debug_line    0x000001f5      0x141 leds.o
+ .debug_line    0x00000336       0xdb main.o
+ .debug_line    0x00000411      0x1b4 my_ext_irq.o
+ .debug_line    0x000005c5      0x530 nock_machine.o
+ .debug_line    0x00000af5      0x21a softtimer.o
+ .debug_line    0x00000d0f      0x294 uart_logger.o
+ .debug_line    0x00000fa3      0x281 colibrator.o
+ .debug_line    0x00001224      0x1ea send_machine.o
+ .debug_line    0x0000140e      0x573 rf73_spi.o
+
+.debug_frame    0x00000000      0x460
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x30 buttons.o
+ .debug_frame   0x00000030       0x50 eepromworker.o
+ .debug_frame   0x00000080       0x50 leds.o
+ .debug_frame   0x000000d0       0x20 main.o
+ .debug_frame   0x000000f0       0x50 my_ext_irq.o
+ .debug_frame   0x00000140       0xd0 nock_machine.o
+ .debug_frame   0x00000210       0x70 softtimer.o
+ .debug_frame   0x00000280       0x90 uart_logger.o
+ .debug_frame   0x00000310       0x20 colibrator.o
+ .debug_frame   0x00000330       0x40 send_machine.o
+ .debug_frame   0x00000370       0xf0 rf73_spi.o
+
+.debug_str      0x00000000      0x95e
+ *(.debug_str)
+ .debug_str     0x00000000      0x120 buttons.o
+                                0x159 (size before relaxing)
+ .debug_str     0x00000120       0x54 eepromworker.o
+                                0x123 (size before relaxing)
+ .debug_str     0x00000174       0x71 leds.o
+                                0x13c (size before relaxing)
+ .debug_str     0x000001e5       0x23 main.o
+                                0x12a (size before relaxing)
+ .debug_str     0x00000208      0x117 my_ext_irq.o
+                                0x1fb (size before relaxing)
+ .debug_str     0x0000031f      0x224 nock_machine.o
+                                0x3f4 (size before relaxing)
+ .debug_str     0x00000543       0xe7 softtimer.o
+                                0x24a (size before relaxing)
+ .debug_str     0x0000062a       0xcd uart_logger.o
+                                0x1b1 (size before relaxing)
+ .debug_str     0x000006f7       0xac colibrator.o
+                                0x2bf (size before relaxing)
+ .debug_str     0x000007a3       0x4f send_machine.o
+                                0x280 (size before relaxing)
+ .debug_str     0x000007f2      0x16c rf73_spi.o
+                                0x2b2 (size before relaxing)
+
+.debug_loc      0x00000000      0xc08
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x3f buttons.o
+ .debug_loc     0x0000003f      0x189 eepromworker.o
+ .debug_loc     0x000001c8       0x4d leds.o
+ .debug_loc     0x00000215       0x3a my_ext_irq.o
+ .debug_loc     0x0000024f      0x130 nock_machine.o
+ .debug_loc     0x0000037f       0x61 softtimer.o
+ .debug_loc     0x000003e0      0x17f uart_logger.o
+ .debug_loc     0x0000055f       0x90 colibrator.o
+ .debug_loc     0x000005ef       0x9c send_machine.o
+ .debug_loc     0x0000068b      0x57d rf73_spi.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(nock_avr.elf elf32-avr)
+LOAD linker stubs
+
+.debug_pubtypes
+                0x00000000      0x237
+ .debug_pubtypes
+                0x00000000       0x3a buttons.o
+ .debug_pubtypes
+                0x0000003a       0x12 eepromworker.o
+ .debug_pubtypes
+                0x0000004c       0x2b leds.o
+ .debug_pubtypes
+                0x00000077       0x2e main.o
+ .debug_pubtypes
+                0x000000a5       0x37 my_ext_irq.o
+ .debug_pubtypes
+                0x000000dc       0x44 nock_machine.o
+ .debug_pubtypes
+                0x00000120       0x45 softtimer.o
+ .debug_pubtypes
+                0x00000165       0x1e uart_logger.o
+ .debug_pubtypes
+                0x00000183       0x55 colibrator.o
+ .debug_pubtypes
+                0x000001d8       0x27 send_machine.o
+ .debug_pubtypes
+                0x000001ff       0x38 rf73_spi.o
+
+.debug_ranges   0x00000000       0x18
+ .debug_ranges  0x00000000       0x18 uart_logger.o

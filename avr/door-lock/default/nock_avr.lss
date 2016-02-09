@@ -1,0 +1,3510 @@
+
+nock_avr.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000f68  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000008c  00800060  00000f68  00000ffc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          000001a2  008000ec  008000ec  00001088  2**0
+                  ALLOC
+  3 .stab         00000948  00000000  00000000  00001088  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      000001b0  00000000  00000000  000019d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 00000160  00000000  00000000  00001b80  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 0000059d  00000000  00000000  00001ce0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00001c2b  00000000  00000000  0000227d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 00000d35  00000000  00000000  00003ea8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00001981  00000000  00000000  00004bdd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000460  00000000  00000000  00006560  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    0000095e  00000000  00000000  000069c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    00000c08  00000000  00000000  0000731e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_pubtypes 00000237  00000000  00000000  00007f26  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_ranges 00000018  00000000  00000000  0000815d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	1a c0       	rjmp	.+52     	; 0x36 <__ctors_end>
+   2:	34 c0       	rjmp	.+104    	; 0x6c <__bad_interrupt>
+   4:	33 c0       	rjmp	.+102    	; 0x6c <__bad_interrupt>
+   6:	32 c0       	rjmp	.+100    	; 0x6c <__bad_interrupt>
+   8:	31 c0       	rjmp	.+98     	; 0x6c <__bad_interrupt>
+   a:	30 c0       	rjmp	.+96     	; 0x6c <__bad_interrupt>
+   c:	2f c0       	rjmp	.+94     	; 0x6c <__bad_interrupt>
+   e:	2e c0       	rjmp	.+92     	; 0x6c <__bad_interrupt>
+  10:	ba c3       	rjmp	.+1908   	; 0x786 <__vector_8>
+  12:	2c c0       	rjmp	.+88     	; 0x6c <__bad_interrupt>
+  14:	2b c0       	rjmp	.+86     	; 0x6c <__bad_interrupt>
+  16:	56 c4       	rjmp	.+2220   	; 0x8c4 <__vector_11>
+  18:	29 c0       	rjmp	.+82     	; 0x6c <__bad_interrupt>
+  1a:	28 c0       	rjmp	.+80     	; 0x6c <__bad_interrupt>
+  1c:	3e c1       	rjmp	.+636    	; 0x29a <__vector_14>
+  1e:	26 c0       	rjmp	.+76     	; 0x6c <__bad_interrupt>
+  20:	25 c0       	rjmp	.+74     	; 0x6c <__bad_interrupt>
+  22:	24 c0       	rjmp	.+72     	; 0x6c <__bad_interrupt>
+  24:	23 c0       	rjmp	.+70     	; 0x6c <__bad_interrupt>
+  26:	34 c2       	rjmp	.+1128   	; 0x490 <nockMachine_2+0x1a>
+  28:	3f c2       	rjmp	.+1150   	; 0x4a8 <nockMachine_2+0x32>
+  2a:	44 c2       	rjmp	.+1160   	; 0x4b4 <nockMachine_2+0x3e>
+  2c:	6a c2       	rjmp	.+1236   	; 0x502 <nockMachine_2+0x8c>
+  2e:	98 c2       	rjmp	.+1328   	; 0x560 <nockMachine_2+0xea>
+  30:	93 c2       	rjmp	.+1318   	; 0x558 <nockMachine_2+0xe2>
+  32:	9c c2       	rjmp	.+1336   	; 0x56c <nockMachine_2+0xf6>
+  34:	ac c2       	rjmp	.+1368   	; 0x58e <nockMachine_2+0x118>
+
+00000036 <__ctors_end>:
+  36:	11 24       	eor	r1, r1
+  38:	1f be       	out	0x3f, r1	; 63
+  3a:	cf e5       	ldi	r28, 0x5F	; 95
+  3c:	d4 e0       	ldi	r29, 0x04	; 4
+  3e:	de bf       	out	0x3e, r29	; 62
+  40:	cd bf       	out	0x3d, r28	; 61
+
+00000042 <__do_copy_data>:
+  42:	10 e0       	ldi	r17, 0x00	; 0
+  44:	a0 e6       	ldi	r26, 0x60	; 96
+  46:	b0 e0       	ldi	r27, 0x00	; 0
+  48:	e8 e6       	ldi	r30, 0x68	; 104
+  4a:	ff e0       	ldi	r31, 0x0F	; 15
+  4c:	02 c0       	rjmp	.+4      	; 0x52 <__do_copy_data+0x10>
+  4e:	05 90       	lpm	r0, Z+
+  50:	0d 92       	st	X+, r0
+  52:	ac 3e       	cpi	r26, 0xEC	; 236
+  54:	b1 07       	cpc	r27, r17
+  56:	d9 f7       	brne	.-10     	; 0x4e <__do_copy_data+0xc>
+
+00000058 <__do_clear_bss>:
+  58:	12 e0       	ldi	r17, 0x02	; 2
+  5a:	ac ee       	ldi	r26, 0xEC	; 236
+  5c:	b0 e0       	ldi	r27, 0x00	; 0
+  5e:	01 c0       	rjmp	.+2      	; 0x62 <.do_clear_bss_start>
+
+00000060 <.do_clear_bss_loop>:
+  60:	1d 92       	st	X+, r1
+
+00000062 <.do_clear_bss_start>:
+  62:	ae 38       	cpi	r26, 0x8E	; 142
+  64:	b1 07       	cpc	r27, r17
+  66:	e1 f7       	brne	.-8      	; 0x60 <.do_clear_bss_loop>
+  68:	d3 d0       	rcall	.+422    	; 0x210 <main>
+  6a:	7c c7       	rjmp	.+3832   	; 0xf64 <_exit>
+
+0000006c <__bad_interrupt>:
+  6c:	c9 cf       	rjmp	.-110    	; 0x0 <__vectors>
+
+0000006e <buttonsInit>:
+
+//=============================================================================
+inline void gpioInit(){
+	char i;
+	for (i  = 0; i < BUTTONTOTAL; i++){
+		DOWNBIT(BUTOONDDRPORT, 1 << button_pins[i]);	
+  6e:	44 b3       	in	r20, 0x14	; 20
+  70:	20 91 60 00 	lds	r18, 0x0060
+  74:	82 e0       	ldi	r24, 0x02	; 2
+  76:	90 e0       	ldi	r25, 0x00	; 0
+  78:	bc 01       	movw	r22, r24
+  7a:	02 c0       	rjmp	.+4      	; 0x80 <buttonsInit+0x12>
+  7c:	66 0f       	add	r22, r22
+  7e:	77 1f       	adc	r23, r23
+  80:	2a 95       	dec	r18
+  82:	e2 f7       	brpl	.-8      	; 0x7c <buttonsInit+0xe>
+  84:	9b 01       	movw	r18, r22
+  86:	20 95       	com	r18
+  88:	24 23       	and	r18, r20
+  8a:	24 bb       	out	0x14, r18	; 20
+		UPBIT(BUTOONPORT, 1 << button_pins[i]);	
+  8c:	45 b3       	in	r20, 0x15	; 21
+  8e:	20 91 60 00 	lds	r18, 0x0060
+  92:	bc 01       	movw	r22, r24
+  94:	02 c0       	rjmp	.+4      	; 0x9a <buttonsInit+0x2c>
+  96:	66 0f       	add	r22, r22
+  98:	77 1f       	adc	r23, r23
+  9a:	2a 95       	dec	r18
+  9c:	e2 f7       	brpl	.-8      	; 0x96 <buttonsInit+0x28>
+  9e:	46 2b       	or	r20, r22
+  a0:	45 bb       	out	0x15, r20	; 21
+
+//=============================================================================
+inline void gpioInit(){
+	char i;
+	for (i  = 0; i < BUTTONTOTAL; i++){
+		DOWNBIT(BUTOONDDRPORT, 1 << button_pins[i]);	
+  a2:	44 b3       	in	r20, 0x14	; 20
+  a4:	20 91 61 00 	lds	r18, 0x0061
+  a8:	bc 01       	movw	r22, r24
+  aa:	02 c0       	rjmp	.+4      	; 0xb0 <buttonsInit+0x42>
+  ac:	66 0f       	add	r22, r22
+  ae:	77 1f       	adc	r23, r23
+  b0:	2a 95       	dec	r18
+  b2:	e2 f7       	brpl	.-8      	; 0xac <buttonsInit+0x3e>
+  b4:	9b 01       	movw	r18, r22
+  b6:	20 95       	com	r18
+  b8:	24 23       	and	r18, r20
+  ba:	24 bb       	out	0x14, r18	; 20
+		UPBIT(BUTOONPORT, 1 << button_pins[i]);	
+  bc:	25 b3       	in	r18, 0x15	; 21
+  be:	30 91 61 00 	lds	r19, 0x0061
+  c2:	02 c0       	rjmp	.+4      	; 0xc8 <buttonsInit+0x5a>
+  c4:	88 0f       	add	r24, r24
+  c6:	99 1f       	adc	r25, r25
+  c8:	3a 95       	dec	r19
+  ca:	e2 f7       	brpl	.-8      	; 0xc4 <buttonsInit+0x56>
+  cc:	28 2b       	or	r18, r24
+  ce:	25 bb       	out	0x15, r18	; 21
+	}
+}
+//=============================================================================
+void buttonsInit(){
+	gpioInit();
+}
+  d0:	08 95       	ret
+
+000000d2 <buttonIsPressed>:
+//=============================================================================
+char buttonIsPressed(char button_name){
+	return ((BUTOONPINPORT & (1 << button_pins[button_name])) == 0) ? TRUE : FALSE;
+  d2:	23 b3       	in	r18, 0x13	; 19
+  d4:	e8 2f       	mov	r30, r24
+  d6:	f0 e0       	ldi	r31, 0x00	; 0
+  d8:	e0 5a       	subi	r30, 0xA0	; 160
+  da:	ff 4f       	sbci	r31, 0xFF	; 255
+  dc:	80 81       	ld	r24, Z
+  de:	30 e0       	ldi	r19, 0x00	; 0
+  e0:	02 c0       	rjmp	.+4      	; 0xe6 <buttonIsPressed+0x14>
+  e2:	35 95       	asr	r19
+  e4:	27 95       	ror	r18
+  e6:	8a 95       	dec	r24
+  e8:	e2 f7       	brpl	.-8      	; 0xe2 <buttonIsPressed+0x10>
+  ea:	81 e0       	ldi	r24, 0x01	; 1
+  ec:	20 fd       	sbrc	r18, 0
+  ee:	80 e0       	ldi	r24, 0x00	; 0
+}
+  f0:	08 95       	ret
+
+000000f2 <eepromInit>:
+#include <avr/eeprom.h>
+
+//=============================================================================
+void eepromInit(){
+
+}
+  f2:	08 95       	ret
+
+000000f4 <eepromWrite>:
+//=============================================================================
+void eepromWrite(char * data, char len, unsigned int address){
+  f4:	e6 2f       	mov	r30, r22
+	eeprom_write_block(data, address, len);
+  f6:	ba 01       	movw	r22, r20
+  f8:	4e 2f       	mov	r20, r30
+  fa:	50 e0       	ldi	r21, 0x00	; 0
+  fc:	1d d7       	rcall	.+3642   	; 0xf38 <__eewr_block_m8>
+}
+  fe:	08 95       	ret
+
+00000100 <eepromRead>:
+//=============================================================================
+void eepromRead(char * buffer, char len, unsigned int address){
+ 100:	e6 2f       	mov	r30, r22
+
+	eeprom_read_block(buffer, address, len);
+ 102:	ba 01       	movw	r22, r20
+ 104:	4e 2f       	mov	r20, r30
+ 106:	50 e0       	ldi	r21, 0x00	; 0
+ 108:	07 d7       	rcall	.+3598   	; 0xf18 <__eerd_block_m8>
+}
+ 10a:	08 95       	ret
+
+0000010c <eepromReadToMark>:
+//=============================================================================
+void eepromReadToMark(char * buffer, char * len, char marker, unsigned int address){
+ 10c:	af 92       	push	r10
+ 10e:	bf 92       	push	r11
+ 110:	cf 92       	push	r12
+ 112:	df 92       	push	r13
+ 114:	ef 92       	push	r14
+ 116:	ff 92       	push	r15
+ 118:	0f 93       	push	r16
+ 11a:	1f 93       	push	r17
+ 11c:	cf 93       	push	r28
+ 11e:	df 93       	push	r29
+ 120:	7c 01       	movw	r14, r24
+ 122:	eb 01       	movw	r28, r22
+ 124:	c4 2e       	mov	r12, r20
+ 126:	59 01       	movw	r10, r18
+	char i;
+	for (i = 0; i < *len; i++) {
+ 128:	dd 24       	eor	r13, r13
+ 12a:	11 c0       	rjmp	.+34     	; 0x14e <eepromReadToMark+0x42>
+		eeprom_read_block(buffer + i, address + i, len);
+ 12c:	6d 2d       	mov	r22, r13
+ 12e:	70 e0       	ldi	r23, 0x00	; 0
+ 130:	87 01       	movw	r16, r14
+ 132:	06 0f       	add	r16, r22
+ 134:	17 1f       	adc	r17, r23
+ 136:	6a 0d       	add	r22, r10
+ 138:	7b 1d       	adc	r23, r11
+ 13a:	c8 01       	movw	r24, r16
+ 13c:	ae 01       	movw	r20, r28
+ 13e:	ec d6       	rcall	.+3544   	; 0xf18 <__eerd_block_m8>
+		if (buffer[i] == marker){
+ 140:	f8 01       	movw	r30, r16
+ 142:	80 81       	ld	r24, Z
+ 144:	d3 94       	inc	r13
+ 146:	8c 15       	cp	r24, r12
+ 148:	11 f4       	brne	.+4      	; 0x14e <eepromReadToMark+0x42>
+			*len = i + 1;
+ 14a:	d8 82       	st	Y, r13
+			return;
+ 14c:	03 c0       	rjmp	.+6      	; 0x154 <eepromReadToMark+0x48>
+	eeprom_read_block(buffer, address, len);
+}
+//=============================================================================
+void eepromReadToMark(char * buffer, char * len, char marker, unsigned int address){
+	char i;
+	for (i = 0; i < *len; i++) {
+ 14e:	88 81       	ld	r24, Y
+ 150:	d8 16       	cp	r13, r24
+ 152:	60 f3       	brcs	.-40     	; 0x12c <eepromReadToMark+0x20>
+		if (buffer[i] == marker){
+			*len = i + 1;
+			return;
+		}
+	}
+}
+ 154:	df 91       	pop	r29
+ 156:	cf 91       	pop	r28
+ 158:	1f 91       	pop	r17
+ 15a:	0f 91       	pop	r16
+ 15c:	ff 90       	pop	r15
+ 15e:	ef 90       	pop	r14
+ 160:	df 90       	pop	r13
+ 162:	cf 90       	pop	r12
+ 164:	bf 90       	pop	r11
+ 166:	af 90       	pop	r10
+ 168:	08 95       	ret
+
+0000016a <ledInit>:
+              	  	  	  };
+
+
+
+//=============================================================================
+void ledInit(){
+ 16a:	80 e0       	ldi	r24, 0x00	; 0
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+	char i;
+	for (i  = 0; i < LEDTOTAL; i++){
+		UPBIT(LEDDDRPORT, led_pins[i]);	
+ 16e:	21 e0       	ldi	r18, 0x01	; 1
+ 170:	30 e0       	ldi	r19, 0x00	; 0
+ 172:	61 b3       	in	r22, 0x11	; 17
+ 174:	fc 01       	movw	r30, r24
+ 176:	ee 59       	subi	r30, 0x9E	; 158
+ 178:	ff 4f       	sbci	r31, 0xFF	; 255
+ 17a:	40 81       	ld	r20, Z
+ 17c:	d9 01       	movw	r26, r18
+ 17e:	02 c0       	rjmp	.+4      	; 0x184 <ledInit+0x1a>
+ 180:	aa 0f       	add	r26, r26
+ 182:	bb 1f       	adc	r27, r27
+ 184:	4a 95       	dec	r20
+ 186:	e2 f7       	brpl	.-8      	; 0x180 <ledInit+0x16>
+ 188:	6a 2b       	or	r22, r26
+ 18a:	61 bb       	out	0x11, r22	; 17
+		DOWNBIT(LEDPORT, led_pins[i]);	
+ 18c:	62 b3       	in	r22, 0x12	; 18
+ 18e:	40 81       	ld	r20, Z
+ 190:	f9 01       	movw	r30, r18
+ 192:	02 c0       	rjmp	.+4      	; 0x198 <ledInit+0x2e>
+ 194:	ee 0f       	add	r30, r30
+ 196:	ff 1f       	adc	r31, r31
+ 198:	4a 95       	dec	r20
+ 19a:	e2 f7       	brpl	.-8      	; 0x194 <ledInit+0x2a>
+ 19c:	af 01       	movw	r20, r30
+ 19e:	40 95       	com	r20
+ 1a0:	46 23       	and	r20, r22
+ 1a2:	42 bb       	out	0x12, r20	; 18
+ 1a4:	01 96       	adiw	r24, 0x01	; 1
+
+
+//=============================================================================
+void ledInit(){
+	char i;
+	for (i  = 0; i < LEDTOTAL; i++){
+ 1a6:	84 30       	cpi	r24, 0x04	; 4
+ 1a8:	91 05       	cpc	r25, r1
+ 1aa:	19 f7       	brne	.-58     	; 0x172 <ledInit+0x8>
+		UPBIT(LEDDDRPORT, led_pins[i]);	
+		DOWNBIT(LEDPORT, led_pins[i]);	
+	}
+}
+ 1ac:	08 95       	ret
+
+000001ae <ledOn>:
+//=============================================================================
+void ledOn(char led_name){
+	UPBIT(LEDPORT, led_pins[led_name]);
+ 1ae:	22 b3       	in	r18, 0x12	; 18
+ 1b0:	e8 2f       	mov	r30, r24
+ 1b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 1b4:	ee 59       	subi	r30, 0x9E	; 158
+ 1b6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1b8:	30 81       	ld	r19, Z
+ 1ba:	81 e0       	ldi	r24, 0x01	; 1
+ 1bc:	90 e0       	ldi	r25, 0x00	; 0
+ 1be:	02 c0       	rjmp	.+4      	; 0x1c4 <ledOn+0x16>
+ 1c0:	88 0f       	add	r24, r24
+ 1c2:	99 1f       	adc	r25, r25
+ 1c4:	3a 95       	dec	r19
+ 1c6:	e2 f7       	brpl	.-8      	; 0x1c0 <ledOn+0x12>
+ 1c8:	28 2b       	or	r18, r24
+ 1ca:	22 bb       	out	0x12, r18	; 18
+}
+ 1cc:	08 95       	ret
+
+000001ce <ledOff>:
+//=============================================================================
+void ledOff(char led_name){
+	DOWNBIT(LEDPORT, led_pins[led_name]);
+ 1ce:	22 b3       	in	r18, 0x12	; 18
+ 1d0:	e8 2f       	mov	r30, r24
+ 1d2:	f0 e0       	ldi	r31, 0x00	; 0
+ 1d4:	ee 59       	subi	r30, 0x9E	; 158
+ 1d6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1d8:	30 81       	ld	r19, Z
+ 1da:	81 e0       	ldi	r24, 0x01	; 1
+ 1dc:	90 e0       	ldi	r25, 0x00	; 0
+ 1de:	02 c0       	rjmp	.+4      	; 0x1e4 <ledOff+0x16>
+ 1e0:	88 0f       	add	r24, r24
+ 1e2:	99 1f       	adc	r25, r25
+ 1e4:	3a 95       	dec	r19
+ 1e6:	e2 f7       	brpl	.-8      	; 0x1e0 <ledOff+0x12>
+ 1e8:	80 95       	com	r24
+ 1ea:	82 23       	and	r24, r18
+ 1ec:	82 bb       	out	0x12, r24	; 18
+}//=============================================================================
+ 1ee:	08 95       	ret
+
+000001f0 <ledTaggle>:
+void ledTaggle(char led_name){
+	INVBIT(LEDPORT, led_pins[led_name]);
+ 1f0:	22 b3       	in	r18, 0x12	; 18
+ 1f2:	e8 2f       	mov	r30, r24
+ 1f4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1f6:	ee 59       	subi	r30, 0x9E	; 158
+ 1f8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1fa:	30 81       	ld	r19, Z
+ 1fc:	81 e0       	ldi	r24, 0x01	; 1
+ 1fe:	90 e0       	ldi	r25, 0x00	; 0
+ 200:	02 c0       	rjmp	.+4      	; 0x206 <ledTaggle+0x16>
+ 202:	88 0f       	add	r24, r24
+ 204:	99 1f       	adc	r25, r25
+ 206:	3a 95       	dec	r19
+ 208:	e2 f7       	brpl	.-8      	; 0x202 <ledTaggle+0x12>
+ 20a:	28 27       	eor	r18, r24
+ 20c:	22 bb       	out	0x12, r18	; 18
+}//=============================================================================
+ 20e:	08 95       	ret
+
+00000210 <main>:
+
+int main(void)
+{
+	
+
+	ledInit();
+ 210:	ac df       	rcall	.-168    	; 0x16a <ledInit>
+	buttonsInit();
+ 212:	2d df       	rcall	.-422    	; 0x6e <buttonsInit>
+	loggerInit();
+ 214:	0e d3       	rcall	.+1564   	; 0x832 <loggerInit>
+	timerInit();
+ 216:	a1 d2       	rcall	.+1346   	; 0x75a <timerInit>
+	initMyExtIRQ();
+ 218:	29 d0       	rcall	.+82     	; 0x26c <initMyExtIRQ>
+
+	if(buttonIsPressed(BUTTONNEWNOCK) == TRUE){
+ 21a:	81 e0       	ldi	r24, 0x01	; 1
+ 21c:	5a df       	rcall	.-332    	; 0xd2 <buttonIsPressed>
+ 21e:	81 30       	cpi	r24, 0x01	; 1
+ 220:	11 f4       	brne	.+4      	; 0x226 <main+0x16>
+		#ifdef LOGGDEBUG
+		loggerWriteToMarker((LogMesT)"\r\r\r goto colibrateDetector \r*", '*');
+		#endif
+
+		while(1)
+			colibrateDetector();
+ 222:	95 d3       	rcall	.+1834   	; 0x94e <colibrateDetector>
+ 224:	fe cf       	rjmp	.-4      	; 0x222 <main+0x12>
+
+	#ifdef LOGGDEBUG
+	loggerWriteToMarker((LogMesT)"\r\r\r Starting program \r*", '*');
+	#endif
+		
+	initNockMachine();
+ 226:	11 d1       	rcall	.+546    	; 0x44a <initNockMachine>
+
+	#ifdef LOGGDEBUG
+	loggerWriteToMarker((LogMesT)" iRaSeMac \r*", '*');
+	#endif
+
+	initSendMachine();
+ 228:	f0 d3       	rcall	.+2016   	; 0xa0a <initSendMachine>
+//			timerSet(TIMER_NOCK,0,100);
+//			ledTaggle(LEDRED1);
+//		}
+//		continue;
+		
+    	userNewNockCommandMachine_1();
+ 22a:	c6 d1       	rcall	.+908    	; 0x5b8 <userNewNockCommandMachine_1>
+    	nockMachine_2();
+ 22c:	24 d1       	rcall	.+584    	; 0x476 <nockMachine_2>
+    	sendMachine_3();
+ 22e:	0f d4       	rcall	.+2078   	; 0xa4e <sendMachine_3>
+		doorSignalMachine_4();
+ 230:	e4 d1       	rcall	.+968    	; 0x5fa <doorSignalMachine_4>
+ 232:	fb cf       	rjmp	.-10     	; 0x22a <main+0x1a>
+
+00000234 <setNextSence>:
+#define SENCEMAXVALUE 200
+#define SENCEMINVALUE 2
+#define SENCESTEP 2
+
+void setNextSence(){
+	if (sence >= SENCEMAXVALUE)
+ 234:	80 91 66 00 	lds	r24, 0x0066
+ 238:	88 3c       	cpi	r24, 0xC8	; 200
+ 23a:	18 f0       	brcs	.+6      	; 0x242 <setNextSence+0xe>
+		sence = SENCEMINVALUE;
+ 23c:	82 e0       	ldi	r24, 0x02	; 2
+ 23e:	80 93 66 00 	sts	0x0066, r24
+	
+	sence += SENCESTEP;		
+ 242:	80 91 66 00 	lds	r24, 0x0066
+ 246:	8e 5f       	subi	r24, 0xFE	; 254
+ 248:	80 93 66 00 	sts	0x0066, r24
+
+	eepromWrite(&sence, 1, EEPROM_NOCK_SENCE_ADDRESS);
+ 24c:	86 e6       	ldi	r24, 0x66	; 102
+ 24e:	90 e0       	ldi	r25, 0x00	; 0
+ 250:	61 e0       	ldi	r22, 0x01	; 1
+ 252:	4a e0       	ldi	r20, 0x0A	; 10
+ 254:	50 e0       	ldi	r21, 0x00	; 0
+ 256:	4e df       	rcall	.-356    	; 0xf4 <eepromWrite>
+
+	#ifdef LOGGDEBUG
+	loggerWriteByteInBit(sence);
+	#endif
+}
+ 258:	08 95       	ret
+
+0000025a <setFixedSence>:
+
+void setFixedSence(unsigned char value){
+	sence = value;
+ 25a:	80 93 66 00 	sts	0x0066, r24
+	eepromWrite(&sence, 1, EEPROM_NOCK_SENCE_ADDRESS);
+ 25e:	86 e6       	ldi	r24, 0x66	; 102
+ 260:	90 e0       	ldi	r25, 0x00	; 0
+ 262:	61 e0       	ldi	r22, 0x01	; 1
+ 264:	4a e0       	ldi	r20, 0x0A	; 10
+ 266:	50 e0       	ldi	r21, 0x00	; 0
+ 268:	45 df       	rcall	.-374    	; 0xf4 <eepromWrite>
+
+}
+ 26a:	08 95       	ret
+
+0000026c <initMyExtIRQ>:
+
+void initMyExtIRQ(){
+
+	eepromRead(&sence, 1, EEPROM_NOCK_SENCE_ADDRESS);
+ 26c:	86 e6       	ldi	r24, 0x66	; 102
+ 26e:	90 e0       	ldi	r25, 0x00	; 0
+ 270:	61 e0       	ldi	r22, 0x01	; 1
+ 272:	4a e0       	ldi	r20, 0x0A	; 10
+ 274:	50 e0       	ldi	r21, 0x00	; 0
+ 276:	44 df       	rcall	.-376    	; 0x100 <eepromRead>
+	if (sence < SENCEMINVALUE || sence >= SENCEMAXVALUE)
+ 278:	80 91 66 00 	lds	r24, 0x0066
+ 27c:	82 30       	cpi	r24, 0x02	; 2
+ 27e:	20 f0       	brcs	.+8      	; 0x288 <initMyExtIRQ+0x1c>
+ 280:	80 91 66 00 	lds	r24, 0x0066
+ 284:	88 3c       	cpi	r24, 0xC8	; 200
+ 286:	18 f0       	brcs	.+6      	; 0x28e <initMyExtIRQ+0x22>
+		sence = (SENCEMAXVALUE - SENCEMINVALUE) / 2;
+ 288:	83 e6       	ldi	r24, 0x63	; 99
+ 28a:	80 93 66 00 	sts	0x0066, r24
+	#endif
+
+
+
+
+	ADCSRA =(1<<ADEN)|(1<<ADIE)|(1<<ADSC)|(1<<ADFR)|(3<<ADPS0);
+ 28e:	8b ee       	ldi	r24, 0xEB	; 235
+ 290:	86 b9       	out	0x06, r24	; 6
+	// ADIE = 1Разрешаем прерывания. 
+	// ADSC = 1 Запускаем преобразование (первое, дальше автоматом)
+	// ADFR = ADATE = 1 Непрерывные последовательные преобразования, одно за другим.
+	// ADPS2..0 = 3 Делитель частоты на 8 - так у меня получается оптимальная частота. 
+ 
+	ADMUX = 0b01000000;
+ 292:	80 e4       	ldi	r24, 0x40	; 64
+ 294:	87 b9       	out	0x07, r24	; 7
+	//А тут выбираем откуда брать будем сигнал
+	//REFS -- 0b[01]000101 первые два бита - напряжение с входа AVCC
+	//ADLAR --0b01[0]00101следующий бит выравнивание по правому краю
+	//MUX -- 0b010[00000]</B>Сигнал на вход идет с нулевого канала АЦП.
+	sei();
+ 296:	78 94       	sei
+
+}
+ 298:	08 95       	ret
+
+0000029a <__vector_14>:
+
+ISR (ADC_vect)
+{
+ 29a:	1f 92       	push	r1
+ 29c:	0f 92       	push	r0
+ 29e:	0f b6       	in	r0, 0x3f	; 63
+ 2a0:	0f 92       	push	r0
+ 2a2:	11 24       	eor	r1, r1
+ 2a4:	2f 93       	push	r18
+ 2a6:	3f 93       	push	r19
+ 2a8:	4f 93       	push	r20
+ 2aa:	5f 93       	push	r21
+ 2ac:	6f 93       	push	r22
+ 2ae:	7f 93       	push	r23
+ 2b0:	8f 93       	push	r24
+ 2b2:	9f 93       	push	r25
+ 2b4:	af 93       	push	r26
+ 2b6:	bf 93       	push	r27
+ 2b8:	ef 93       	push	r30
+ 2ba:	ff 93       	push	r31
+	unsigned int adc_data;
+// Read the AD conversion result
+	adc_data=ADCW;
+ 2bc:	24 b1       	in	r18, 0x04	; 4
+ 2be:	35 b1       	in	r19, 0x05	; 5
+
+	if (adc_data > sence){
+ 2c0:	80 91 66 00 	lds	r24, 0x0066
+ 2c4:	90 e0       	ldi	r25, 0x00	; 0
+ 2c6:	82 17       	cp	r24, r18
+ 2c8:	93 07       	cpc	r25, r19
+ 2ca:	18 f4       	brcc	.+6      	; 0x2d2 <__vector_14+0x38>
+		//loggerWrite("x", 1);
+		changeFlag(FLAG_NOCK, TRUE);
+ 2cc:	80 e0       	ldi	r24, 0x00	; 0
+ 2ce:	61 e0       	ldi	r22, 0x01	; 1
+ 2d0:	4d d0       	rcall	.+154    	; 0x36c <changeFlag>
+	}
+}
+ 2d2:	ff 91       	pop	r31
+ 2d4:	ef 91       	pop	r30
+ 2d6:	bf 91       	pop	r27
+ 2d8:	af 91       	pop	r26
+ 2da:	9f 91       	pop	r25
+ 2dc:	8f 91       	pop	r24
+ 2de:	7f 91       	pop	r23
+ 2e0:	6f 91       	pop	r22
+ 2e2:	5f 91       	pop	r21
+ 2e4:	4f 91       	pop	r20
+ 2e6:	3f 91       	pop	r19
+ 2e8:	2f 91       	pop	r18
+ 2ea:	0f 90       	pop	r0
+ 2ec:	0f be       	out	0x3f, r0	; 63
+ 2ee:	0f 90       	pop	r0
+ 2f0:	1f 90       	pop	r1
+ 2f2:	18 95       	reti
+
+000002f4 <getNock>:
+//=============================================================================
+volatile
+Nock g_nocks[NOCK_G_NOCK_TOTAL_COUNT];
+//=============================================================================
+Nock * getNock(char name){
+	return &g_nocks[name];
+ 2f4:	90 e0       	ldi	r25, 0x00	; 0
+ 2f6:	4d e3       	ldi	r20, 0x3D	; 61
+ 2f8:	50 e0       	ldi	r21, 0x00	; 0
+ 2fa:	84 9f       	mul	r24, r20
+ 2fc:	90 01       	movw	r18, r0
+ 2fe:	85 9f       	mul	r24, r21
+ 300:	30 0d       	add	r19, r0
+ 302:	94 9f       	mul	r25, r20
+ 304:	30 0d       	add	r19, r0
+ 306:	11 24       	eor	r1, r1
+ 308:	2d 5c       	subi	r18, 0xCD	; 205
+ 30a:	3e 4f       	sbci	r19, 0xFE	; 254
+}
+ 30c:	c9 01       	movw	r24, r18
+ 30e:	08 95       	ret
+
+00000310 <initGVals>:
+//=============================================================================
+//inline
+void initGVals(){
+ 310:	80 e0       	ldi	r24, 0x00	; 0
+ 312:	90 e0       	ldi	r25, 0x00	; 0
+	loggerWriteToMarker((LogMesT)" initGVals() \r*", '*');
+	#endif
+	unsigned char i, j;
+	// =======================================
+	for (j = 0; j < NOCK_G_NOCK_TOTAL_COUNT; j++){
+		g_nocks[j].count = NOCK_NO_NOCK;
+ 314:	6d e3       	ldi	r22, 0x3D	; 61
+ 316:	70 e0       	ldi	r23, 0x00	; 0
+ 318:	86 9f       	mul	r24, r22
+ 31a:	a0 01       	movw	r20, r0
+ 31c:	87 9f       	mul	r24, r23
+ 31e:	50 0d       	add	r21, r0
+ 320:	96 9f       	mul	r25, r22
+ 322:	50 0d       	add	r21, r0
+ 324:	11 24       	eor	r1, r1
+ 326:	fa 01       	movw	r30, r20
+ 328:	ed 5c       	subi	r30, 0xCD	; 205
+ 32a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 32c:	14 ae       	std	Z+60, r1	; 0x3c
+ 32e:	20 e0       	ldi	r18, 0x00	; 0
+ 330:	30 e0       	ldi	r19, 0x00	; 0
+		for (i = 0; i < NOCK_MAX_COUNT; i++){
+			g_nocks[j].nock[i] = NOCK_NO_NOCK;
+ 332:	f9 01       	movw	r30, r18
+ 334:	ee 0f       	add	r30, r30
+ 336:	ff 1f       	adc	r31, r31
+ 338:	e4 0f       	add	r30, r20
+ 33a:	f5 1f       	adc	r31, r21
+ 33c:	ed 5c       	subi	r30, 0xCD	; 205
+ 33e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 340:	11 82       	std	Z+1, r1	; 0x01
+ 342:	10 82       	st	Z, r1
+ 344:	2f 5f       	subi	r18, 0xFF	; 255
+ 346:	3f 4f       	sbci	r19, 0xFF	; 255
+	#endif
+	unsigned char i, j;
+	// =======================================
+	for (j = 0; j < NOCK_G_NOCK_TOTAL_COUNT; j++){
+		g_nocks[j].count = NOCK_NO_NOCK;
+		for (i = 0; i < NOCK_MAX_COUNT; i++){
+ 348:	2e 31       	cpi	r18, 0x1E	; 30
+ 34a:	31 05       	cpc	r19, r1
+ 34c:	91 f7       	brne	.-28     	; 0x332 <initGVals+0x22>
+ 34e:	01 96       	adiw	r24, 0x01	; 1
+	#ifdef LOGG	
+	loggerWriteToMarker((LogMesT)" initGVals() \r*", '*');
+	#endif
+	unsigned char i, j;
+	// =======================================
+	for (j = 0; j < NOCK_G_NOCK_TOTAL_COUNT; j++){
+ 350:	83 30       	cpi	r24, 0x03	; 3
+ 352:	91 05       	cpc	r25, r1
+ 354:	09 f7       	brne	.-62     	; 0x318 <initGVals+0x8>
+			g_nocks[j].nock[i] = NOCK_NO_NOCK;
+		}
+	}
+	//========================================
+	for (i = 0; i < FLAG_TOTAL_COUNT; i++){
+		g_flags[i] = FALSE;
+ 356:	10 92 ea 01 	sts	0x01EA, r1
+ 35a:	10 92 eb 01 	sts	0x01EB, r1
+ 35e:	10 92 ec 01 	sts	0x01EC, r1
+ 362:	10 92 ed 01 	sts	0x01ED, r1
+ 366:	10 92 ee 01 	sts	0x01EE, r1
+	}
+}
+ 36a:	08 95       	ret
+
+0000036c <changeFlag>:
+//=============================================================================
+void changeFlag(unsigned char name, char state){
+	//loggerWriteToMarker((LogMesT)" changing flags \r*", '*');
+	g_flags[(unsigned char)name] = state;
+ 36c:	ea ee       	ldi	r30, 0xEA	; 234
+ 36e:	f1 e0       	ldi	r31, 0x01	; 1
+ 370:	e8 0f       	add	r30, r24
+ 372:	f1 1d       	adc	r31, r1
+ 374:	60 83       	st	Z, r22
+}
+ 376:	08 95       	ret
+
+00000378 <getFlag>:
+//=============================================================================
+char getFlag(unsigned char name){
+	return g_flags[(unsigned char)name];
+ 378:	ea ee       	ldi	r30, 0xEA	; 234
+ 37a:	f1 e0       	ldi	r31, 0x01	; 1
+ 37c:	e8 0f       	add	r30, r24
+ 37e:	f1 1d       	adc	r31, r1
+ 380:	80 81       	ld	r24, Z
+}
+ 382:	08 95       	ret
+
+00000384 <processWaitNoise>:
+//inline
+char processWaitNoise(){
+	enum {FIRST, SECOND};
+	static char local_state = FIRST;
+
+	switch (local_state){
+ 384:	80 91 ed 00 	lds	r24, 0x00ED
+ 388:	88 23       	and	r24, r24
+ 38a:	19 f0       	breq	.+6      	; 0x392 <processWaitNoise+0xe>
+ 38c:	81 30       	cpi	r24, 0x01	; 1
+ 38e:	e9 f4       	brne	.+58     	; 0x3ca <processWaitNoise+0x46>
+ 390:	0e c0       	rjmp	.+28     	; 0x3ae <processWaitNoise+0x2a>
+		case FIRST:
+			#ifdef LOGG	
+			loggerWriteToMarker((LogMesT)" in processWaitNoise() first \r*", '*');
+			#endif
+			timerSet(TIMER_NOCK_NOISE, 0, TIMER_VALUE_NOISE); // run nock noise timer
+ 392:	81 e0       	ldi	r24, 0x01	; 1
+ 394:	60 e0       	ldi	r22, 0x00	; 0
+ 396:	70 e0       	ldi	r23, 0x00	; 0
+ 398:	4a e0       	ldi	r20, 0x0A	; 10
+ 39a:	50 e0       	ldi	r21, 0x00	; 0
+ 39c:	ab d1       	rcall	.+854    	; 0x6f4 <timerSet>
+			local_state = SECOND;
+ 39e:	81 e0       	ldi	r24, 0x01	; 1
+ 3a0:	80 93 ed 00 	sts	0x00ED, r24
+
+			ledTaggle(LEDGREEN1);
+ 3a4:	80 e0       	ldi	r24, 0x00	; 0
+ 3a6:	24 df       	rcall	.-440    	; 0x1f0 <ledTaggle>
+			ledTaggle(LEDGREEN2);
+ 3a8:	82 e0       	ldi	r24, 0x02	; 2
+ 3aa:	22 df       	rcall	.-444    	; 0x1f0 <ledTaggle>
+ 3ac:	0e c0       	rjmp	.+28     	; 0x3ca <processWaitNoise+0x46>
+		break;
+
+		case SECOND:
+			if (timerIsElapsed(TIMER_NOCK_NOISE) != TRUE) return FALSE;
+ 3ae:	81 e0       	ldi	r24, 0x01	; 1
+ 3b0:	b2 d1       	rcall	.+868    	; 0x716 <timerIsElapsed>
+ 3b2:	81 30       	cpi	r24, 0x01	; 1
+ 3b4:	61 f4       	brne	.+24     	; 0x3ce <processWaitNoise+0x4a>
+			g_flags[FLAG_NOCK] = FALSE; // clear flag if it was noise
+ 3b6:	10 92 ea 01 	sts	0x01EA, r1
+			local_state = FIRST;
+ 3ba:	10 92 ed 00 	sts	0x00ED, r1
+
+			ledTaggle(LEDGREEN1);
+ 3be:	80 e0       	ldi	r24, 0x00	; 0
+ 3c0:	17 df       	rcall	.-466    	; 0x1f0 <ledTaggle>
+			ledTaggle(LEDGREEN2);
+ 3c2:	82 e0       	ldi	r24, 0x02	; 2
+ 3c4:	15 df       	rcall	.-470    	; 0x1f0 <ledTaggle>
+
+			return TRUE;
+ 3c6:	81 e0       	ldi	r24, 0x01	; 1
+ 3c8:	08 95       	ret
+		break;
+
+		default: break;
+	}
+	return FALSE;
+ 3ca:	80 e0       	ldi	r24, 0x00	; 0
+ 3cc:	08 95       	ret
+			ledTaggle(LEDGREEN1);
+			ledTaggle(LEDGREEN2);
+		break;
+
+		case SECOND:
+			if (timerIsElapsed(TIMER_NOCK_NOISE) != TRUE) return FALSE;
+ 3ce:	80 e0       	ldi	r24, 0x00	; 0
+		break;
+
+		default: break;
+	}
+	return FALSE;
+}
+ 3d0:	08 95       	ret
+
+000003d2 <processCheckNock>:
+char processCheckNock(){
+	#ifdef LOGG	
+	loggerWriteToMarker((LogMesT)" in processCheckNock() \r*", '*');
+	#endif
+	unsigned char i;
+	for (i = 0; i < g_nocks[NOCK_CURRENT].count; i++){
+ 3d2:	40 e0       	ldi	r20, 0x00	; 0
+ 3d4:	1b c0       	rjmp	.+54     	; 0x40c <processCheckNock+0x3a>
+		if (g_nocks[NOCK_CURRENT].nock[i] < g_nocks[NOCK_PATTERN].nock[i] + NOCK_DELTA
+ 3d6:	e4 2f       	mov	r30, r20
+ 3d8:	f0 e0       	ldi	r31, 0x00	; 0
+ 3da:	ee 0f       	add	r30, r30
+ 3dc:	ff 1f       	adc	r31, r31
+ 3de:	ed 5c       	subi	r30, 0xCD	; 205
+ 3e0:	fe 4f       	sbci	r31, 0xFE	; 254
+ 3e2:	80 81       	ld	r24, Z
+ 3e4:	91 81       	ldd	r25, Z+1	; 0x01
+ 3e6:	df 01       	movw	r26, r30
+ 3e8:	dd 96       	adiw	r26, 0x3d	; 61
+ 3ea:	2d 91       	ld	r18, X+
+ 3ec:	3c 91       	ld	r19, X
+ 3ee:	11 97       	sbiw	r26, 0x01	; 1
+ 3f0:	4d 96       	adiw	r24, 0x1d	; 29
+ 3f2:	82 17       	cp	r24, r18
+ 3f4:	93 07       	cpc	r25, r19
+ 3f6:	84 f0       	brlt	.+32     	; 0x418 <processCheckNock+0x46>
+			&&
+			g_nocks[NOCK_CURRENT].nock[i] > g_nocks[NOCK_PATTERN].nock[i] - NOCK_DELTA)
+ 3f8:	80 81       	ld	r24, Z
+ 3fa:	91 81       	ldd	r25, Z+1	; 0x01
+ 3fc:	2d 91       	ld	r18, X+
+ 3fe:	3c 91       	ld	r19, X
+ 400:	11 97       	sbiw	r26, 0x01	; 1
+ 402:	4d 97       	sbiw	r24, 0x1d	; 29
+	loggerWriteToMarker((LogMesT)" in processCheckNock() \r*", '*');
+	#endif
+	unsigned char i;
+	for (i = 0; i < g_nocks[NOCK_CURRENT].count; i++){
+		if (g_nocks[NOCK_CURRENT].nock[i] < g_nocks[NOCK_PATTERN].nock[i] + NOCK_DELTA
+			&&
+ 404:	28 17       	cp	r18, r24
+ 406:	39 07       	cpc	r19, r25
+ 408:	4c f0       	brlt	.+18     	; 0x41c <processCheckNock+0x4a>
+char processCheckNock(){
+	#ifdef LOGG	
+	loggerWriteToMarker((LogMesT)" in processCheckNock() \r*", '*');
+	#endif
+	unsigned char i;
+	for (i = 0; i < g_nocks[NOCK_CURRENT].count; i++){
+ 40a:	4f 5f       	subi	r20, 0xFF	; 255
+ 40c:	80 91 ac 01 	lds	r24, 0x01AC
+ 410:	48 17       	cp	r20, r24
+ 412:	08 f3       	brcs	.-62     	; 0x3d6 <processCheckNock+0x4>
+			continue;
+		}else{
+			return FALSE;
+		}
+	}
+	return TRUE;
+ 414:	81 e0       	ldi	r24, 0x01	; 1
+ 416:	08 95       	ret
+			&&
+			g_nocks[NOCK_CURRENT].nock[i] > g_nocks[NOCK_PATTERN].nock[i] - NOCK_DELTA)
+		{
+			continue;
+		}else{
+			return FALSE;
+ 418:	80 e0       	ldi	r24, 0x00	; 0
+ 41a:	08 95       	ret
+ 41c:	80 e0       	ldi	r24, 0x00	; 0
+		}
+	}
+	return TRUE;
+}
+ 41e:	08 95       	ret
+
+00000420 <nockReadFromEEPROM>:
+//=======================================================================================
+//inline
+void nockReadFromEEPROM(Nock * nock){
+ 420:	cf 93       	push	r28
+ 422:	df 93       	push	r29
+ 424:	ec 01       	movw	r28, r24
+	#ifdef LOGG
+	loggerWriteToMarker((LogMesT)" in nockReadFromEEPROM\r*", '*'); 
+	#endif
+	eepromRead(&(nock->count), 1, EEPROM_NOCK_START_ADDRESS);
+ 426:	cc 96       	adiw	r24, 0x3c	; 60
+ 428:	61 e0       	ldi	r22, 0x01	; 1
+ 42a:	4c e0       	ldi	r20, 0x0C	; 12
+ 42c:	50 e0       	ldi	r21, 0x00	; 0
+ 42e:	68 de       	rcall	.-816    	; 0x100 <eepromRead>
+	if (nock->count < 0 || nock->count > NOCK_MAX_COUNT){
+ 430:	6c ad       	ldd	r22, Y+60	; 0x3c
+ 432:	6f 31       	cpi	r22, 0x1F	; 31
+ 434:	10 f0       	brcs	.+4      	; 0x43a <nockReadFromEEPROM+0x1a>
+		#ifdef LOGG
+		loggerWriteToMarker((LogMesT)" no nock in eeprom\r*", '*'); 
+		#endif
+		nock->count = 0;
+ 436:	1c ae       	std	Y+60, r1	; 0x3c
+		return;
+ 438:	05 c0       	rjmp	.+10     	; 0x444 <nockReadFromEEPROM+0x24>
+	}
+	eepromRead((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
+ 43a:	66 0f       	add	r22, r22
+ 43c:	ce 01       	movw	r24, r28
+ 43e:	4d e0       	ldi	r20, 0x0D	; 13
+ 440:	50 e0       	ldi	r21, 0x00	; 0
+ 442:	5e de       	rcall	.-836    	; 0x100 <eepromRead>
+}
+ 444:	df 91       	pop	r29
+ 446:	cf 91       	pop	r28
+ 448:	08 95       	ret
+
+0000044a <initNockMachine>:
+//=============================================================================
+void nockReadFromEEPROM(Nock * nock);
+void nockWriteToEEPROM(Nock * nock);
+//=============================================================================
+void initNockMachine(){
+	initGVals();
+ 44a:	62 df       	rcall	.-316    	; 0x310 <initGVals>
+	nockReadFromEEPROM(&g_nocks[NOCK_PATTERN]);
+ 44c:	83 e3       	ldi	r24, 0x33	; 51
+ 44e:	91 e0       	ldi	r25, 0x01	; 1
+ 450:	e7 df       	rcall	.-50     	; 0x420 <nockReadFromEEPROM>
+}
+ 452:	08 95       	ret
+
+00000454 <nockWriteToEEPROM>:
+	}
+	eepromRead((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
+}
+//=======================================================================================
+//inline
+void nockWriteToEEPROM(Nock * nock){
+ 454:	cf 93       	push	r28
+ 456:	df 93       	push	r29
+ 458:	ec 01       	movw	r28, r24
+	#ifdef LOGG
+	loggerWriteToMarker((LogMesT)" in nockWriteToEEPROM\r*", '*'); 
+	#endif
+	eepromWrite(&(nock->count), 1, EEPROM_NOCK_START_ADDRESS);
+ 45a:	cc 96       	adiw	r24, 0x3c	; 60
+ 45c:	61 e0       	ldi	r22, 0x01	; 1
+ 45e:	4c e0       	ldi	r20, 0x0C	; 12
+ 460:	50 e0       	ldi	r21, 0x00	; 0
+ 462:	48 de       	rcall	.-880    	; 0xf4 <eepromWrite>
+	eepromWrite((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
+ 464:	6c ad       	ldd	r22, Y+60	; 0x3c
+ 466:	66 0f       	add	r22, r22
+ 468:	ce 01       	movw	r24, r28
+ 46a:	4d e0       	ldi	r20, 0x0D	; 13
+ 46c:	50 e0       	ldi	r21, 0x00	; 0
+ 46e:	42 de       	rcall	.-892    	; 0xf4 <eepromWrite>
+}
+ 470:	df 91       	pop	r29
+ 472:	cf 91       	pop	r28
+ 474:	08 95       	ret
+
+00000476 <nockMachine_2>:
+void initNockMachine(){
+	initGVals();
+	nockReadFromEEPROM(&g_nocks[NOCK_PATTERN]);
+}
+//=============================================================================
+void nockMachine_2(){
+ 476:	1f 93       	push	r17
+ 478:	cf 93       	push	r28
+ 47a:	df 93       	push	r29
+	enum {WAIT_FIRST_NOCK, WAIT_NOISE, WAIT_CURRENT_NOCK, CHECK_NOCK, PROCESS_ERROR, PROCESS_OK, PROCESS_RESSET, PROCESS_NEW_NOCK};
+	static char state = WAIT_FIRST_NOCK;
+
+	switch (state){
+ 47c:	e0 91 ee 00 	lds	r30, 0x00EE
+ 480:	f0 e0       	ldi	r31, 0x00	; 0
+ 482:	e8 30       	cpi	r30, 0x08	; 8
+ 484:	f1 05       	cpc	r31, r1
+ 486:	08 f0       	brcs	.+2      	; 0x48a <nockMachine_2+0x14>
+ 488:	93 c0       	rjmp	.+294    	; 0x5b0 <nockMachine_2+0x13a>
+ 48a:	ed 5e       	subi	r30, 0xED	; 237
+ 48c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 48e:	09 94       	ijmp
+		//================================================
+		//=========================
+		case WAIT_FIRST_NOCK:
+		//=========================
+			if (g_flags[FLAG_NOCK] == FALSE)	return;
+ 490:	80 91 ea 01 	lds	r24, 0x01EA
+ 494:	88 23       	and	r24, r24
+ 496:	09 f4       	brne	.+2      	; 0x49a <nockMachine_2+0x24>
+ 498:	8b c0       	rjmp	.+278    	; 0x5b0 <nockMachine_2+0x13a>
+			timerSet(TIMER_NOCK_TIMEOUT,  TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_NOCK_TIMEOUT);
+ 49a:	82 e0       	ldi	r24, 0x02	; 2
+ 49c:	60 e0       	ldi	r22, 0x00	; 0
+ 49e:	70 e0       	ldi	r23, 0x00	; 0
+ 4a0:	4c ed       	ldi	r20, 0xDC	; 220
+ 4a2:	55 e0       	ldi	r21, 0x05	; 5
+ 4a4:	27 d1       	rcall	.+590    	; 0x6f4 <timerSet>
+ 4a6:	25 c0       	rjmp	.+74     	; 0x4f2 <nockMachine_2+0x7c>
+		break;
+		//================================================
+		//=========================
+		case WAIT_NOISE:
+		//=========================
+			if (processWaitNoise() == TRUE){
+ 4a8:	6d df       	rcall	.-294    	; 0x384 <processWaitNoise>
+ 4aa:	81 30       	cpi	r24, 0x01	; 1
+ 4ac:	09 f0       	breq	.+2      	; 0x4b0 <nockMachine_2+0x3a>
+ 4ae:	80 c0       	rjmp	.+256    	; 0x5b0 <nockMachine_2+0x13a>
+				#ifdef LOGG	
+				loggerWriteToMarker((LogMesT)" goto CHECK_NOCK \r*", '*');
+				#endif
+				state = CHECK_NOCK;
+ 4b0:	83 e0       	ldi	r24, 0x03	; 3
+ 4b2:	7c c0       	rjmp	.+248    	; 0x5ac <nockMachine_2+0x136>
+		break;
+		//================================================
+		//=========================
+		case WAIT_CURRENT_NOCK:
+		//=========================
+			if (timerIsElapsed(TIMER_NOCK_TIMEOUT) == TRUE){ // its timeout
+ 4b4:	82 e0       	ldi	r24, 0x02	; 2
+ 4b6:	2f d1       	rcall	.+606    	; 0x716 <timerIsElapsed>
+ 4b8:	81 30       	cpi	r24, 0x01	; 1
+ 4ba:	31 f4       	brne	.+12     	; 0x4c8 <nockMachine_2+0x52>
+				if (g_flags[FLAG_NEW_NOCK] == TRUE){
+ 4bc:	80 91 ec 01 	lds	r24, 0x01EC
+ 4c0:	81 30       	cpi	r24, 0x01	; 1
+ 4c2:	71 f5       	brne	.+92     	; 0x520 <nockMachine_2+0xaa>
+					state = PROCESS_NEW_NOCK;
+ 4c4:	87 e0       	ldi	r24, 0x07	; 7
+ 4c6:	72 c0       	rjmp	.+228    	; 0x5ac <nockMachine_2+0x136>
+				#endif
+				state = PROCESS_ERROR;
+				break;
+			}
+
+			if (g_flags[FLAG_NOCK] == FALSE)	return;
+ 4c8:	80 91 ea 01 	lds	r24, 0x01EA
+ 4cc:	88 23       	and	r24, r24
+ 4ce:	09 f4       	brne	.+2      	; 0x4d2 <nockMachine_2+0x5c>
+ 4d0:	6f c0       	rjmp	.+222    	; 0x5b0 <nockMachine_2+0x13a>
+
+			g_nocks[NOCK_CURRENT].nock[(unsigned char)g_nocks[NOCK_CURRENT].count++] = timerGetCurrent(TIMER_NOCK);
+ 4d2:	10 91 ac 01 	lds	r17, 0x01AC
+ 4d6:	c1 2f       	mov	r28, r17
+ 4d8:	d0 e0       	ldi	r29, 0x00	; 0
+ 4da:	80 e0       	ldi	r24, 0x00	; 0
+ 4dc:	30 d1       	rcall	.+608    	; 0x73e <timerGetCurrent>
+ 4de:	9c 01       	movw	r18, r24
+ 4e0:	cc 0f       	add	r28, r28
+ 4e2:	dd 1f       	adc	r29, r29
+ 4e4:	c0 59       	subi	r28, 0x90	; 144
+ 4e6:	de 4f       	sbci	r29, 0xFE	; 254
+ 4e8:	39 83       	std	Y+1, r19	; 0x01
+ 4ea:	28 83       	st	Y, r18
+ 4ec:	1f 5f       	subi	r17, 0xFF	; 255
+ 4ee:	10 93 ac 01 	sts	0x01AC, r17
+			timerSet(TIMER_NOCK, TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_MAX);
+ 4f2:	80 e0       	ldi	r24, 0x00	; 0
+ 4f4:	60 e0       	ldi	r22, 0x00	; 0
+ 4f6:	70 e0       	ldi	r23, 0x00	; 0
+ 4f8:	4f ef       	ldi	r20, 0xFF	; 255
+ 4fa:	5f ef       	ldi	r21, 0xFF	; 255
+ 4fc:	fb d0       	rcall	.+502    	; 0x6f4 <timerSet>
+			#ifdef LOGG
+			loggerWriteToMarker((LogMesT)" goto WAIT_NOISE \r*", '*');
+			#endif
+			state = WAIT_NOISE;
+ 4fe:	81 e0       	ldi	r24, 0x01	; 1
+ 500:	55 c0       	rjmp	.+170    	; 0x5ac <nockMachine_2+0x136>
+		break;
+		//================================================
+		//=========================
+		case CHECK_NOCK:
+		//=========================
+			if (g_flags[FLAG_NEW_NOCK] == TRUE){ // we recording new nock
+ 502:	80 91 ec 01 	lds	r24, 0x01EC
+ 506:	81 30       	cpi	r24, 0x01	; 1
+ 508:	29 f1       	breq	.+74     	; 0x554 <nockMachine_2+0xde>
+
+
+
+
+
+			if (g_nocks[NOCK_CURRENT].count == g_nocks[NOCK_PATTERN].count){
+ 50a:	90 91 ac 01 	lds	r25, 0x01AC
+ 50e:	80 91 6f 01 	lds	r24, 0x016F
+ 512:	98 17       	cp	r25, r24
+ 514:	39 f4       	brne	.+14     	; 0x524 <nockMachine_2+0xae>
+				if (processCheckNock() == TRUE){
+ 516:	5d df       	rcall	.-326    	; 0x3d2 <processCheckNock>
+ 518:	81 30       	cpi	r24, 0x01	; 1
+ 51a:	11 f4       	brne	.+4      	; 0x520 <nockMachine_2+0xaa>
+					#ifdef LOGG
+					loggerWriteToMarker((LogMesT)" goto PROCESS_OK \r*", '*');
+					#endif
+					state = PROCESS_OK;
+ 51c:	85 e0       	ldi	r24, 0x05	; 5
+ 51e:	46 c0       	rjmp	.+140    	; 0x5ac <nockMachine_2+0x136>
+				}else{
+					#ifdef LOGG
+					loggerWriteToMarker((LogMesT)" goto PROCESS_ERROR \r*", '*');
+					#endif
+					state = PROCESS_ERROR;
+ 520:	84 e0       	ldi	r24, 0x04	; 4
+ 522:	44 c0       	rjmp	.+136    	; 0x5ac <nockMachine_2+0x136>
+				}
+			}else{
+				char pos = g_nocks[NOCK_CURRENT].count - 1;
+ 524:	e0 91 ac 01 	lds	r30, 0x01AC
+ 528:	e1 50       	subi	r30, 0x01	; 1
+				if (g_nocks[NOCK_CURRENT].nock[pos] > g_nocks[NOCK_PATTERN].nock[pos] + NOCK_DELTA
+ 52a:	f0 e0       	ldi	r31, 0x00	; 0
+ 52c:	ee 0f       	add	r30, r30
+ 52e:	ff 1f       	adc	r31, r31
+ 530:	ed 5c       	subi	r30, 0xCD	; 205
+ 532:	fe 4f       	sbci	r31, 0xFE	; 254
+ 534:	df 01       	movw	r26, r30
+ 536:	dd 96       	adiw	r26, 0x3d	; 61
+ 538:	2d 91       	ld	r18, X+
+ 53a:	3c 91       	ld	r19, X
+ 53c:	11 97       	sbiw	r26, 0x01	; 1
+ 53e:	80 81       	ld	r24, Z
+ 540:	91 81       	ldd	r25, Z+1	; 0x01
+ 542:	4e 96       	adiw	r24, 0x1e	; 30
+ 544:	82 17       	cp	r24, r18
+ 546:	93 07       	cpc	r25, r19
+ 548:	2c f0       	brlt	.+10     	; 0x554 <nockMachine_2+0xde>
+					||
+					g_nocks[NOCK_CURRENT].nock[pos] < g_nocks[NOCK_PATTERN].nock[pos] - NOCK_DELTA)
+ 54a:	8d 91       	ld	r24, X+
+ 54c:	9c 91       	ld	r25, X
+ 54e:	11 97       	sbiw	r26, 0x01	; 1
+ 550:	80 81       	ld	r24, Z
+ 552:	91 81       	ldd	r25, Z+1	; 0x01
+				}
+
+				#ifdef LOGG
+				loggerWriteToMarker((LogMesT)" goto WAIT_CURRENT_NOCK \r*", '*');
+				#endif
+				state = WAIT_CURRENT_NOCK;
+ 554:	82 e0       	ldi	r24, 0x02	; 2
+ 556:	2a c0       	rjmp	.+84     	; 0x5ac <nockMachine_2+0x136>
+		case PROCESS_OK:
+		//=========================
+			#ifdef LOGGRES	
+			loggerWriteToMarker((LogMesT)" in PROCESS_OK \r*", '*');
+			#endif
+			g_flags[FLAG_NOCK_CORRECT] = TRUE;
+ 558:	81 e0       	ldi	r24, 0x01	; 1
+ 55a:	80 93 eb 01 	sts	0x01EB, r24
+ 55e:	25 c0       	rjmp	.+74     	; 0x5aa <nockMachine_2+0x134>
+		case PROCESS_ERROR:
+		//=========================
+			#ifdef LOGGRES	
+			loggerWriteToMarker((LogMesT)" in PROCESS_ERROR \r*", '*');
+			#endif
+			g_flags[FLAG_NOCK_CORRECT] = FALSE;
+ 560:	10 92 eb 01 	sts	0x01EB, r1
+			g_flags[FLAG_ERROR] = TRUE;
+ 564:	81 e0       	ldi	r24, 0x01	; 1
+ 566:	80 93 ed 01 	sts	0x01ED, r24
+ 56a:	1f c0       	rjmp	.+62     	; 0x5aa <nockMachine_2+0x134>
+		case PROCESS_RESSET:
+		//=========================
+			#ifdef LOGG	
+			loggerWriteToMarker((LogMesT)" in PROCESS_RESSET \r*", '*');
+			#endif
+			timerSet(TIMER_NOCK_TIMEOUT, TIMER_VALUE_MAX, TIMER_VALUE_MAX);
+ 56c:	82 e0       	ldi	r24, 0x02	; 2
+ 56e:	6f ef       	ldi	r22, 0xFF	; 255
+ 570:	7f ef       	ldi	r23, 0xFF	; 255
+ 572:	4f ef       	ldi	r20, 0xFF	; 255
+ 574:	5f ef       	ldi	r21, 0xFF	; 255
+ 576:	be d0       	rcall	.+380    	; 0x6f4 <timerSet>
+			timerSet(TIMER_NOCK, TIMER_VALUE_MAX, TIMER_VALUE_MAX);
+ 578:	80 e0       	ldi	r24, 0x00	; 0
+ 57a:	6f ef       	ldi	r22, 0xFF	; 255
+ 57c:	7f ef       	ldi	r23, 0xFF	; 255
+ 57e:	4f ef       	ldi	r20, 0xFF	; 255
+ 580:	5f ef       	ldi	r21, 0xFF	; 255
+ 582:	b8 d0       	rcall	.+368    	; 0x6f4 <timerSet>
+			g_nocks[NOCK_CURRENT].count = NOCK_NO_NOCK;
+ 584:	10 92 ac 01 	sts	0x01AC, r1
+			#ifdef LOGG	
+			loggerWriteToMarker((LogMesT)" goto WAIT_FIRST_NOCK \r*", '*');
+			#endif
+			state = WAIT_FIRST_NOCK;
+ 588:	10 92 ee 00 	sts	0x00EE, r1
+		break;
+ 58c:	11 c0       	rjmp	.+34     	; 0x5b0 <nockMachine_2+0x13a>
+		//=========================
+
+			#ifdef LOGG	
+			loggerWriteToMarker((LogMesT)" in PROCESS_NEW_NOCK \r*", '*');
+			#endif
+			nockWriteToEEPROM(&g_nocks[NOCK_CURRENT]);
+ 58e:	80 e7       	ldi	r24, 0x70	; 112
+ 590:	91 e0       	ldi	r25, 0x01	; 1
+ 592:	60 df       	rcall	.-320    	; 0x454 <nockWriteToEEPROM>
+			g_nocks[NOCK_PATTERN] = g_nocks[NOCK_CURRENT];
+ 594:	e3 e3       	ldi	r30, 0x33	; 51
+ 596:	f1 e0       	ldi	r31, 0x01	; 1
+ 598:	df 01       	movw	r26, r30
+ 59a:	dd 96       	adiw	r26, 0x3d	; 61
+ 59c:	8d e3       	ldi	r24, 0x3D	; 61
+ 59e:	0d 90       	ld	r0, X+
+ 5a0:	01 92       	st	Z+, r0
+ 5a2:	81 50       	subi	r24, 0x01	; 1
+ 5a4:	e1 f7       	brne	.-8      	; 0x59e <nockMachine_2+0x128>
+			g_flags[FLAG_NEW_NOCK] = FALSE;
+ 5a6:	10 92 ec 01 	sts	0x01EC, r1
+			#ifdef LOGG
+			loggerWriteToMarker((LogMesT)" goto PROCESS_RESSET \r*", '*');
+			#endif
+			state = PROCESS_RESSET;
+ 5aa:	86 e0       	ldi	r24, 0x06	; 6
+ 5ac:	80 93 ee 00 	sts	0x00EE, r24
+		break;
+		//================================================
+		default:
+		break;
+	}
+}
+ 5b0:	df 91       	pop	r29
+ 5b2:	cf 91       	pop	r28
+ 5b4:	1f 91       	pop	r17
+ 5b6:	08 95       	ret
+
+000005b8 <userNewNockCommandMachine_1>:
+//=======================================================================================
+//inline
+void userNewNockCommandMachine_1(){
+	enum {WAIT_ACTION, NEW_NOCK_CODE_BUTTON_PRESSED};
+	static char state = WAIT_ACTION;
+	switch(state){
+ 5b8:	80 91 ec 00 	lds	r24, 0x00EC
+ 5bc:	88 23       	and	r24, r24
+ 5be:	19 f0       	breq	.+6      	; 0x5c6 <userNewNockCommandMachine_1+0xe>
+ 5c0:	81 30       	cpi	r24, 0x01	; 1
+ 5c2:	d1 f4       	brne	.+52     	; 0x5f8 <userNewNockCommandMachine_1+0x40>
+ 5c4:	10 c0       	rjmp	.+32     	; 0x5e6 <userNewNockCommandMachine_1+0x2e>
+		case WAIT_ACTION:
+			if (buttonIsPressed(BUTTONNEWNOCK)  == TRUE){
+ 5c6:	81 e0       	ldi	r24, 0x01	; 1
+ 5c8:	84 dd       	rcall	.-1272   	; 0xd2 <buttonIsPressed>
+ 5ca:	81 30       	cpi	r24, 0x01	; 1
+ 5cc:	a9 f4       	brne	.+42     	; 0x5f8 <userNewNockCommandMachine_1+0x40>
+				state = NEW_NOCK_CODE_BUTTON_PRESSED;
+ 5ce:	80 93 ec 00 	sts	0x00EC, r24
+				g_flags[FLAG_NEW_NOCK] = TRUE;
+ 5d2:	80 93 ec 01 	sts	0x01EC, r24
+				#ifdef LOGGBUT		
+				loggerWriteToMarker((LogMesT)" in userCommandMachine_1() NEW_NOCK_CODE_BUTTON_PRESSED \r*", '*'); 
+				#endif
+
+				ledOn(LEDRED1);
+ 5d6:	eb dd       	rcall	.-1066   	; 0x1ae <ledOn>
+				ledOn(LEDRED2);
+ 5d8:	83 e0       	ldi	r24, 0x03	; 3
+ 5da:	e9 dd       	rcall	.-1070   	; 0x1ae <ledOn>
+				ledOn(LEDGREEN1);
+ 5dc:	80 e0       	ldi	r24, 0x00	; 0
+ 5de:	e7 dd       	rcall	.-1074   	; 0x1ae <ledOn>
+				ledOn(LEDGREEN2);
+ 5e0:	82 e0       	ldi	r24, 0x02	; 2
+ 5e2:	e5 dd       	rcall	.-1078   	; 0x1ae <ledOn>
+ 5e4:	08 95       	ret
+			}
+			break;
+
+		case NEW_NOCK_CODE_BUTTON_PRESSED:
+			if (g_flags[FLAG_NEW_NOCK] == FALSE){
+ 5e6:	80 91 ec 01 	lds	r24, 0x01EC
+ 5ea:	88 23       	and	r24, r24
+ 5ec:	29 f4       	brne	.+10     	; 0x5f8 <userNewNockCommandMachine_1+0x40>
+				#ifdef LOGGBUT 
+				loggerWriteToMarker((LogMesT)" in userCommandMachine_1() g_flags[FLAG_NEW_NOCK] == FALSE \r*", '*'); 
+				#endif
+				state = WAIT_ACTION;
+ 5ee:	10 92 ec 00 	sts	0x00EC, r1
+
+				ledOff(LEDGREEN1);
+ 5f2:	ed dd       	rcall	.-1062   	; 0x1ce <ledOff>
+				ledOff(LEDGREEN2);
+ 5f4:	82 e0       	ldi	r24, 0x02	; 2
+ 5f6:	eb dd       	rcall	.-1066   	; 0x1ce <ledOff>
+ 5f8:	08 95       	ret
+
+000005fa <doorSignalMachine_4>:
+//=======================================================================================
+//=======================================================================================
+//===         DOOR and SIGNALS      DOOR and SIGNALS      DOOR and SIGNALS      =========
+//=======================================================================================
+//=======================================================================================
+void doorSignalMachine_4(){
+ 5fa:	1f 93       	push	r17
+
+	if (g_flags[FLAG_ERROR] == TRUE){
+ 5fc:	80 91 ed 01 	lds	r24, 0x01ED
+ 600:	81 30       	cpi	r24, 0x01	; 1
+ 602:	c1 f4       	brne	.+48     	; 0x634 <doorSignalMachine_4+0x3a>
+		#ifdef LOGGBUT		
+		loggerWriteToMarker((LogMesT)" in error\r*", '*'); 
+		#endif
+		g_flags[FLAG_ERROR] = FALSE;
+ 604:	10 92 ed 01 	sts	0x01ED, r1
+		timerSet(TIMER_ERROR, 0, TIMER_VALUE_ERROR);
+ 608:	85 e0       	ldi	r24, 0x05	; 5
+ 60a:	60 e0       	ldi	r22, 0x00	; 0
+ 60c:	70 e0       	ldi	r23, 0x00	; 0
+ 60e:	48 ec       	ldi	r20, 0xC8	; 200
+ 610:	50 e0       	ldi	r21, 0x00	; 0
+ 612:	70 d0       	rcall	.+224    	; 0x6f4 <timerSet>
+		while(timerIsElapsed(TIMER_ERROR) != TRUE){
+ 614:	08 c0       	rjmp	.+16     	; 0x626 <doorSignalMachine_4+0x2c>
+			ledOff(LEDGREEN1);
+ 616:	80 e0       	ldi	r24, 0x00	; 0
+ 618:	da dd       	rcall	.-1100   	; 0x1ce <ledOff>
+			ledOff(LEDRED1);
+ 61a:	81 e0       	ldi	r24, 0x01	; 1
+ 61c:	d8 dd       	rcall	.-1104   	; 0x1ce <ledOff>
+			ledOff(LEDGREEN2);
+ 61e:	82 e0       	ldi	r24, 0x02	; 2
+ 620:	d6 dd       	rcall	.-1108   	; 0x1ce <ledOff>
+			ledOff(LEDRED2);		
+ 622:	83 e0       	ldi	r24, 0x03	; 3
+ 624:	d4 dd       	rcall	.-1112   	; 0x1ce <ledOff>
+		#ifdef LOGGBUT		
+		loggerWriteToMarker((LogMesT)" in error\r*", '*'); 
+		#endif
+		g_flags[FLAG_ERROR] = FALSE;
+		timerSet(TIMER_ERROR, 0, TIMER_VALUE_ERROR);
+		while(timerIsElapsed(TIMER_ERROR) != TRUE){
+ 626:	85 e0       	ldi	r24, 0x05	; 5
+ 628:	76 d0       	rcall	.+236    	; 0x716 <timerIsElapsed>
+ 62a:	81 30       	cpi	r24, 0x01	; 1
+ 62c:	a1 f7       	brne	.-24     	; 0x616 <doorSignalMachine_4+0x1c>
+			ledOff(LEDRED2);		
+		}
+		#ifdef LOGGBUT		
+		loggerWriteToMarker((LogMesT)" exit error\r*", '*'); 
+		#endif
+		ledOn(LEDRED1);
+ 62e:	bf dd       	rcall	.-1154   	; 0x1ae <ledOn>
+		ledOn(LEDRED2);		
+ 630:	83 e0       	ldi	r24, 0x03	; 3
+ 632:	bd dd       	rcall	.-1158   	; 0x1ae <ledOn>
+
+#define BUTTONWAITDELAY 30
+
+	enum DOOR {DOORISOPEN, DOORISCLOSE, DOORNEEDOPEN, DOORNEEDCLOSE};
+	static char state_door = DOORNEEDCLOSE;
+	switch (state_door){
+ 634:	80 91 67 00 	lds	r24, 0x0067
+ 638:	81 30       	cpi	r24, 0x01	; 1
+ 63a:	41 f0       	breq	.+16     	; 0x64c <doorSignalMachine_4+0x52>
+ 63c:	81 30       	cpi	r24, 0x01	; 1
+ 63e:	18 f1       	brcs	.+70     	; 0x686 <doorSignalMachine_4+0x8c>
+ 640:	82 30       	cpi	r24, 0x02	; 2
+ 642:	b1 f0       	breq	.+44     	; 0x670 <doorSignalMachine_4+0x76>
+ 644:	83 30       	cpi	r24, 0x03	; 3
+ 646:	09 f0       	breq	.+2      	; 0x64a <doorSignalMachine_4+0x50>
+ 648:	48 c0       	rjmp	.+144    	; 0x6da <doorSignalMachine_4+0xe0>
+ 64a:	36 c0       	rjmp	.+108    	; 0x6b8 <doorSignalMachine_4+0xbe>
+		//========================
+		case DOORISCLOSE:
+		//========================
+			if (buttonIsPressed(BUTTONDOOR)  == TRUE){
+ 64c:	80 e0       	ldi	r24, 0x00	; 0
+ 64e:	41 dd       	rcall	.-1406   	; 0xd2 <buttonIsPressed>
+ 650:	18 2f       	mov	r17, r24
+ 652:	81 30       	cpi	r24, 0x01	; 1
+ 654:	39 f4       	brne	.+14     	; 0x664 <doorSignalMachine_4+0x6a>
+				if (timerGetCurrent(TIMER_DOOR_OPEN) < BUTTONWAITDELAY) 
+ 656:	84 e0       	ldi	r24, 0x04	; 4
+ 658:	72 d0       	rcall	.+228    	; 0x73e <timerGetCurrent>
+ 65a:	8e 31       	cpi	r24, 0x1E	; 30
+ 65c:	91 05       	cpc	r25, r1
+ 65e:	e8 f1       	brcs	.+122    	; 0x6da <doorSignalMachine_4+0xe0>
+					return;
+				g_flags[FLAG_NOCK_CORRECT] = TRUE;
+ 660:	10 93 eb 01 	sts	0x01EB, r17
+			}
+
+			if (g_flags[FLAG_NOCK_CORRECT] == TRUE)
+ 664:	80 91 eb 01 	lds	r24, 0x01EB
+ 668:	81 30       	cpi	r24, 0x01	; 1
+ 66a:	b9 f5       	brne	.+110    	; 0x6da <doorSignalMachine_4+0xe0>
+				state_door = DOORNEEDOPEN;
+ 66c:	82 e0       	ldi	r24, 0x02	; 2
+ 66e:	21 c0       	rjmp	.+66     	; 0x6b2 <doorSignalMachine_4+0xb8>
+
+			break;
+		//========================
+		case DOORNEEDOPEN:
+		//========================
+			ledOn(LEDGREEN1);
+ 670:	80 e0       	ldi	r24, 0x00	; 0
+ 672:	9d dd       	rcall	.-1222   	; 0x1ae <ledOn>
+			ledOff(LEDRED1);
+ 674:	81 e0       	ldi	r24, 0x01	; 1
+ 676:	ab dd       	rcall	.-1194   	; 0x1ce <ledOff>
+			ledOn(LEDGREEN2);
+ 678:	82 e0       	ldi	r24, 0x02	; 2
+ 67a:	99 dd       	rcall	.-1230   	; 0x1ae <ledOn>
+			ledOff(LEDRED2);
+ 67c:	83 e0       	ldi	r24, 0x03	; 3
+ 67e:	a7 dd       	rcall	.-1202   	; 0x1ce <ledOff>
+
+			#ifdef LOGGBUT		
+			loggerWriteToMarker((LogMesT)" DOORNEEDOPEN\r*", '*'); 
+			#endif
+			
+			state_door = DOORISOPEN;
+ 680:	10 92 67 00 	sts	0x0067, r1
+ 684:	24 c0       	rjmp	.+72     	; 0x6ce <doorSignalMachine_4+0xd4>
+			timerSet(TIMER_DOOR_OPEN, 0, TIMER_VALUE_DOOR_OPEN);
+			break;
+		//========================
+		case DOORISOPEN:
+		//========================
+			if (timerIsElapsed(TIMER_DOOR_OPEN) == TRUE)
+ 686:	84 e0       	ldi	r24, 0x04	; 4
+ 688:	46 d0       	rcall	.+140    	; 0x716 <timerIsElapsed>
+ 68a:	81 30       	cpi	r24, 0x01	; 1
+ 68c:	11 f4       	brne	.+4      	; 0x692 <doorSignalMachine_4+0x98>
+				g_flags[FLAG_NOCK_CORRECT] = FALSE;
+ 68e:	10 92 eb 01 	sts	0x01EB, r1
+			
+			if (buttonIsPressed(BUTTONDOOR) == TRUE){
+ 692:	80 e0       	ldi	r24, 0x00	; 0
+ 694:	1e dd       	rcall	.-1476   	; 0xd2 <buttonIsPressed>
+ 696:	81 30       	cpi	r24, 0x01	; 1
+ 698:	39 f4       	brne	.+14     	; 0x6a8 <doorSignalMachine_4+0xae>
+
+				if (timerGetCurrent(TIMER_DOOR_OPEN) < BUTTONWAITDELAY) 
+ 69a:	84 e0       	ldi	r24, 0x04	; 4
+ 69c:	50 d0       	rcall	.+160    	; 0x73e <timerGetCurrent>
+ 69e:	8e 31       	cpi	r24, 0x1E	; 30
+ 6a0:	91 05       	cpc	r25, r1
+ 6a2:	d8 f0       	brcs	.+54     	; 0x6da <doorSignalMachine_4+0xe0>
+					return;
+
+				g_flags[FLAG_NOCK_CORRECT] = FALSE;
+ 6a4:	10 92 eb 01 	sts	0x01EB, r1
+			}
+
+			if (g_flags[FLAG_NOCK_CORRECT] == FALSE)
+ 6a8:	80 91 eb 01 	lds	r24, 0x01EB
+ 6ac:	88 23       	and	r24, r24
+ 6ae:	a9 f4       	brne	.+42     	; 0x6da <doorSignalMachine_4+0xe0>
+				state_door = DOORNEEDCLOSE;
+ 6b0:	83 e0       	ldi	r24, 0x03	; 3
+ 6b2:	80 93 67 00 	sts	0x0067, r24
+ 6b6:	11 c0       	rjmp	.+34     	; 0x6da <doorSignalMachine_4+0xe0>
+
+			break;
+		//========================
+		case DOORNEEDCLOSE:
+		//========================
+			ledOn(LEDRED1);
+ 6b8:	81 e0       	ldi	r24, 0x01	; 1
+ 6ba:	79 dd       	rcall	.-1294   	; 0x1ae <ledOn>
+			ledOff(LEDGREEN1);
+ 6bc:	80 e0       	ldi	r24, 0x00	; 0
+ 6be:	87 dd       	rcall	.-1266   	; 0x1ce <ledOff>
+			ledOn(LEDRED2);
+ 6c0:	83 e0       	ldi	r24, 0x03	; 3
+ 6c2:	75 dd       	rcall	.-1302   	; 0x1ae <ledOn>
+			ledOff(LEDGREEN2);
+ 6c4:	82 e0       	ldi	r24, 0x02	; 2
+ 6c6:	83 dd       	rcall	.-1274   	; 0x1ce <ledOff>
+
+			#ifdef LOGGBUT		
+			loggerWriteToMarker((LogMesT)" DOORNEEDCLOSE\r*", '*'); 
+			#endif	
+					
+			state_door = DOORISCLOSE;
+ 6c8:	81 e0       	ldi	r24, 0x01	; 1
+ 6ca:	80 93 67 00 	sts	0x0067, r24
+			timerSet(TIMER_DOOR_OPEN, 0, TIMER_VALUE_DOOR_OPEN);
+ 6ce:	84 e0       	ldi	r24, 0x04	; 4
+ 6d0:	60 e0       	ldi	r22, 0x00	; 0
+ 6d2:	70 e0       	ldi	r23, 0x00	; 0
+ 6d4:	48 e8       	ldi	r20, 0x88	; 136
+ 6d6:	53 e1       	ldi	r21, 0x13	; 19
+ 6d8:	0d d0       	rcall	.+26     	; 0x6f4 <timerSet>
+			break;
+		//========================
+		default: break;
+		//========================
+	}
+}
+ 6da:	1f 91       	pop	r17
+ 6dc:	08 95       	ret
+
+000006de <initHardWareTimer>:
+//      HARDWARE      HARDWARE      HARDWARE      HARDWARE      HARDWARE
+//=============================================================================
+//=============================================================================
+void initHardWareTimer()
+{
+    TCNT1 = 65536-1;        
+ 6de:	8f ef       	ldi	r24, 0xFF	; 255
+ 6e0:	9f ef       	ldi	r25, 0xFF	; 255
+ 6e2:	9d bd       	out	0x2d, r25	; 45
+ 6e4:	8c bd       	out	0x2c, r24	; 44
+    TCCR1B = (1<<CS12 | 1<<CS10);
+ 6e6:	85 e0       	ldi	r24, 0x05	; 5
+ 6e8:	8e bd       	out	0x2e, r24	; 46
+    TIMSK |= (1<<TOIE1);
+ 6ea:	89 b7       	in	r24, 0x39	; 57
+ 6ec:	84 60       	ori	r24, 0x04	; 4
+ 6ee:	89 bf       	out	0x39, r24	; 57
+ 	sei();
+ 6f0:	78 94       	sei
+}
+ 6f2:	08 95       	ret
+
+000006f4 <timerSet>:
+//=============================================================================
+volatile
+SoftTimer g_timer[TIMER_TOTAL_COUNT];
+//=============================================================================
+void timerSet(char timer_name, unsigned int start_value, unsigned int stop_value){
+	g_timer[timer_name].counter = start_value;
+ 6f4:	90 e0       	ldi	r25, 0x00	; 0
+ 6f6:	fc 01       	movw	r30, r24
+ 6f8:	ee 0f       	add	r30, r30
+ 6fa:	ff 1f       	adc	r31, r31
+ 6fc:	ee 0f       	add	r30, r30
+ 6fe:	ff 1f       	adc	r31, r31
+ 700:	e8 0f       	add	r30, r24
+ 702:	f9 1f       	adc	r31, r25
+ 704:	e1 51       	subi	r30, 0x11	; 17
+ 706:	fe 4f       	sbci	r31, 0xFE	; 254
+ 708:	71 83       	std	Z+1, r23	; 0x01
+ 70a:	60 83       	st	Z, r22
+	g_timer[timer_name].threshold = stop_value;
+ 70c:	53 83       	std	Z+3, r21	; 0x03
+ 70e:	42 83       	std	Z+2, r20	; 0x02
+	g_timer[timer_name].state = TIMER_STATE_IN_RUN;
+ 710:	81 e0       	ldi	r24, 0x01	; 1
+ 712:	84 83       	std	Z+4, r24	; 0x04
+}
+ 714:	08 95       	ret
+
+00000716 <timerIsElapsed>:
+//=============================================================================
+char timerIsElapsed(char timer_name){
+	if ((g_timer[timer_name].state & TIMER_STATE_ELAPSED) > 0){
+ 716:	90 e0       	ldi	r25, 0x00	; 0
+ 718:	fc 01       	movw	r30, r24
+ 71a:	ee 0f       	add	r30, r30
+ 71c:	ff 1f       	adc	r31, r31
+ 71e:	ee 0f       	add	r30, r30
+ 720:	ff 1f       	adc	r31, r31
+ 722:	e8 0f       	add	r30, r24
+ 724:	f9 1f       	adc	r31, r25
+ 726:	e1 51       	subi	r30, 0x11	; 17
+ 728:	fe 4f       	sbci	r31, 0xFE	; 254
+ 72a:	84 81       	ldd	r24, Z+4	; 0x04
+ 72c:	81 ff       	sbrs	r24, 1
+ 72e:	05 c0       	rjmp	.+10     	; 0x73a <timerIsElapsed+0x24>
+		g_timer[timer_name].state &= ~TIMER_STATE_ELAPSED;
+ 730:	84 81       	ldd	r24, Z+4	; 0x04
+ 732:	8d 7f       	andi	r24, 0xFD	; 253
+ 734:	84 83       	std	Z+4, r24	; 0x04
+		return TRUE;
+ 736:	81 e0       	ldi	r24, 0x01	; 1
+ 738:	08 95       	ret
+	}
+	return FALSE;
+ 73a:	80 e0       	ldi	r24, 0x00	; 0
+}
+ 73c:	08 95       	ret
+
+0000073e <timerGetCurrent>:
+//=============================================================================
+unsigned int timerGetCurrent(char timer_name){
+	return g_timer[timer_name].counter;
+ 73e:	90 e0       	ldi	r25, 0x00	; 0
+ 740:	fc 01       	movw	r30, r24
+ 742:	ee 0f       	add	r30, r30
+ 744:	ff 1f       	adc	r31, r31
+ 746:	ee 0f       	add	r30, r30
+ 748:	ff 1f       	adc	r31, r31
+ 74a:	e8 0f       	add	r30, r24
+ 74c:	f9 1f       	adc	r31, r25
+ 74e:	e1 51       	subi	r30, 0x11	; 17
+ 750:	fe 4f       	sbci	r31, 0xFE	; 254
+ 752:	20 81       	ld	r18, Z
+ 754:	31 81       	ldd	r19, Z+1	; 0x01
+}
+ 756:	c9 01       	movw	r24, r18
+ 758:	08 95       	ret
+
+0000075a <timerInit>:
+//=============================================================================
+void timerInit(){
+ 75a:	80 e0       	ldi	r24, 0x00	; 0
+ 75c:	90 e0       	ldi	r25, 0x00	; 0
+	char i;
+	for (i = 0; i < TIMER_TOTAL_COUNT; i++){
+		g_timer[i].counter = 0;
+ 75e:	fc 01       	movw	r30, r24
+ 760:	ee 0f       	add	r30, r30
+ 762:	ff 1f       	adc	r31, r31
+ 764:	ee 0f       	add	r30, r30
+ 766:	ff 1f       	adc	r31, r31
+ 768:	e8 0f       	add	r30, r24
+ 76a:	f9 1f       	adc	r31, r25
+ 76c:	e1 51       	subi	r30, 0x11	; 17
+ 76e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 770:	11 82       	std	Z+1, r1	; 0x01
+ 772:	10 82       	st	Z, r1
+		g_timer[i].threshold = 0;
+ 774:	13 82       	std	Z+3, r1	; 0x03
+ 776:	12 82       	std	Z+2, r1	; 0x02
+		g_timer[i].state = 0;
+ 778:	14 82       	std	Z+4, r1	; 0x04
+ 77a:	01 96       	adiw	r24, 0x01	; 1
+	return g_timer[timer_name].counter;
+}
+//=============================================================================
+void timerInit(){
+	char i;
+	for (i = 0; i < TIMER_TOTAL_COUNT; i++){
+ 77c:	86 30       	cpi	r24, 0x06	; 6
+ 77e:	91 05       	cpc	r25, r1
+ 780:	71 f7       	brne	.-36     	; 0x75e <timerInit+0x4>
+		g_timer[i].counter = 0;
+		g_timer[i].threshold = 0;
+		g_timer[i].state = 0;
+	}
+
+	initHardWareTimer();
+ 782:	ad df       	rcall	.-166    	; 0x6de <initHardWareTimer>
+}
+ 784:	08 95       	ret
+
+00000786 <__vector_8>:
+    TIMSK |= (1<<TOIE1);
+ 	sei();
+}
+//=============================================================================
+ISR (TIMER1_OVF_vect)
+{
+ 786:	1f 92       	push	r1
+ 788:	0f 92       	push	r0
+ 78a:	0f b6       	in	r0, 0x3f	; 63
+ 78c:	0f 92       	push	r0
+ 78e:	11 24       	eor	r1, r1
+ 790:	2f 93       	push	r18
+ 792:	3f 93       	push	r19
+ 794:	4f 93       	push	r20
+ 796:	5f 93       	push	r21
+ 798:	6f 93       	push	r22
+ 79a:	7f 93       	push	r23
+ 79c:	8f 93       	push	r24
+ 79e:	9f 93       	push	r25
+ 7a0:	ef 93       	push	r30
+ 7a2:	ff 93       	push	r31
+ 7a4:	80 e0       	ldi	r24, 0x00	; 0
+ 7a6:	90 e0       	ldi	r25, 0x00	; 0
+}
+//=============================================================================
+inline inIRQTimer(){
+	char i;
+	for (i = 0; i < TIMER_TOTAL_COUNT; i++){
+		if ( (g_timer[i].state & TIMER_STATE_IN_RUN) > 0){
+ 7a8:	fc 01       	movw	r30, r24
+ 7aa:	ee 0f       	add	r30, r30
+ 7ac:	ff 1f       	adc	r31, r31
+ 7ae:	ee 0f       	add	r30, r30
+ 7b0:	ff 1f       	adc	r31, r31
+ 7b2:	e8 0f       	add	r30, r24
+ 7b4:	f9 1f       	adc	r31, r25
+ 7b6:	e1 51       	subi	r30, 0x11	; 17
+ 7b8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 7ba:	24 81       	ldd	r18, Z+4	; 0x04
+ 7bc:	20 ff       	sbrs	r18, 0
+ 7be:	12 c0       	rjmp	.+36     	; 0x7e4 <__vector_8+0x5e>
+			if (g_timer[i].counter++ >= g_timer[i].threshold){
+ 7c0:	20 81       	ld	r18, Z
+ 7c2:	31 81       	ldd	r19, Z+1	; 0x01
+ 7c4:	42 81       	ldd	r20, Z+2	; 0x02
+ 7c6:	53 81       	ldd	r21, Z+3	; 0x03
+ 7c8:	b9 01       	movw	r22, r18
+ 7ca:	6f 5f       	subi	r22, 0xFF	; 255
+ 7cc:	7f 4f       	sbci	r23, 0xFF	; 255
+ 7ce:	71 83       	std	Z+1, r23	; 0x01
+ 7d0:	60 83       	st	Z, r22
+ 7d2:	24 17       	cp	r18, r20
+ 7d4:	35 07       	cpc	r19, r21
+ 7d6:	30 f0       	brcs	.+12     	; 0x7e4 <__vector_8+0x5e>
+				g_timer[i].state &=	~TIMER_STATE_IN_RUN;
+ 7d8:	24 81       	ldd	r18, Z+4	; 0x04
+ 7da:	2e 7f       	andi	r18, 0xFE	; 254
+ 7dc:	24 83       	std	Z+4, r18	; 0x04
+				g_timer[i].state |= TIMER_STATE_ELAPSED;
+ 7de:	24 81       	ldd	r18, Z+4	; 0x04
+ 7e0:	22 60       	ori	r18, 0x02	; 2
+ 7e2:	24 83       	std	Z+4, r18	; 0x04
+ 7e4:	01 96       	adiw	r24, 0x01	; 1
+	initHardWareTimer();
+}
+//=============================================================================
+inline inIRQTimer(){
+	char i;
+	for (i = 0; i < TIMER_TOTAL_COUNT; i++){
+ 7e6:	86 30       	cpi	r24, 0x06	; 6
+ 7e8:	91 05       	cpc	r25, r1
+ 7ea:	f1 f6       	brne	.-68     	; 0x7a8 <__vector_8+0x22>
+//=============================================================================
+ISR (TIMER1_OVF_vect)
+{
+    inIRQTimer();
+	// run timer
+	TCNT1 = 65536 - 7; //  31220;
+ 7ec:	89 ef       	ldi	r24, 0xF9	; 249
+ 7ee:	9f ef       	ldi	r25, 0xFF	; 255
+ 7f0:	9d bd       	out	0x2d, r25	; 45
+ 7f2:	8c bd       	out	0x2c, r24	; 44
+    TCCR1B = (1<<CS12 | 1<<CS10);
+ 7f4:	85 e0       	ldi	r24, 0x05	; 5
+ 7f6:	8e bd       	out	0x2e, r24	; 46
+    TIMSK |= (1<<TOIE1);
+ 7f8:	89 b7       	in	r24, 0x39	; 57
+ 7fa:	84 60       	ori	r24, 0x04	; 4
+ 7fc:	89 bf       	out	0x39, r24	; 57
+
+
+}
+ 7fe:	ff 91       	pop	r31
+ 800:	ef 91       	pop	r30
+ 802:	9f 91       	pop	r25
+ 804:	8f 91       	pop	r24
+ 806:	7f 91       	pop	r23
+ 808:	6f 91       	pop	r22
+ 80a:	5f 91       	pop	r21
+ 80c:	4f 91       	pop	r20
+ 80e:	3f 91       	pop	r19
+ 810:	2f 91       	pop	r18
+ 812:	0f 90       	pop	r0
+ 814:	0f be       	out	0x3f, r0	; 63
+ 816:	0f 90       	pop	r0
+ 818:	1f 90       	pop	r1
+ 81a:	18 95       	reti
+
+0000081c <GPIO_Configuration>:
+
+}
+//=============================================================================
+void GPIO_Configuration(void)
+{
+	UPBIT(DDRD, 1); // Tx
+ 81c:	89 9a       	sbi	0x11, 1	; 17
+
+}
+ 81e:	08 95       	ret
+
+00000820 <USART_Configuration>:
+// whith interrupt
+
+	#define USART_BAUDRATE 9600
+	#define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
+
+	UCSRB = ( 1 << TXEN ) | ( 1 << RXEN ) | (1 << RXCIE ); // rx enable, tx enable, rx_interrupt enable
+ 820:	88 e9       	ldi	r24, 0x98	; 152
+ 822:	8a b9       	out	0x0a, r24	; 10
+	UCSRC = (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1); // Use 8-bit character sizes
+ 824:	86 e8       	ldi	r24, 0x86	; 134
+ 826:	80 bd       	out	0x20, r24	; 32
+
+	UBRRH = (BAUD_PRESCALE >> 8); // Load upper 8-bits of the baud rate value into the high byte of the UBRR register
+ 828:	10 bc       	out	0x20, r1	; 32
+	UBRRL = BAUD_PRESCALE; // Load lower 8-bits of the baud rate value into the low byte of the UBRR register
+ 82a:	83 e3       	ldi	r24, 0x33	; 51
+ 82c:	89 b9       	out	0x09, r24	; 9
+
+
+
+
+sei();
+ 82e:	78 94       	sei
+
+}
+ 830:	08 95       	ret
+
+00000832 <loggerInit>:
+void USART_Configuration(void);
+unsigned char getData(char * buffer, unsigned char buf_len);
+//=============================================================================
+inline void usart_init(void)
+{
+	    GPIO_Configuration();
+ 832:	f4 df       	rcall	.-24     	; 0x81c <GPIO_Configuration>
+
+	    USART_Configuration();
+ 834:	f5 df       	rcall	.-22     	; 0x820 <USART_Configuration>
+//      PUBLICK      FUNCTIONS      PUBLICK      FUNCTIONS      PUBLICK     
+//=============================================================================
+//=============================================================================
+void loggerInit(){
+	usart_init();
+}
+ 836:	08 95       	ret
+
+00000838 <loggerWrite>:
+		bit[i] = ((byte & (1<<j)) > 0) ? '1' : '0';
+	}
+	loggerWrite(bit,8);
+}
+//=============================================================================
+void loggerWrite(const unsigned char *message, char count){
+ 838:	fc 01       	movw	r30, r24
+    while(count--)
+ 83a:	05 c0       	rjmp	.+10     	; 0x846 <loggerWrite+0xe>
+    {
+        while ( !( UCSRA & (1<<5)) ) {} 
+ 83c:	5d 9b       	sbis	0x0b, 5	; 11
+ 83e:	fe cf       	rjmp	.-4      	; 0x83c <loggerWrite+0x4>
+        UDR=*message++;
+ 840:	81 91       	ld	r24, Z+
+ 842:	8c b9       	out	0x0c, r24	; 12
+ 844:	61 50       	subi	r22, 0x01	; 1
+	}
+	loggerWrite(bit,8);
+}
+//=============================================================================
+void loggerWrite(const unsigned char *message, char count){
+    while(count--)
+ 846:	66 23       	and	r22, r22
+ 848:	c9 f7       	brne	.-14     	; 0x83c <loggerWrite+0x4>
+    {
+        while ( !( UCSRA & (1<<5)) ) {} 
+        UDR=*message++;
+    }
+}
+ 84a:	08 95       	ret
+
+0000084c <loggerWriteByteInBit>:
+//=============================================================================
+void loggerInit(){
+	usart_init();
+}
+//=============================================================================
+void loggerWriteByteInBit(const unsigned char byte){
+ 84c:	df 93       	push	r29
+ 84e:	cf 93       	push	r28
+ 850:	cd b7       	in	r28, 0x3d	; 61
+ 852:	de b7       	in	r29, 0x3e	; 62
+ 854:	28 97       	sbiw	r28, 0x08	; 8
+ 856:	0f b6       	in	r0, 0x3f	; 63
+ 858:	f8 94       	cli
+ 85a:	de bf       	out	0x3e, r29	; 62
+ 85c:	0f be       	out	0x3f, r0	; 63
+ 85e:	cd bf       	out	0x3d, r28	; 61
+	char bit[8];
+	for (char i = 0, j = 7; i < 8; i++, j--){
+		bit[i] = ((byte & (1<<j)) > 0) ? '1' : '0';
+ 860:	fe 01       	movw	r30, r28
+ 862:	31 96       	adiw	r30, 0x01	; 1
+	usart_init();
+}
+//=============================================================================
+void loggerWriteByteInBit(const unsigned char byte){
+	char bit[8];
+	for (char i = 0, j = 7; i < 8; i++, j--){
+ 864:	67 e0       	ldi	r22, 0x07	; 7
+		bit[i] = ((byte & (1<<j)) > 0) ? '1' : '0';
+ 866:	21 e0       	ldi	r18, 0x01	; 1
+ 868:	30 e0       	ldi	r19, 0x00	; 0
+ 86a:	90 e0       	ldi	r25, 0x00	; 0
+ 86c:	a9 01       	movw	r20, r18
+ 86e:	06 2e       	mov	r0, r22
+ 870:	02 c0       	rjmp	.+4      	; 0x876 <loggerWriteByteInBit+0x2a>
+ 872:	44 0f       	add	r20, r20
+ 874:	55 1f       	adc	r21, r21
+ 876:	0a 94       	dec	r0
+ 878:	e2 f7       	brpl	.-8      	; 0x872 <loggerWriteByteInBit+0x26>
+ 87a:	48 23       	and	r20, r24
+ 87c:	59 23       	and	r21, r25
+ 87e:	14 16       	cp	r1, r20
+ 880:	15 06       	cpc	r1, r21
+ 882:	14 f4       	brge	.+4      	; 0x888 <loggerWriteByteInBit+0x3c>
+ 884:	41 e3       	ldi	r20, 0x31	; 49
+ 886:	01 c0       	rjmp	.+2      	; 0x88a <loggerWriteByteInBit+0x3e>
+ 888:	40 e3       	ldi	r20, 0x30	; 48
+ 88a:	41 93       	st	Z+, r20
+	usart_init();
+}
+//=============================================================================
+void loggerWriteByteInBit(const unsigned char byte){
+	char bit[8];
+	for (char i = 0, j = 7; i < 8; i++, j--){
+ 88c:	66 23       	and	r22, r22
+ 88e:	11 f0       	breq	.+4      	; 0x894 <loggerWriteByteInBit+0x48>
+ 890:	61 50       	subi	r22, 0x01	; 1
+ 892:	ec cf       	rjmp	.-40     	; 0x86c <loggerWriteByteInBit+0x20>
+		bit[i] = ((byte & (1<<j)) > 0) ? '1' : '0';
+	}
+	loggerWrite(bit,8);
+ 894:	ce 01       	movw	r24, r28
+ 896:	01 96       	adiw	r24, 0x01	; 1
+ 898:	68 e0       	ldi	r22, 0x08	; 8
+ 89a:	ce df       	rcall	.-100    	; 0x838 <loggerWrite>
+}
+ 89c:	28 96       	adiw	r28, 0x08	; 8
+ 89e:	0f b6       	in	r0, 0x3f	; 63
+ 8a0:	f8 94       	cli
+ 8a2:	de bf       	out	0x3e, r29	; 62
+ 8a4:	0f be       	out	0x3f, r0	; 63
+ 8a6:	cd bf       	out	0x3d, r28	; 61
+ 8a8:	cf 91       	pop	r28
+ 8aa:	df 91       	pop	r29
+ 8ac:	08 95       	ret
+
+000008ae <loggerWriteToMarker>:
+        while ( !( UCSRA & (1<<5)) ) {} 
+        UDR=*message++;
+    }
+}
+//=============================================================================
+void loggerWriteToMarker(const unsigned char *message, char end_markser){
+ 8ae:	28 2f       	mov	r18, r24
+ 8b0:	39 2f       	mov	r19, r25
+ 8b2:	f9 01       	movw	r30, r18
+    while(*message != end_markser)
+ 8b4:	03 c0       	rjmp	.+6      	; 0x8bc <loggerWriteToMarker+0xe>
+    {
+        while ( !( UCSRA & (1<<5)) ) {} 
+ 8b6:	5d 9b       	sbis	0x0b, 5	; 11
+ 8b8:	fe cf       	rjmp	.-4      	; 0x8b6 <loggerWriteToMarker+0x8>
+        UDR=*message++;
+ 8ba:	8c b9       	out	0x0c, r24	; 12
+        UDR=*message++;
+    }
+}
+//=============================================================================
+void loggerWriteToMarker(const unsigned char *message, char end_markser){
+    while(*message != end_markser)
+ 8bc:	81 91       	ld	r24, Z+
+ 8be:	86 17       	cp	r24, r22
+ 8c0:	d1 f7       	brne	.-12     	; 0x8b6 <loggerWriteToMarker+0x8>
+    {
+        while ( !( UCSRA & (1<<5)) ) {} 
+        UDR=*message++;
+    }
+}
+ 8c2:	08 95       	ret
+
+000008c4 <__vector_11>:
+//=============================================================================
+ISR (USART_RXC_vect)
+{
+ 8c4:	1f 92       	push	r1
+ 8c6:	0f 92       	push	r0
+ 8c8:	0f b6       	in	r0, 0x3f	; 63
+ 8ca:	0f 92       	push	r0
+ 8cc:	11 24       	eor	r1, r1
+ 8ce:	8f 93       	push	r24
+ 8d0:	9f 93       	push	r25
+ 8d2:	ef 93       	push	r30
+ 8d4:	ff 93       	push	r31
+	//ledTaggle(LEDRED1);
+	char status,data;
+	status = UCSRA;
+ 8d6:	8b b1       	in	r24, 0x0b	; 11
+	data = UDR;
+ 8d8:	9c b1       	in	r25, 0x0c	; 12
+//	if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0){
+		if (rx_counter == RX_BUFFER_SIZE)
+ 8da:	80 91 ef 00 	lds	r24, 0x00EF
+ 8de:	80 38       	cpi	r24, 0x80	; 128
+ 8e0:	51 f0       	breq	.+20     	; 0x8f6 <__vector_11+0x32>
+			return;
+
+	   	rx_buffer[rx_counter++] = data;
+ 8e2:	80 91 ef 00 	lds	r24, 0x00EF
+ 8e6:	e8 2f       	mov	r30, r24
+ 8e8:	f0 e0       	ldi	r31, 0x00	; 0
+ 8ea:	e3 5f       	subi	r30, 0xF3	; 243
+ 8ec:	fd 4f       	sbci	r31, 0xFD	; 253
+ 8ee:	90 83       	st	Z, r25
+ 8f0:	8f 5f       	subi	r24, 0xFF	; 255
+ 8f2:	80 93 ef 00 	sts	0x00EF, r24
+//	}
+}
+ 8f6:	ff 91       	pop	r31
+ 8f8:	ef 91       	pop	r30
+ 8fa:	9f 91       	pop	r25
+ 8fc:	8f 91       	pop	r24
+ 8fe:	0f 90       	pop	r0
+ 900:	0f be       	out	0x3f, r0	; 63
+ 902:	0f 90       	pop	r0
+ 904:	1f 90       	pop	r1
+ 906:	18 95       	reti
+
+00000908 <getData>:
+//=============================================================================
+unsigned char getData(char * buffer, unsigned char buf_len){
+
+	if (rx_counter == 0)
+ 908:	20 91 ef 00 	lds	r18, 0x00EF
+ 90c:	22 23       	and	r18, r18
+ 90e:	e9 f0       	breq	.+58     	; 0x94a <getData+0x42>
+		return 0;
+	cli();
+ 910:	f8 94       	cli
+	unsigned char c,
+		end = (buf_len < RX_BUFFER_SIZE) ? buf_len : RX_BUFFER_SIZE;
+ 912:	67 fd       	sbrc	r22, 7
+ 914:	60 e8       	ldi	r22, 0x80	; 128
+		end = (end < rx_counter) ? end : rx_counter;
+ 916:	20 91 ef 00 	lds	r18, 0x00EF
+ 91a:	62 17       	cp	r22, r18
+ 91c:	10 f0       	brcs	.+4      	; 0x922 <getData+0x1a>
+ 91e:	60 91 ef 00 	lds	r22, 0x00EF
+ 922:	46 2f       	mov	r20, r22
+		c = end;
+
+	while(end--){
+ 924:	0b c0       	rjmp	.+22     	; 0x93c <getData+0x34>
+ 926:	41 50       	subi	r20, 0x01	; 1
+		buffer[end] = rx_buffer[end];
+ 928:	24 2f       	mov	r18, r20
+ 92a:	30 e0       	ldi	r19, 0x00	; 0
+ 92c:	f9 01       	movw	r30, r18
+ 92e:	e3 5f       	subi	r30, 0xF3	; 243
+ 930:	fd 4f       	sbci	r31, 0xFD	; 253
+ 932:	50 81       	ld	r21, Z
+ 934:	28 0f       	add	r18, r24
+ 936:	39 1f       	adc	r19, r25
+ 938:	f9 01       	movw	r30, r18
+ 93a:	50 83       	st	Z, r21
+	unsigned char c,
+		end = (buf_len < RX_BUFFER_SIZE) ? buf_len : RX_BUFFER_SIZE;
+		end = (end < rx_counter) ? end : rx_counter;
+		c = end;
+
+	while(end--){
+ 93c:	44 23       	and	r20, r20
+ 93e:	99 f7       	brne	.-26     	; 0x926 <getData+0x1e>
+		buffer[end] = rx_buffer[end];
+	}
+
+	rx_counter = 0;
+ 940:	10 92 ef 00 	sts	0x00EF, r1
+	sei();
+ 944:	78 94       	sei
+
+	return c;
+ 946:	86 2f       	mov	r24, r22
+ 948:	08 95       	ret
+}
+//=============================================================================
+unsigned char getData(char * buffer, unsigned char buf_len){
+
+	if (rx_counter == 0)
+		return 0;
+ 94a:	80 e0       	ldi	r24, 0x00	; 0
+
+	rx_counter = 0;
+	sei();
+
+	return c;
+}
+ 94c:	08 95       	ret
+
+0000094e <colibrateDetector>:
+void colibrateDetector(){
+
+	enum {GOTOPAUSE, PAUSE, CHECKEXT, PROCESSBUTTON, PROCESSNOCK};
+	static char state = GOTOPAUSE;
+	
+	switch (state){
+ 94e:	80 91 f0 00 	lds	r24, 0x00F0
+ 952:	81 30       	cpi	r24, 0x01	; 1
+ 954:	c1 f0       	breq	.+48     	; 0x986 <colibrateDetector+0x38>
+ 956:	81 30       	cpi	r24, 0x01	; 1
+ 958:	30 f0       	brcs	.+12     	; 0x966 <colibrateDetector+0x18>
+ 95a:	82 30       	cpi	r24, 0x02	; 2
+ 95c:	d1 f0       	breq	.+52     	; 0x992 <colibrateDetector+0x44>
+ 95e:	84 30       	cpi	r24, 0x04	; 4
+ 960:	09 f0       	breq	.+2      	; 0x964 <colibrateDetector+0x16>
+ 962:	52 c0       	rjmp	.+164    	; 0xa08 <colibrateDetector+0xba>
+ 964:	3a c0       	rjmp	.+116    	; 0x9da <colibrateDetector+0x8c>
+
+			#ifdef LOGGDEBUG
+			loggerWriteToMarker((LogMesT)" GOTOPAUSE \r*", '*');
+			#endif
+
+			ledOff(LEDRED1);
+ 966:	81 e0       	ldi	r24, 0x01	; 1
+ 968:	32 dc       	rcall	.-1948   	; 0x1ce <ledOff>
+			ledOff(LEDRED2);
+ 96a:	83 e0       	ldi	r24, 0x03	; 3
+ 96c:	30 dc       	rcall	.-1952   	; 0x1ce <ledOff>
+			ledOff(LEDGREEN1);
+ 96e:	80 e0       	ldi	r24, 0x00	; 0
+ 970:	2e dc       	rcall	.-1956   	; 0x1ce <ledOff>
+			ledOff(LEDGREEN2);
+ 972:	82 e0       	ldi	r24, 0x02	; 2
+ 974:	2c dc       	rcall	.-1960   	; 0x1ce <ledOff>
+
+			timerSet(TIMER_NOCK, 0, 30);
+ 976:	80 e0       	ldi	r24, 0x00	; 0
+ 978:	60 e0       	ldi	r22, 0x00	; 0
+ 97a:	70 e0       	ldi	r23, 0x00	; 0
+ 97c:	4e e1       	ldi	r20, 0x1E	; 30
+ 97e:	50 e0       	ldi	r21, 0x00	; 0
+ 980:	b9 de       	rcall	.-654    	; 0x6f4 <timerSet>
+			state = PAUSE;
+ 982:	81 e0       	ldi	r24, 0x01	; 1
+ 984:	27 c0       	rjmp	.+78     	; 0x9d4 <colibrateDetector+0x86>
+			break;
+
+		case PAUSE:
+
+			if (timerIsElapsed(TIMER_NOCK) == TRUE){
+ 986:	80 e0       	ldi	r24, 0x00	; 0
+ 988:	c6 de       	rcall	.-628    	; 0x716 <timerIsElapsed>
+ 98a:	81 30       	cpi	r24, 0x01	; 1
+ 98c:	e9 f5       	brne	.+122    	; 0xa08 <colibrateDetector+0xba>
+				state = CHECKEXT;
+ 98e:	82 e0       	ldi	r24, 0x02	; 2
+ 990:	21 c0       	rjmp	.+66     	; 0x9d4 <colibrateDetector+0x86>
+			}
+			break;
+
+		case CHECKEXT:
+
+			if(buttonIsPressed(BUTTONDOOR) == TRUE){
+ 992:	80 e0       	ldi	r24, 0x00	; 0
+ 994:	9e db       	rcall	.-2244   	; 0xd2 <buttonIsPressed>
+ 996:	81 30       	cpi	r24, 0x01	; 1
+ 998:	c1 f4       	brne	.+48     	; 0x9ca <colibrateDetector+0x7c>
+
+				#ifdef LOGGDEBUG
+				loggerWriteToMarker((LogMesT)" setNextSence \r*", '*');
+				#endif
+
+				setNextSence();
+ 99a:	4c dc       	rcall	.-1896   	; 0x234 <setNextSence>
+				changeFlag(FLAG_NOCK, FALSE);
+ 99c:	80 e0       	ldi	r24, 0x00	; 0
+ 99e:	60 e0       	ldi	r22, 0x00	; 0
+ 9a0:	e5 dc       	rcall	.-1590   	; 0x36c <changeFlag>
+
+				ledOn(LEDRED1);
+ 9a2:	81 e0       	ldi	r24, 0x01	; 1
+ 9a4:	04 dc       	rcall	.-2040   	; 0x1ae <ledOn>
+				ledOn(LEDRED2);
+ 9a6:	83 e0       	ldi	r24, 0x03	; 3
+ 9a8:	02 dc       	rcall	.-2044   	; 0x1ae <ledOn>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 9aa:	8f ef       	ldi	r24, 0xFF	; 255
+ 9ac:	92 e5       	ldi	r25, 0x52	; 82
+ 9ae:	a7 e0       	ldi	r26, 0x07	; 7
+ 9b0:	81 50       	subi	r24, 0x01	; 1
+ 9b2:	90 40       	sbci	r25, 0x00	; 0
+ 9b4:	a0 40       	sbci	r26, 0x00	; 0
+ 9b6:	e1 f7       	brne	.-8      	; 0x9b0 <colibrateDetector+0x62>
+ 9b8:	00 c0       	rjmp	.+0      	; 0x9ba <colibrateDetector+0x6c>
+ 9ba:	00 00       	nop
+				_delay_ms(300);
+				ledOff(LEDRED1);
+ 9bc:	81 e0       	ldi	r24, 0x01	; 1
+ 9be:	07 dc       	rcall	.-2034   	; 0x1ce <ledOff>
+				ledOff(LEDRED2);
+ 9c0:	83 e0       	ldi	r24, 0x03	; 3
+ 9c2:	05 dc       	rcall	.-2038   	; 0x1ce <ledOff>
+
+
+				state = GOTOPAUSE;
+ 9c4:	10 92 f0 00 	sts	0x00F0, r1
+				return;
+ 9c8:	08 95       	ret
+			}
+
+			if (getFlag(FLAG_NOCK) == TRUE){
+ 9ca:	80 e0       	ldi	r24, 0x00	; 0
+ 9cc:	d5 dc       	rcall	.-1622   	; 0x378 <getFlag>
+ 9ce:	81 30       	cpi	r24, 0x01	; 1
+ 9d0:	d9 f4       	brne	.+54     	; 0xa08 <colibrateDetector+0xba>
+				state = PROCESSNOCK;
+ 9d2:	84 e0       	ldi	r24, 0x04	; 4
+ 9d4:	80 93 f0 00 	sts	0x00F0, r24
+ 9d8:	08 95       	ret
+			
+			#ifdef LOGGDEBUG
+			loggerWriteToMarker((LogMesT)" PROCESSNOCK \r*", '*');
+			#endif
+
+			ledOn(LEDGREEN1);
+ 9da:	80 e0       	ldi	r24, 0x00	; 0
+ 9dc:	e8 db       	rcall	.-2096   	; 0x1ae <ledOn>
+			ledOn(LEDGREEN2);
+ 9de:	82 e0       	ldi	r24, 0x02	; 2
+ 9e0:	e6 db       	rcall	.-2100   	; 0x1ae <ledOn>
+ 9e2:	8f ef       	ldi	r24, 0xFF	; 255
+ 9e4:	92 e5       	ldi	r25, 0x52	; 82
+ 9e6:	a7 e0       	ldi	r26, 0x07	; 7
+ 9e8:	81 50       	subi	r24, 0x01	; 1
+ 9ea:	90 40       	sbci	r25, 0x00	; 0
+ 9ec:	a0 40       	sbci	r26, 0x00	; 0
+ 9ee:	e1 f7       	brne	.-8      	; 0x9e8 <colibrateDetector+0x9a>
+ 9f0:	00 c0       	rjmp	.+0      	; 0x9f2 <colibrateDetector+0xa4>
+ 9f2:	00 00       	nop
+			_delay_ms(300);
+			ledOff(LEDGREEN1);
+ 9f4:	80 e0       	ldi	r24, 0x00	; 0
+ 9f6:	eb db       	rcall	.-2090   	; 0x1ce <ledOff>
+			ledOff(LEDGREEN2);
+ 9f8:	82 e0       	ldi	r24, 0x02	; 2
+ 9fa:	e9 db       	rcall	.-2094   	; 0x1ce <ledOff>
+
+					
+			changeFlag(FLAG_NOCK, FALSE);
+ 9fc:	80 e0       	ldi	r24, 0x00	; 0
+ 9fe:	60 e0       	ldi	r22, 0x00	; 0
+ a00:	b5 dc       	rcall	.-1686   	; 0x36c <changeFlag>
+			state = CHECKEXT;
+ a02:	82 e0       	ldi	r24, 0x02	; 2
+ a04:	80 93 f0 00 	sts	0x00F0, r24
+ a08:	08 95       	ret
+
+00000a0a <initSendMachine>:
+char processWait();
+void initSendMachine();
+//=======================================================================================
+void initSendMachine(){
+	//senderInit();
+	Init_Spi();
+ a0a:	b9 d0       	rcall	.+370    	; 0xb7e <Init_Spi>
+	RFM73_Initialize();
+ a0c:	5b d1       	rcall	.+694    	; 0xcc4 <RFM73_Initialize>
+	RFM73_SetPower(0x03);
+ a0e:	83 e0       	ldi	r24, 0x03	; 3
+ a10:	30 d2       	rcall	.+1120   	; 0xe72 <RFM73_SetPower>
+	SwitchToTxMode();
+ a12:	38 d1       	rcall	.+624    	; 0xc84 <SwitchToTxMode>
+}
+ a14:	08 95       	ret
+
+00000a16 <processWait>:
+//=======================================================================================
+char processWait(){
+	enum {FIRST, SECOND};
+	static char local_state = FIRST;
+
+	switch (local_state){
+ a16:	80 91 f1 00 	lds	r24, 0x00F1
+ a1a:	88 23       	and	r24, r24
+ a1c:	19 f0       	breq	.+6      	; 0xa24 <processWait+0xe>
+ a1e:	81 30       	cpi	r24, 0x01	; 1
+ a20:	91 f4       	brne	.+36     	; 0xa46 <processWait+0x30>
+ a22:	0a c0       	rjmp	.+20     	; 0xa38 <processWait+0x22>
+		case FIRST:
+			timerSet(TIMER_RADIO_WAIT, 0, TIMER_VALUE_RADIO_WAIT); // run nock noise timer
+ a24:	83 e0       	ldi	r24, 0x03	; 3
+ a26:	60 e0       	ldi	r22, 0x00	; 0
+ a28:	70 e0       	ldi	r23, 0x00	; 0
+ a2a:	45 e0       	ldi	r20, 0x05	; 5
+ a2c:	50 e0       	ldi	r21, 0x00	; 0
+ a2e:	62 de       	rcall	.-828    	; 0x6f4 <timerSet>
+			local_state = SECOND;
+ a30:	81 e0       	ldi	r24, 0x01	; 1
+ a32:	80 93 f1 00 	sts	0x00F1, r24
+ a36:	07 c0       	rjmp	.+14     	; 0xa46 <processWait+0x30>
+		break;
+
+		case SECOND:
+			if (timerIsElapsed(TIMER_RADIO_WAIT) != TRUE) return FALSE;
+ a38:	83 e0       	ldi	r24, 0x03	; 3
+ a3a:	6d de       	rcall	.-806    	; 0x716 <timerIsElapsed>
+ a3c:	81 30       	cpi	r24, 0x01	; 1
+ a3e:	29 f4       	brne	.+10     	; 0xa4a <processWait+0x34>
+			local_state = FIRST;
+ a40:	10 92 f1 00 	sts	0x00F1, r1
+			return TRUE;
+ a44:	08 95       	ret
+		break;
+
+		default: break;
+	}
+	return FALSE;
+ a46:	80 e0       	ldi	r24, 0x00	; 0
+ a48:	08 95       	ret
+			timerSet(TIMER_RADIO_WAIT, 0, TIMER_VALUE_RADIO_WAIT); // run nock noise timer
+			local_state = SECOND;
+		break;
+
+		case SECOND:
+			if (timerIsElapsed(TIMER_RADIO_WAIT) != TRUE) return FALSE;
+ a4a:	80 e0       	ldi	r24, 0x00	; 0
+		break;
+
+		default: break;
+	}
+	return FALSE;
+}
+ a4c:	08 95       	ret
+
+00000a4e <sendMachine_3>:
+	RFM73_SetPower(0x03);
+	SwitchToTxMode();
+}
+//=======================================================================================
+//inline
+void sendMachine_3(){
+ a4e:	df 93       	push	r29
+ a50:	cf 93       	push	r28
+ a52:	00 d0       	rcall	.+0      	; 0xa54 <sendMachine_3+0x6>
+ a54:	00 d0       	rcall	.+0      	; 0xa56 <sendMachine_3+0x8>
+ a56:	00 d0       	rcall	.+0      	; 0xa58 <sendMachine_3+0xa>
+ a58:	cd b7       	in	r28, 0x3d	; 61
+ a5a:	de b7       	in	r29, 0x3e	; 62
+			DATAMARKERPOSITION = 0, DATAMARKER = '?',
+			DATACODELENPOSITION = 1,
+			DATACODEPOSION = 2		};
+
+	#define ASKDATALEN 3
+	char ASKDATA[ASKDATALEN] = "***";
+ a5c:	de 01       	movw	r26, r28
+ a5e:	11 96       	adiw	r26, 0x01	; 1
+ a60:	e8 e6       	ldi	r30, 0x68	; 104
+ a62:	f0 e0       	ldi	r31, 0x00	; 0
+ a64:	83 e0       	ldi	r24, 0x03	; 3
+ a66:	01 90       	ld	r0, Z+
+ a68:	0d 92       	st	X+, r0
+ a6a:	81 50       	subi	r24, 0x01	; 1
+ a6c:	e1 f7       	brne	.-8      	; 0xa66 <sendMachine_3+0x18>
+	#define ANSWERDATALEN 3
+	char ANSWERDATA[ANSWERDATALEN] = "+++";
+ a6e:	de 01       	movw	r26, r28
+ a70:	14 96       	adiw	r26, 0x04	; 4
+ a72:	ec e6       	ldi	r30, 0x6C	; 108
+ a74:	f0 e0       	ldi	r31, 0x00	; 0
+ a76:	83 e0       	ldi	r24, 0x03	; 3
+ a78:	01 90       	ld	r0, Z+
+ a7a:	0d 92       	st	X+, r0
+ a7c:	81 50       	subi	r24, 0x01	; 1
+ a7e:	e1 f7       	brne	.-8      	; 0xa78 <sendMachine_3+0x2a>
+
+
+	enum {WAITNEWCODE, WAITCODEDONE, WAITBOX, SENDTOBOX, WAITDELAY};
+	static char state = WAITNEWCODE;
+
+	switch (state){
+ a80:	80 91 f2 00 	lds	r24, 0x00F2
+ a84:	82 30       	cpi	r24, 0x02	; 2
+ a86:	d1 f0       	breq	.+52     	; 0xabc <sendMachine_3+0x6e>
+ a88:	83 30       	cpi	r24, 0x03	; 3
+ a8a:	30 f4       	brcc	.+12     	; 0xa98 <sendMachine_3+0x4a>
+ a8c:	88 23       	and	r24, r24
+ a8e:	51 f0       	breq	.+20     	; 0xaa4 <sendMachine_3+0x56>
+ a90:	81 30       	cpi	r24, 0x01	; 1
+ a92:	09 f0       	breq	.+2      	; 0xa96 <sendMachine_3+0x48>
+ a94:	6b c0       	rjmp	.+214    	; 0xb6c <sendMachine_3+0x11e>
+ a96:	0c c0       	rjmp	.+24     	; 0xab0 <sendMachine_3+0x62>
+ a98:	83 30       	cpi	r24, 0x03	; 3
+ a9a:	d9 f1       	breq	.+118    	; 0xb12 <sendMachine_3+0xc4>
+ a9c:	84 30       	cpi	r24, 0x04	; 4
+ a9e:	09 f0       	breq	.+2      	; 0xaa2 <sendMachine_3+0x54>
+ aa0:	65 c0       	rjmp	.+202    	; 0xb6c <sendMachine_3+0x11e>
+ aa2:	30 c0       	rjmp	.+96     	; 0xb04 <sendMachine_3+0xb6>
+		//========================
+		case WAITNEWCODE:
+		//========================
+			if (getFlag(FLAG_NEW_NOCK) == TRUE)
+ aa4:	82 e0       	ldi	r24, 0x02	; 2
+ aa6:	68 dc       	rcall	.-1840   	; 0x378 <getFlag>
+ aa8:	81 30       	cpi	r24, 0x01	; 1
+ aaa:	09 f0       	breq	.+2      	; 0xaae <sendMachine_3+0x60>
+ aac:	5f c0       	rjmp	.+190    	; 0xb6c <sendMachine_3+0x11e>
+ aae:	2e c0       	rjmp	.+92     	; 0xb0c <sendMachine_3+0xbe>
+				state = WAITCODEDONE;
+		break;
+		//========================
+		case WAITCODEDONE:
+		//========================
+			if (getFlag(FLAG_NEW_NOCK) == FALSE)
+ ab0:	82 e0       	ldi	r24, 0x02	; 2
+ ab2:	62 dc       	rcall	.-1852   	; 0x378 <getFlag>
+ ab4:	88 23       	and	r24, r24
+ ab6:	09 f0       	breq	.+2      	; 0xaba <sendMachine_3+0x6c>
+ ab8:	59 c0       	rjmp	.+178    	; 0xb6c <sendMachine_3+0x11e>
+ aba:	27 c0       	rjmp	.+78     	; 0xb0a <sendMachine_3+0xbc>
+				state = WAITBOX;
+		break;
+		//========================
+		case WAITBOX:{
+		//========================
+			char len = Receive_Packet(data, DATAMAXLEN);
+ abc:	83 ef       	ldi	r24, 0xF3	; 243
+ abe:	90 e0       	ldi	r25, 0x00	; 0
+ ac0:	60 e4       	ldi	r22, 0x40	; 64
+ ac2:	04 d2       	rcall	.+1032   	; 0xecc <Receive_Packet>
+			if (len > 0){
+ ac4:	88 23       	and	r24, r24
+ ac6:	a1 f0       	breq	.+40     	; 0xaf0 <sendMachine_3+0xa2>
+				loggerWriteToMarker((LogMesT)" WAITBOX get data: *", '*');
+				loggerWrite((LogMesT)data, len);
+				#endif
+
+				for (char i = 0; i < ANSWERDATALEN; i++)
+					if (data[i] != ANSWERDATA[i])
+ ac8:	90 91 f3 00 	lds	r25, 0x00F3
+ acc:	8c 81       	ldd	r24, Y+4	; 0x04
+ ace:	98 17       	cp	r25, r24
+ ad0:	09 f0       	breq	.+2      	; 0xad4 <sendMachine_3+0x86>
+ ad2:	4c c0       	rjmp	.+152    	; 0xb6c <sendMachine_3+0x11e>
+ ad4:	90 91 f4 00 	lds	r25, 0x00F4
+ ad8:	8d 81       	ldd	r24, Y+5	; 0x05
+ ada:	98 17       	cp	r25, r24
+ adc:	09 f0       	breq	.+2      	; 0xae0 <sendMachine_3+0x92>
+ ade:	46 c0       	rjmp	.+140    	; 0xb6c <sendMachine_3+0x11e>
+ ae0:	90 91 f5 00 	lds	r25, 0x00F5
+ ae4:	8e 81       	ldd	r24, Y+6	; 0x06
+ ae6:	98 17       	cp	r25, r24
+ ae8:	09 f0       	breq	.+2      	; 0xaec <sendMachine_3+0x9e>
+ aea:	40 c0       	rjmp	.+128    	; 0xb6c <sendMachine_3+0x11e>
+						return;
+				
+				state = SENDTOBOX;
+ aec:	83 e0       	ldi	r24, 0x03	; 3
+ aee:	0e c0       	rjmp	.+28     	; 0xb0c <sendMachine_3+0xbe>
+				break;
+			}
+			SwitchToTxMode();
+ af0:	c9 d0       	rcall	.+402    	; 0xc84 <SwitchToTxMode>
+
+			Send_Packet(W_TX_PAYLOAD_NOACK_CMD, (unsigned char *)ASKDATA, ASKDATALEN);
+ af2:	80 eb       	ldi	r24, 0xB0	; 176
+ af4:	be 01       	movw	r22, r28
+ af6:	6f 5f       	subi	r22, 0xFF	; 255
+ af8:	7f 4f       	sbci	r23, 0xFF	; 255
+ afa:	43 e0       	ldi	r20, 0x03	; 3
+ afc:	c2 d1       	rcall	.+900    	; 0xe82 <Send_Packet>
+			//Send_Packet(0, ASKDATA, ASKDATALEN);
+			SwitchToRxMode();
+ afe:	b1 d0       	rcall	.+354    	; 0xc62 <SwitchToRxMode>
+
+			state = WAITDELAY;
+ b00:	84 e0       	ldi	r24, 0x04	; 4
+ b02:	04 c0       	rjmp	.+8      	; 0xb0c <sendMachine_3+0xbe>
+		}break;
+		//========================
+		case WAITDELAY:
+		//========================
+			if (processWait() == TRUE)
+ b04:	88 df       	rcall	.-240    	; 0xa16 <processWait>
+ b06:	81 30       	cpi	r24, 0x01	; 1
+ b08:	89 f5       	brne	.+98     	; 0xb6c <sendMachine_3+0x11e>
+				#ifdef LOGG	
+				loggerWriteToMarker((LogMesT)" goto WAITBOX\r*", '*');
+				#endif
+
+				state = WAITBOX;
+ b0a:	82 e0       	ldi	r24, 0x02	; 2
+ b0c:	80 93 f2 00 	sts	0x00F2, r24
+ b10:	2d c0       	rjmp	.+90     	; 0xb6c <sendMachine_3+0x11e>
+
+			#ifdef LOGG	
+			loggerWriteToMarker((LogMesT)" SENDTOBOX\r*", '*');
+			#endif
+
+			SwitchToTxMode();
+ b12:	b8 d0       	rcall	.+368    	; 0xc84 <SwitchToTxMode>
+
+			Nock * nock = getNock(NOCK_PATTERN);
+ b14:	80 e0       	ldi	r24, 0x00	; 0
+ b16:	ee db       	rcall	.-2084   	; 0x2f4 <getNock>
+ b18:	fc 01       	movw	r30, r24
+
+			data[DATAMARKERPOSITION] = DATAMARKER;
+ b1a:	8f e3       	ldi	r24, 0x3F	; 63
+ b1c:	80 93 f3 00 	sts	0x00F3, r24
+			data[DATACODELENPOSITION] = nock->count;
+ b20:	84 ad       	ldd	r24, Z+60	; 0x3c
+ b22:	80 93 f4 00 	sts	0x00F4, r24
+
+			unsigned char i;
+			for (i = 0; i < nock->count; i++){
+ b26:	40 e0       	ldi	r20, 0x00	; 0
+ b28:	0e c0       	rjmp	.+28     	; 0xb46 <sendMachine_3+0xf8>
+				data[DATACODEPOSION + i] = nock->nock[i];
+ b2a:	9c 01       	movw	r18, r24
+ b2c:	2d 50       	subi	r18, 0x0D	; 13
+ b2e:	3f 4f       	sbci	r19, 0xFF	; 255
+ b30:	dc 01       	movw	r26, r24
+ b32:	aa 0f       	add	r26, r26
+ b34:	bb 1f       	adc	r27, r27
+ b36:	ae 0f       	add	r26, r30
+ b38:	bf 1f       	adc	r27, r31
+ b3a:	8c 91       	ld	r24, X
+ b3c:	d9 01       	movw	r26, r18
+ b3e:	12 96       	adiw	r26, 0x02	; 2
+ b40:	8c 93       	st	X, r24
+ b42:	12 97       	sbiw	r26, 0x02	; 2
+
+			data[DATAMARKERPOSITION] = DATAMARKER;
+			data[DATACODELENPOSITION] = nock->count;
+
+			unsigned char i;
+			for (i = 0; i < nock->count; i++){
+ b44:	4f 5f       	subi	r20, 0xFF	; 255
+ b46:	24 ad       	ldd	r18, Z+60	; 0x3c
+ b48:	84 2f       	mov	r24, r20
+ b4a:	90 e0       	ldi	r25, 0x00	; 0
+ b4c:	42 17       	cp	r20, r18
+ b4e:	68 f3       	brcs	.-38     	; 0xb2a <sendMachine_3+0xdc>
+				data[DATACODEPOSION + i] = nock->nock[i];
+			}
+
+			data[DATACODEPOSION + i] = DATAMARKER;
+ b50:	8d 50       	subi	r24, 0x0D	; 13
+ b52:	9f 4f       	sbci	r25, 0xFF	; 255
+ b54:	2f e3       	ldi	r18, 0x3F	; 63
+ b56:	dc 01       	movw	r26, r24
+ b58:	12 96       	adiw	r26, 0x02	; 2
+ b5a:	2c 93       	st	X, r18
+			Send_Packet(W_TX_PAYLOAD_NOACK_CMD, (unsigned char *)data, DATACODEPOSION + nock->count + 1);
+ b5c:	44 ad       	ldd	r20, Z+60	; 0x3c
+ b5e:	4d 5f       	subi	r20, 0xFD	; 253
+ b60:	80 eb       	ldi	r24, 0xB0	; 176
+ b62:	63 ef       	ldi	r22, 0xF3	; 243
+ b64:	70 e0       	ldi	r23, 0x00	; 0
+ b66:	8d d1       	rcall	.+794    	; 0xe82 <Send_Packet>
+			char ch = nock->count + 48;
+			loggerWrite(&ch, 1);
+			#endif
+
+
+			state = WAITNEWCODE;
+ b68:	10 92 f2 00 	sts	0x00F2, r1
+		}break;
+		//========================
+		default: break;
+		//========================
+	}
+}
+ b6c:	26 96       	adiw	r28, 0x06	; 6
+ b6e:	0f b6       	in	r0, 0x3f	; 63
+ b70:	f8 94       	cli
+ b72:	de bf       	out	0x3e, r29	; 62
+ b74:	0f be       	out	0x3f, r0	; 63
+ b76:	cd bf       	out	0x3d, r28	; 61
+ b78:	cf 91       	pop	r28
+ b7a:	df 91       	pop	r29
+ b7c:	08 95       	ret
+
+00000b7e <Init_Spi>:
+// SPI Type: Master
+// SPI Clock Rate: 250,000 kHz
+// SPI Clock Phase: Cycle Half
+// SPI Clock Polarity: Low
+// SPI Data Order: MSB First
+PORTB=0x00;
+ b7e:	18 ba       	out	0x18, r1	; 24
+DDRB=0x3E;
+ b80:	8e e3       	ldi	r24, 0x3E	; 62
+ b82:	87 bb       	out	0x17, r24	; 23
+
+SPCR=0x50;
+ b84:	80 e5       	ldi	r24, 0x50	; 80
+ b86:	8d b9       	out	0x0d, r24	; 13
+SPSR=0x00;
+ b88:	1e b8       	out	0x0e, r1	; 14
+
+//PORTB=0x00;
+//DDRB=0xB8;
+//SPCR=0x51;
+SPSR=0x00;
+ b8a:	1e b8       	out	0x0e, r1	; 14
+}
+ b8c:	08 95       	ret
+
+00000b8e <ReadWrite_Spi>:
+
+UINT8 ReadWrite_Spi(UINT8 value)
+{
+
+	SPDR = value;
+ b8e:	8f b9       	out	0x0f, r24	; 15
+	while(!(SPSR & (1<<SPIF)));
+ b90:	77 9b       	sbis	0x0e, 7	; 14
+ b92:	fe cf       	rjmp	.-4      	; 0xb90 <ReadWrite_Spi+0x2>
+//	if (SPDR)
+//		PORTC = PORTC ^ (1<<7);
+	return SPDR;
+ b94:	8f b1       	in	r24, 0x0f	; 15
+		DOWNBIT(SPIPORT,SCK);//SCK = 0;            		  // ..then set SCK low again
+	}
+	return(value);           		  // return read UINT8
+*/
+
+}
+ b96:	08 95       	ret
+
+00000b98 <SPI_Write_Reg>:
+                                                            
+Description:                                                
+	Writes value 'value' to register 'reg'              
+**************************************************/        
+void SPI_Write_Reg(UINT8 reg, UINT8 value)                 
+{
+ b98:	df 93       	push	r29
+ b9a:	cf 93       	push	r28
+ b9c:	0f 92       	push	r0
+ b9e:	cd b7       	in	r28, 0x3d	; 61
+ ba0:	de b7       	in	r29, 0x3e	; 62
+	DOWNBIT(PORTB, CSN);                   // CSN low, init SPI transaction
+ ba2:	c2 98       	cbi	0x18, 2	; 24
+	op_status = ReadWrite_Spi(reg);      // select register
+ ba4:	69 83       	std	Y+1, r22	; 0x01
+ ba6:	f3 df       	rcall	.-26     	; 0xb8e <ReadWrite_Spi>
+ ba8:	80 93 8d 02 	sts	0x028D, r24
+	ReadWrite_Spi(value);             // ..and write value to it..
+ bac:	69 81       	ldd	r22, Y+1	; 0x01
+ bae:	86 2f       	mov	r24, r22
+ bb0:	ee df       	rcall	.-36     	; 0xb8e <ReadWrite_Spi>
+	UPBIT(PORTB, CSN);                   // CSN high again
+ bb2:	c2 9a       	sbi	0x18, 2	; 24
+}                                                         
+ bb4:	0f 90       	pop	r0
+ bb6:	cf 91       	pop	r28
+ bb8:	df 91       	pop	r29
+ bba:	08 95       	ret
+
+00000bbc <SPI_Read_Reg>:
+	Read one UINT8 from BK2421 register, 'reg'           
+**************************************************/        
+UINT8 SPI_Read_Reg(UINT8 reg)                               
+{                                                           
+	UINT8 value;
+	DOWNBIT(PORTB, CSN);               // CSN low, initialize SPI communication...
+ bbc:	c2 98       	cbi	0x18, 2	; 24
+	op_status=ReadWrite_Spi(reg);            // Select register to read from..
+ bbe:	e7 df       	rcall	.-50     	; 0xb8e <ReadWrite_Spi>
+ bc0:	80 93 8d 02 	sts	0x028D, r24
+	value = ReadWrite_Spi(0);    // ..then read register value
+ bc4:	80 e0       	ldi	r24, 0x00	; 0
+ bc6:	e3 df       	rcall	.-58     	; 0xb8e <ReadWrite_Spi>
+	UPBIT(PORTB, CSN);                // CSN high, terminate SPI communication
+ bc8:	c2 9a       	sbi	0x18, 2	; 24
+
+	return(value);        // return register value
+}                                                           
+ bca:	08 95       	ret
+
+00000bcc <SPI_Read_Buf>:
+                                                            
+Description:                                                
+	Reads 'length' #of length from register 'reg'         
+/**************************************************/        
+void SPI_Read_Buf(UINT8 reg, UINT8 *pBuf, UINT8 length)     
+{                                                           
+ bcc:	ef 92       	push	r14
+ bce:	ff 92       	push	r15
+ bd0:	0f 93       	push	r16
+ bd2:	1f 93       	push	r17
+ bd4:	df 93       	push	r29
+ bd6:	cf 93       	push	r28
+ bd8:	0f 92       	push	r0
+ bda:	cd b7       	in	r28, 0x3d	; 61
+ bdc:	de b7       	in	r29, 0x3e	; 62
+ bde:	16 2f       	mov	r17, r22
+ be0:	04 2f       	mov	r16, r20
+	UINT8 status,byte_ctr;                              
+                                                            
+	DOWNBIT(SPIPORT,CSN);//CSN = 0;                    		// Set CSN l
+ be2:	c2 98       	cbi	0x18, 2	; 24
+	status = ReadWrite_Spi(reg);       		// Select register to write, and read status UINT8
+ be4:	79 83       	std	Y+1, r23	; 0x01
+ be6:	d3 df       	rcall	.-90     	; 0xb8e <ReadWrite_Spi>
+                                                            
+	for(byte_ctr=0;byte_ctr<length;byte_ctr++)           
+ be8:	79 81       	ldd	r23, Y+1	; 0x01
+ bea:	41 2f       	mov	r20, r17
+ bec:	57 2f       	mov	r21, r23
+ bee:	7a 01       	movw	r14, r20
+ bf0:	05 c0       	rjmp	.+10     	; 0xbfc <SPI_Read_Buf+0x30>
+		pBuf[byte_ctr] = ReadWrite_Spi(0);    // Perform ReadWrite_Spi to read UINT8 from RFM73 
+ bf2:	80 e0       	ldi	r24, 0x00	; 0
+ bf4:	cc df       	rcall	.-104    	; 0xb8e <ReadWrite_Spi>
+ bf6:	f7 01       	movw	r30, r14
+ bf8:	81 93       	st	Z+, r24
+ bfa:	7f 01       	movw	r14, r30
+	UINT8 status,byte_ctr;                              
+                                                            
+	DOWNBIT(SPIPORT,CSN);//CSN = 0;                    		// Set CSN l
+	status = ReadWrite_Spi(reg);       		// Select register to write, and read status UINT8
+                                                            
+	for(byte_ctr=0;byte_ctr<length;byte_ctr++)           
+ bfc:	8e 2d       	mov	r24, r14
+ bfe:	81 1b       	sub	r24, r17
+ c00:	80 17       	cp	r24, r16
+ c02:	b8 f3       	brcs	.-18     	; 0xbf2 <SPI_Read_Buf+0x26>
+		pBuf[byte_ctr] = ReadWrite_Spi(0);    // Perform ReadWrite_Spi to read UINT8 from RFM73 
+                                                            
+	UPBIT(SPIPORT,CSN);//CSN = 1;                           // Set CSN high again
+ c04:	c2 9a       	sbi	0x18, 2	; 24
+               
+}                                                           
+ c06:	0f 90       	pop	r0
+ c08:	cf 91       	pop	r28
+ c0a:	df 91       	pop	r29
+ c0c:	1f 91       	pop	r17
+ c0e:	0f 91       	pop	r16
+ c10:	ff 90       	pop	r15
+ c12:	ef 90       	pop	r14
+ c14:	08 95       	ret
+
+00000c16 <SPI_Write_Buf>:
+                                                            
+Description:                                                
+	Writes contents of buffer '*pBuf' to RFM73         
+/**************************************************/        
+void SPI_Write_Buf(UINT8 reg, UINT8 *pBuf, UINT8 length)    
+{                                                           
+ c16:	ef 92       	push	r14
+ c18:	ff 92       	push	r15
+ c1a:	0f 93       	push	r16
+ c1c:	1f 93       	push	r17
+ c1e:	df 93       	push	r29
+ c20:	cf 93       	push	r28
+ c22:	0f 92       	push	r0
+ c24:	cd b7       	in	r28, 0x3d	; 61
+ c26:	de b7       	in	r29, 0x3e	; 62
+ c28:	16 2f       	mov	r17, r22
+ c2a:	04 2f       	mov	r16, r20
+	UINT8 byte_ctr;                              
+                                                            
+	DOWNBIT(SPIPORT,CSN);//CSN = 0;                   // Set CSN low, init SPI tranaction
+ c2c:	c2 98       	cbi	0x18, 2	; 24
+	op_status = ReadWrite_Spi(reg);    // Select register to write to and read status UINT8
+ c2e:	79 83       	std	Y+1, r23	; 0x01
+ c30:	ae df       	rcall	.-164    	; 0xb8e <ReadWrite_Spi>
+ c32:	80 93 8d 02 	sts	0x028D, r24
+	for(byte_ctr=0; byte_ctr<length; byte_ctr++) // then write all UINT8 in buffer(*pBuf) 
+ c36:	79 81       	ldd	r23, Y+1	; 0x01
+ c38:	41 2f       	mov	r20, r17
+ c3a:	57 2f       	mov	r21, r23
+ c3c:	7a 01       	movw	r14, r20
+ c3e:	04 c0       	rjmp	.+8      	; 0xc48 <SPI_Write_Buf+0x32>
+		ReadWrite_Spi(*pBuf++);                                    
+ c40:	f7 01       	movw	r30, r14
+ c42:	81 91       	ld	r24, Z+
+ c44:	7f 01       	movw	r14, r30
+ c46:	a3 df       	rcall	.-186    	; 0xb8e <ReadWrite_Spi>
+{                                                           
+	UINT8 byte_ctr;                              
+                                                            
+	DOWNBIT(SPIPORT,CSN);//CSN = 0;                   // Set CSN low, init SPI tranaction
+	op_status = ReadWrite_Spi(reg);    // Select register to write to and read status UINT8
+	for(byte_ctr=0; byte_ctr<length; byte_ctr++) // then write all UINT8 in buffer(*pBuf) 
+ c48:	8e 2d       	mov	r24, r14
+ c4a:	81 1b       	sub	r24, r17
+ c4c:	80 17       	cp	r24, r16
+ c4e:	c0 f3       	brcs	.-16     	; 0xc40 <SPI_Write_Buf+0x2a>
+		ReadWrite_Spi(*pBuf++);                                    
+	UPBIT(SPIPORT,CSN);//CSN = 1;                 // Set CSN high again      
+ c50:	c2 9a       	sbi	0x18, 2	; 24
+
+}
+ c52:	0f 90       	pop	r0
+ c54:	cf 91       	pop	r28
+ c56:	df 91       	pop	r29
+ c58:	1f 91       	pop	r17
+ c5a:	0f 91       	pop	r16
+ c5c:	ff 90       	pop	r15
+ c5e:	ef 90       	pop	r14
+ c60:	08 95       	ret
+
+00000c62 <SwitchToRxMode>:
+/**************************************************/
+void SwitchToRxMode()
+{
+	UINT8 value;
+
+	SPI_Write_Reg(FLUSH_RX,0);//flush Rx
+ c62:	82 ee       	ldi	r24, 0xE2	; 226
+ c64:	60 e0       	ldi	r22, 0x00	; 0
+ c66:	98 df       	rcall	.-208    	; 0xb98 <SPI_Write_Reg>
+
+	value=SPI_Read_Reg(STATUS);	// read register STATUS's value
+ c68:	87 e0       	ldi	r24, 0x07	; 7
+ c6a:	a8 df       	rcall	.-176    	; 0xbbc <SPI_Read_Reg>
+ c6c:	68 2f       	mov	r22, r24
+	SPI_Write_Reg(WRITE_REG|STATUS,value);// clear RX_DR or TX_DS or MAX_RT interrupt flag
+ c6e:	87 e2       	ldi	r24, 0x27	; 39
+ c70:	93 df       	rcall	.-218    	; 0xb98 <SPI_Write_Reg>
+
+	DOWNBIT(SPIPORT,CE);//CE=0;
+ c72:	c1 98       	cbi	0x18, 1	; 24
+
+	value=SPI_Read_Reg(CONFIG);	// read register CONFIG's value
+ c74:	80 e0       	ldi	r24, 0x00	; 0
+ c76:	a2 df       	rcall	.-188    	; 0xbbc <SPI_Read_Reg>
+	
+//PRX
+	value=value|0x01;//set bit 1
+ c78:	68 2f       	mov	r22, r24
+ c7a:	61 60       	ori	r22, 0x01	; 1
+  	SPI_Write_Reg(WRITE_REG | CONFIG, value); // Set PWR_UP bit, enable CRC(2 length) & Prim:RX. RX_DR enabled..
+ c7c:	80 e2       	ldi	r24, 0x20	; 32
+ c7e:	8c df       	rcall	.-232    	; 0xb98 <SPI_Write_Reg>
+	UPBIT(SPIPORT,CE);//CE=1;
+ c80:	c1 9a       	sbi	0x18, 1	; 24
+}
+ c82:	08 95       	ret
+
+00000c84 <SwitchToTxMode>:
+	switch to Tx mode
+/**************************************************/
+void SwitchToTxMode()
+{
+	UINT8 value;
+	SPI_Write_Reg(FLUSH_TX,0);//flush Tx
+ c84:	81 ee       	ldi	r24, 0xE1	; 225
+ c86:	60 e0       	ldi	r22, 0x00	; 0
+ c88:	87 df       	rcall	.-242    	; 0xb98 <SPI_Write_Reg>
+
+	DOWNBIT(SPIPORT,CE);//CE=0;
+ c8a:	c1 98       	cbi	0x18, 1	; 24
+	value=SPI_Read_Reg(CONFIG);	// read register CONFIG's value
+ c8c:	80 e0       	ldi	r24, 0x00	; 0
+ c8e:	96 df       	rcall	.-212    	; 0xbbc <SPI_Read_Reg>
+//PTX
+	value=value&0xfe;//set bit 0
+ c90:	68 2f       	mov	r22, r24
+ c92:	6e 7f       	andi	r22, 0xFE	; 254
+  	SPI_Write_Reg(WRITE_REG | CONFIG, value); // Set PWR_UP bit, enable CRC(2 length) & Prim:RX. RX_DR enabled.
+ c94:	80 e2       	ldi	r24, 0x20	; 32
+ c96:	80 df       	rcall	.-256    	; 0xb98 <SPI_Write_Reg>
+	
+	UPBIT(SPIPORT,CE);//CE=1;
+ c98:	c1 9a       	sbi	0x18, 1	; 24
+}
+ c9a:	08 95       	ret
+
+00000c9c <SwitchCFG>:
+	          0:register bank0
+Return:
+     None
+/**************************************************/
+void SwitchCFG(char _cfg)//1:Bank1 0:Bank0
+{
+ c9c:	1f 93       	push	r17
+ c9e:	18 2f       	mov	r17, r24
+	UINT8 Tmp;
+
+	Tmp=SPI_Read_Reg(7);
+ ca0:	87 e0       	ldi	r24, 0x07	; 7
+ ca2:	8c df       	rcall	.-232    	; 0xbbc <SPI_Read_Reg>
+	Tmp=Tmp&0x80;
+
+	if( ( (Tmp)&&(_cfg==0) )
+ ca4:	87 ff       	sbrs	r24, 7
+ ca6:	03 c0       	rjmp	.+6      	; 0xcae <SwitchCFG+0x12>
+ ca8:	11 23       	and	r17, r17
+ caa:	19 f0       	breq	.+6      	; 0xcb2 <SwitchCFG+0x16>
+ cac:	05 c0       	rjmp	.+10     	; 0xcb8 <SwitchCFG+0x1c>
+	||( ((Tmp)==0)&&(_cfg) ) )
+ cae:	11 23       	and	r17, r17
+ cb0:	19 f0       	breq	.+6      	; 0xcb8 <SwitchCFG+0x1c>
+	{
+		SPI_Write_Reg(ACTIVATE_CMD,0x53);
+ cb2:	80 e5       	ldi	r24, 0x50	; 80
+ cb4:	63 e5       	ldi	r22, 0x53	; 83
+ cb6:	70 df       	rcall	.-288    	; 0xb98 <SPI_Write_Reg>
+	}
+}
+ cb8:	1f 91       	pop	r17
+ cba:	08 95       	ret
+
+00000cbc <SetChannelNum>:
+Description:
+	set channel number
+
+/**************************************************/
+void SetChannelNum(UINT8 ch)
+{
+ cbc:	68 2f       	mov	r22, r24
+	SPI_Write_Reg((UINT8)(WRITE_REG|5),(UINT8)(ch));
+ cbe:	85 e2       	ldi	r24, 0x25	; 37
+ cc0:	6b df       	rcall	.-298    	; 0xb98 <SPI_Write_Reg>
+}
+ cc2:	08 95       	ret
+
+00000cc4 <RFM73_Initialize>:
+
+Description:                                                
+	register initialization
+/**************************************************/   
+void RFM73_Initialize()
+{
+ cc4:	cf 92       	push	r12
+ cc6:	df 92       	push	r13
+ cc8:	ef 92       	push	r14
+ cca:	ff 92       	push	r15
+ ccc:	0f 93       	push	r16
+ cce:	1f 93       	push	r17
+ cd0:	df 93       	push	r29
+ cd2:	cf 93       	push	r28
+ cd4:	cd b7       	in	r28, 0x3d	; 61
+ cd6:	de b7       	in	r29, 0x3e	; 62
+ cd8:	2d 97       	sbiw	r28, 0x0d	; 13
+ cda:	0f b6       	in	r0, 0x3f	; 63
+ cdc:	f8 94       	cli
+ cde:	de bf       	out	0x3e, r29	; 62
+ ce0:	0f be       	out	0x3f, r0	; 63
+ ce2:	cd bf       	out	0x3d, r28	; 61
+ ce4:	8f ef       	ldi	r24, 0xFF	; 255
+ ce6:	91 ee       	ldi	r25, 0xE1	; 225
+ ce8:	a4 e0       	ldi	r26, 0x04	; 4
+ cea:	81 50       	subi	r24, 0x01	; 1
+ cec:	90 40       	sbci	r25, 0x00	; 0
+ cee:	a0 40       	sbci	r26, 0x00	; 0
+ cf0:	e1 f7       	brne	.-8      	; 0xcea <RFM73_Initialize+0x26>
+ cf2:	00 c0       	rjmp	.+0      	; 0xcf4 <RFM73_Initialize+0x30>
+ cf4:	00 00       	nop
+ 	UINT8 WriteArr[12];
+
+	//DelayMs(100);//delay more than 50ms.
+	_delay_ms(200);
+	
+	SwitchCFG(0);
+ cf6:	80 e0       	ldi	r24, 0x00	; 0
+ cf8:	d1 df       	rcall	.-94     	; 0xc9c <SwitchCFG>
+ cfa:	03 eb       	ldi	r16, 0xB3	; 179
+ cfc:	10 e0       	ldi	r17, 0x00	; 0
+
+	for(i=0;i<20;i++)
+	{
+		SPI_Write_Reg((WRITE_REG|Bank0_Reg[i][0]),Bank0_Reg[i][1]);
+ cfe:	d8 01       	movw	r26, r16
+ d00:	8c 91       	ld	r24, X
+ d02:	80 62       	ori	r24, 0x20	; 32
+ d04:	11 96       	adiw	r26, 0x01	; 1
+ d06:	6c 91       	ld	r22, X
+ d08:	47 df       	rcall	.-370    	; 0xb98 <SPI_Write_Reg>
+ d0a:	0e 5f       	subi	r16, 0xFE	; 254
+ d0c:	1f 4f       	sbci	r17, 0xFF	; 255
+	//DelayMs(100);//delay more than 50ms.
+	_delay_ms(200);
+	
+	SwitchCFG(0);
+
+	for(i=0;i<20;i++)
+ d0e:	b0 e0       	ldi	r27, 0x00	; 0
+ d10:	0b 3d       	cpi	r16, 0xDB	; 219
+ d12:	1b 07       	cpc	r17, r27
+ d14:	a1 f7       	brne	.-24     	; 0xcfe <RFM73_Initialize+0x3a>
+	SPI_Write_Buf((WRITE_REG|16),RX0_Address,5);*/
+
+//reg 10 - Rx0 addr
+	for(j=0;j<5;j++)
+	{
+		WriteArr[j]=RX0_Address[j];
+ d16:	34 e3       	ldi	r19, 0x34	; 52
+ d18:	c3 2e       	mov	r12, r19
+ d1a:	c9 82       	std	Y+1, r12	; 0x01
+ d1c:	23 e4       	ldi	r18, 0x43	; 67
+ d1e:	d2 2e       	mov	r13, r18
+ d20:	da 82       	std	Y+2, r13	; 0x02
+ d22:	90 e1       	ldi	r25, 0x10	; 16
+ d24:	e9 2e       	mov	r14, r25
+ d26:	eb 82       	std	Y+3, r14	; 0x03
+ d28:	ec 82       	std	Y+4, r14	; 0x04
+ d2a:	ff 24       	eor	r15, r15
+ d2c:	f3 94       	inc	r15
+ d2e:	fd 82       	std	Y+5, r15	; 0x05
+	}
+	SPI_Write_Buf((WRITE_REG|10),&(WriteArr[0]),5);
+ d30:	8a e2       	ldi	r24, 0x2A	; 42
+ d32:	8e 01       	movw	r16, r28
+ d34:	0f 5f       	subi	r16, 0xFF	; 255
+ d36:	1f 4f       	sbci	r17, 0xFF	; 255
+ d38:	b8 01       	movw	r22, r16
+ d3a:	45 e0       	ldi	r20, 0x05	; 5
+ d3c:	6c df       	rcall	.-296    	; 0xc16 <SPI_Write_Buf>
+	
+//REG 11 - Rx1 addr
+	for(j=0;j<5;j++)
+	{
+		WriteArr[j]=RX1_Address[j];
+ d3e:	89 e3       	ldi	r24, 0x39	; 57
+ d40:	89 83       	std	Y+1, r24	; 0x01
+ d42:	88 e3       	ldi	r24, 0x38	; 56
+ d44:	8a 83       	std	Y+2, r24	; 0x02
+ d46:	87 e3       	ldi	r24, 0x37	; 55
+ d48:	8b 83       	std	Y+3, r24	; 0x03
+ d4a:	86 e3       	ldi	r24, 0x36	; 54
+ d4c:	8c 83       	std	Y+4, r24	; 0x04
+ d4e:	82 ec       	ldi	r24, 0xC2	; 194
+ d50:	8d 83       	std	Y+5, r24	; 0x05
+	}
+	SPI_Write_Buf((WRITE_REG|11),&(WriteArr[0]),5);
+ d52:	8b e2       	ldi	r24, 0x2B	; 43
+ d54:	b8 01       	movw	r22, r16
+ d56:	45 e0       	ldi	r20, 0x05	; 5
+ d58:	5e df       	rcall	.-324    	; 0xc16 <SPI_Write_Buf>
+//REG 16 - TX addr
+	for(j=0;j<5;j++)
+	{
+		WriteArr[j]=RX0_Address[j];
+ d5a:	c9 82       	std	Y+1, r12	; 0x01
+ d5c:	da 82       	std	Y+2, r13	; 0x02
+ d5e:	eb 82       	std	Y+3, r14	; 0x03
+ d60:	ec 82       	std	Y+4, r14	; 0x04
+ d62:	fd 82       	std	Y+5, r15	; 0x05
+	}
+	SPI_Write_Buf((WRITE_REG|16),&(WriteArr[0]),5);
+ d64:	80 e3       	ldi	r24, 0x30	; 48
+ d66:	b8 01       	movw	r22, r16
+ d68:	45 e0       	ldi	r20, 0x05	; 5
+ d6a:	55 df       	rcall	.-342    	; 0xc16 <SPI_Write_Buf>
+	
+//	printf("\nEnd Load Reg");
+
+	i=SPI_Read_Reg(29);//read Feature Register ???????§??¶??¬?¤¶?»??? Payload With ACK?¬???????????¬·??? ACTIVATE????????????0x73),?»??????¶??¬?¤¶?»??? Payload With ACK (REG28,REG29).
+ d6c:	8d e1       	ldi	r24, 0x1D	; 29
+ d6e:	26 df       	rcall	.-436    	; 0xbbc <SPI_Read_Reg>
+	if(i==0) // i!=0 showed that chip has been actived.so do not active again.
+ d70:	88 23       	and	r24, r24
+ d72:	19 f4       	brne	.+6      	; 0xd7a <RFM73_Initialize+0xb6>
+		SPI_Write_Reg(ACTIVATE_CMD,0x73);// Active
+ d74:	80 e5       	ldi	r24, 0x50	; 80
+ d76:	63 e7       	ldi	r22, 0x73	; 115
+ d78:	0f df       	rcall	.-482    	; 0xb98 <SPI_Write_Reg>
+	for(i=22;i>=21;i--)
+	{
+		SPI_Write_Reg((WRITE_REG|Bank0_Reg[i][0]),Bank0_Reg[i][1]);
+ d7a:	8d e3       	ldi	r24, 0x3D	; 61
+ d7c:	67 e0       	ldi	r22, 0x07	; 7
+ d7e:	0c df       	rcall	.-488    	; 0xb98 <SPI_Write_Reg>
+ d80:	8c e3       	ldi	r24, 0x3C	; 60
+ d82:	6f e3       	ldi	r22, 0x3F	; 63
+ d84:	09 df       	rcall	.-494    	; 0xb98 <SPI_Write_Reg>
+		//SPI_Write_Reg_Bank0(Bank0_Reg[i][0],Bank0_Reg[i][1]);
+	}
+	
+//********************Write Bank1 register******************
+	SwitchCFG(1);
+ d86:	81 e0       	ldi	r24, 0x01	; 1
+ d88:	89 df       	rcall	.-238    	; 0xc9c <SwitchCFG>
+ d8a:	00 e7       	ldi	r16, 0x70	; 112
+ d8c:	10 e0       	ldi	r17, 0x00	; 0
+	
+	for(i=0;i<=8;i++)//reverse
+ d8e:	90 e0       	ldi	r25, 0x00	; 0
+	{
+		for(j=0;j<4;j++)
+			WriteArr[j]=(Bank1_Reg0_13[i]>>(8*(j) ) )&0xff;
+
+		SPI_Write_Buf((WRITE_REG|i),&(WriteArr[0]),4);
+ d90:	7e 01       	movw	r14, r28
+ d92:	08 94       	sec
+ d94:	e1 1c       	adc	r14, r1
+ d96:	f1 1c       	adc	r15, r1
+	SwitchCFG(1);
+	
+	for(i=0;i<=8;i++)//reverse
+	{
+		for(j=0;j<4;j++)
+			WriteArr[j]=(Bank1_Reg0_13[i]>>(8*(j) ) )&0xff;
+ d98:	f8 01       	movw	r30, r16
+ d9a:	21 91       	ld	r18, Z+
+ d9c:	31 91       	ld	r19, Z+
+ d9e:	41 91       	ld	r20, Z+
+ da0:	51 91       	ld	r21, Z+
+ da2:	8f 01       	movw	r16, r30
+ da4:	29 83       	std	Y+1, r18	; 0x01
+ da6:	3a 83       	std	Y+2, r19	; 0x02
+ da8:	4b 83       	std	Y+3, r20	; 0x03
+ daa:	5c 83       	std	Y+4, r21	; 0x04
+
+		SPI_Write_Buf((WRITE_REG|i),&(WriteArr[0]),4);
+ dac:	89 2f       	mov	r24, r25
+ dae:	80 62       	ori	r24, 0x20	; 32
+ db0:	b7 01       	movw	r22, r14
+ db2:	44 e0       	ldi	r20, 0x04	; 4
+ db4:	9d 87       	std	Y+13, r25	; 0x0d
+ db6:	2f df       	rcall	.-418    	; 0xc16 <SPI_Write_Buf>
+	}
+	
+//********************Write Bank1 register******************
+	SwitchCFG(1);
+	
+	for(i=0;i<=8;i++)//reverse
+ db8:	9d 85       	ldd	r25, Y+13	; 0x0d
+ dba:	9f 5f       	subi	r25, 0xFF	; 255
+ dbc:	99 30       	cpi	r25, 0x09	; 9
+ dbe:	61 f7       	brne	.-40     	; 0xd98 <RFM73_Initialize+0xd4>
+ dc0:	84 e9       	ldi	r24, 0x94	; 148
+ dc2:	e8 2e       	mov	r14, r24
+ dc4:	80 e0       	ldi	r24, 0x00	; 0
+ dc6:	f8 2e       	mov	r15, r24
+	for(i=9;i<=13;i++)
+	{
+		for(j=0;j<4;j++)
+			WriteArr[j]=(Bank1_Reg0_13[i]>>(8*(3-j) ) )&0xff;
+
+		SPI_Write_Buf((WRITE_REG|i),&(WriteArr[0]),4);
+ dc8:	8e 01       	movw	r16, r28
+ dca:	0f 5f       	subi	r16, 0xFF	; 255
+ dcc:	1f 4f       	sbci	r17, 0xFF	; 255
+	}
+
+	for(i=9;i<=13;i++)
+	{
+		for(j=0;j<4;j++)
+			WriteArr[j]=(Bank1_Reg0_13[i]>>(8*(3-j) ) )&0xff;
+ dce:	d7 01       	movw	r26, r14
+ dd0:	2d 91       	ld	r18, X+
+ dd2:	3d 91       	ld	r19, X+
+ dd4:	4d 91       	ld	r20, X+
+ dd6:	5d 91       	ld	r21, X+
+ dd8:	7d 01       	movw	r14, r26
+ dda:	59 83       	std	Y+1, r21	; 0x01
+ ddc:	4a 83       	std	Y+2, r20	; 0x02
+ dde:	3b 83       	std	Y+3, r19	; 0x03
+ de0:	2c 83       	std	Y+4, r18	; 0x04
+
+		SPI_Write_Buf((WRITE_REG|i),&(WriteArr[0]),4);
+ de2:	89 2f       	mov	r24, r25
+ de4:	80 62       	ori	r24, 0x20	; 32
+ de6:	b8 01       	movw	r22, r16
+ de8:	44 e0       	ldi	r20, 0x04	; 4
+ dea:	9d 87       	std	Y+13, r25	; 0x0d
+ dec:	14 df       	rcall	.-472    	; 0xc16 <SPI_Write_Buf>
+			WriteArr[j]=(Bank1_Reg0_13[i]>>(8*(j) ) )&0xff;
+
+		SPI_Write_Buf((WRITE_REG|i),&(WriteArr[0]),4);
+	}
+
+	for(i=9;i<=13;i++)
+ dee:	9d 85       	ldd	r25, Y+13	; 0x0d
+ df0:	9f 5f       	subi	r25, 0xFF	; 255
+ df2:	9e 30       	cpi	r25, 0x0E	; 14
+ df4:	61 f7       	brne	.-40     	; 0xdce <RFM73_Initialize+0x10a>
+ df6:	e8 ea       	ldi	r30, 0xA8	; 168
+ df8:	f0 e0       	ldi	r31, 0x00	; 0
+ dfa:	d8 01       	movw	r26, r16
+	}
+
+	//SPI_Write_Buf((WRITE_REG|14),&(Bank1_Reg14[0]),11);
+	for(j=0;j<11;j++)
+	{
+		WriteArr[j]=Bank1_Reg14[j];
+ dfc:	81 91       	ld	r24, Z+
+ dfe:	8d 93       	st	X+, r24
+
+		SPI_Write_Buf((WRITE_REG|i),&(WriteArr[0]),4);
+	}
+
+	//SPI_Write_Buf((WRITE_REG|14),&(Bank1_Reg14[0]),11);
+	for(j=0;j<11;j++)
+ e00:	80 e0       	ldi	r24, 0x00	; 0
+ e02:	e3 3b       	cpi	r30, 0xB3	; 179
+ e04:	f8 07       	cpc	r31, r24
+ e06:	d1 f7       	brne	.-12     	; 0xdfc <RFM73_Initialize+0x138>
+	{
+		WriteArr[j]=Bank1_Reg14[j];
+	}
+	SPI_Write_Buf((WRITE_REG|14),&(WriteArr[0]),11);
+ e08:	8e e2       	ldi	r24, 0x2E	; 46
+ e0a:	8e 01       	movw	r16, r28
+ e0c:	0f 5f       	subi	r16, 0xFF	; 255
+ e0e:	1f 4f       	sbci	r17, 0xFF	; 255
+ e10:	b8 01       	movw	r22, r16
+ e12:	4b e0       	ldi	r20, 0x0B	; 11
+ e14:	00 df       	rcall	.-512    	; 0xc16 <SPI_Write_Buf>
+
+//toggle REG4<25,26>
+	for(j=0;j<4;j++)
+		//WriteArr[j]=(RegArrFSKAnalog[4]>>(8*(j) ) )&0xff;
+		WriteArr[j]=(Bank1_Reg0_13[4]>>(8*(j) ) )&0xff;
+ e16:	86 e9       	ldi	r24, 0x96	; 150
+ e18:	8a 83       	std	Y+2, r24	; 0x02
+ e1a:	82 e8       	ldi	r24, 0x82	; 130
+ e1c:	8b 83       	std	Y+3, r24	; 0x03
+ e1e:	8b e1       	ldi	r24, 0x1B	; 27
+ e20:	8c 83       	std	Y+4, r24	; 0x04
+
+	WriteArr[0]=WriteArr[0]|0x06;
+ e22:	8f ed       	ldi	r24, 0xDF	; 223
+ e24:	89 83       	std	Y+1, r24	; 0x01
+	SPI_Write_Buf((WRITE_REG|4),&(WriteArr[0]),4);
+ e26:	84 e2       	ldi	r24, 0x24	; 36
+ e28:	b8 01       	movw	r22, r16
+ e2a:	44 e0       	ldi	r20, 0x04	; 4
+ e2c:	f4 de       	rcall	.-536    	; 0xc16 <SPI_Write_Buf>
+
+	WriteArr[0]=WriteArr[0]&0xf9;
+ e2e:	89 81       	ldd	r24, Y+1	; 0x01
+ e30:	89 7f       	andi	r24, 0xF9	; 249
+ e32:	89 83       	std	Y+1, r24	; 0x01
+	SPI_Write_Buf((WRITE_REG|4),&(WriteArr[0]),4);
+ e34:	84 e2       	ldi	r24, 0x24	; 36
+ e36:	b8 01       	movw	r22, r16
+ e38:	44 e0       	ldi	r20, 0x04	; 4
+ e3a:	ed de       	rcall	.-550    	; 0xc16 <SPI_Write_Buf>
+ e3c:	8f e7       	ldi	r24, 0x7F	; 127
+ e3e:	98 e3       	ldi	r25, 0x38	; 56
+ e40:	a1 e0       	ldi	r26, 0x01	; 1
+ e42:	81 50       	subi	r24, 0x01	; 1
+ e44:	90 40       	sbci	r25, 0x00	; 0
+ e46:	a0 40       	sbci	r26, 0x00	; 0
+ e48:	e1 f7       	brne	.-8      	; 0xe42 <RFM73_Initialize+0x17e>
+ e4a:	00 c0       	rjmp	.+0      	; 0xe4c <RFM73_Initialize+0x188>
+ e4c:	00 00       	nop
+	
+	//DelayMs(10);
+	_delay_ms(50);
+	
+//********************switch back to Bank0 register access******************
+	SwitchCFG(0);
+ e4e:	80 e0       	ldi	r24, 0x00	; 0
+ e50:	25 df       	rcall	.-438    	; 0xc9c <SwitchCFG>
+	SwitchToRxMode();//switch to RX mode
+ e52:	07 df       	rcall	.-498    	; 0xc62 <SwitchToRxMode>
+}
+ e54:	2d 96       	adiw	r28, 0x0d	; 13
+ e56:	0f b6       	in	r0, 0x3f	; 63
+ e58:	f8 94       	cli
+ e5a:	de bf       	out	0x3e, r29	; 62
+ e5c:	0f be       	out	0x3f, r0	; 63
+ e5e:	cd bf       	out	0x3d, r28	; 61
+ e60:	cf 91       	pop	r28
+ e62:	df 91       	pop	r29
+ e64:	1f 91       	pop	r17
+ e66:	0f 91       	pop	r16
+ e68:	ff 90       	pop	r15
+ e6a:	ef 90       	pop	r14
+ e6c:	df 90       	pop	r13
+ e6e:	cf 90       	pop	r12
+ e70:	08 95       	ret
+
+00000e72 <RFM73_SetPower>:
+
+//*****************************************************************************
+
+void RFM73_SetPower(char power)
+{
+	UINT8 power_mask = (((power << 1) & 0b00000110) | 0b11111001);	
+ e72:	68 2f       	mov	r22, r24
+ e74:	66 0f       	add	r22, r22
+ e76:	69 6f       	ori	r22, 0xF9	; 249
+
+	SPI_Write_Reg((WRITE_REG|Bank0_Reg[6][0]),( Bank0_Reg[6][1] & power_mask));
+ e78:	67 72       	andi	r22, 0x27	; 39
+ e7a:	86 e2       	ldi	r24, 0x26	; 38
+ e7c:	8d de       	rcall	.-742    	; 0xb98 <SPI_Write_Reg>
+	SwitchToRxMode();
+ e7e:	f1 de       	rcall	.-542    	; 0xc62 <SwitchToRxMode>
+
+}
+ e80:	08 95       	ret
+
+00000e82 <Send_Packet>:
+	len: packet length
+Return:
+	None
+**************************************************/
+char Send_Packet(UINT8 type,UINT8* pbuf,UINT8 len)
+{
+ e82:	ef 92       	push	r14
+ e84:	ff 92       	push	r15
+ e86:	1f 93       	push	r17
+ e88:	df 93       	push	r29
+ e8a:	cf 93       	push	r28
+ e8c:	0f 92       	push	r0
+ e8e:	cd b7       	in	r28, 0x3d	; 61
+ e90:	de b7       	in	r29, 0x3e	; 62
+ e92:	18 2f       	mov	r17, r24
+ e94:	7b 01       	movw	r14, r22
+	UINT8 fifo_sta;
+	
+	SwitchToTxMode();  //switch to tx mode
+ e96:	49 83       	std	Y+1, r20	; 0x01
+ e98:	f5 de       	rcall	.-534    	; 0xc84 <SwitchToTxMode>
+
+	fifo_sta=SPI_Read_Reg(FIFO_STATUS);	// read register FIFO_STATUS's value
+ e9a:	87 e1       	ldi	r24, 0x17	; 23
+ e9c:	8f de       	rcall	.-738    	; 0xbbc <SPI_Read_Reg>
+	if((fifo_sta&FIFO_STATUS_TX_FULL)==0)//if not full, send data (write buff)
+ e9e:	49 81       	ldd	r20, Y+1	; 0x01
+ ea0:	85 fd       	sbrc	r24, 5
+ ea2:	0c c0       	rjmp	.+24     	; 0xebc <Send_Packet+0x3a>
+	{ 
+	  	//RED_LED = 1;
+		
+		SPI_Write_Buf(type, pbuf, len); // Writes data to buffer
+ ea4:	81 2f       	mov	r24, r17
+ ea6:	b7 01       	movw	r22, r14
+ ea8:	b6 de       	rcall	.-660    	; 0xc16 <SPI_Write_Buf>
+ eaa:	8f ef       	ldi	r24, 0xFF	; 255
+ eac:	90 e7       	ldi	r25, 0x70	; 112
+ eae:	a2 e0       	ldi	r26, 0x02	; 2
+ eb0:	81 50       	subi	r24, 0x01	; 1
+ eb2:	90 40       	sbci	r25, 0x00	; 0
+ eb4:	a0 40       	sbci	r26, 0x00	; 0
+ eb6:	e1 f7       	brne	.-8      	; 0xeb0 <Send_Packet+0x2e>
+ eb8:	00 c0       	rjmp	.+0      	; 0xeba <Send_Packet+0x38>
+ eba:	00 00       	nop
+		//delay_50ms();
+		_delay_ms(100);
+	}	  
+	
+	return 0;	 	
+}
+ ebc:	80 e0       	ldi	r24, 0x00	; 0
+ ebe:	0f 90       	pop	r0
+ ec0:	cf 91       	pop	r28
+ ec2:	df 91       	pop	r29
+ ec4:	1f 91       	pop	r17
+ ec6:	ff 90       	pop	r15
+ ec8:	ef 90       	pop	r14
+ eca:	08 95       	ret
+
+00000ecc <Receive_Packet>:
+	None
+Return:
+	None
+**************************************************/
+char Receive_Packet(char * buf, char buf_len)
+{
+ ecc:	0f 93       	push	r16
+ ece:	1f 93       	push	r17
+ ed0:	cf 93       	push	r28
+ ed2:	df 93       	push	r29
+ ed4:	ec 01       	movw	r28, r24
+	UINT8 len,i,sta,fifo_sta,value,chksum,aa, res = 0;
+	UINT8 rx_buf[MAX_PACKET_LEN];
+
+	sta=SPI_Read_Reg(STATUS);	// read register STATUS's value
+ ed6:	87 e0       	ldi	r24, 0x07	; 7
+ ed8:	71 de       	rcall	.-798    	; 0xbbc <SPI_Read_Reg>
+ eda:	08 2f       	mov	r16, r24
+
+	if((STATUS_RX_DR&sta) == 0x40)				// if receive data ready (RX_DR) interrupt
+ edc:	86 ff       	sbrs	r24, 6
+ ede:	12 c0       	rjmp	.+36     	; 0xf04 <Receive_Packet+0x38>
+	{
+		do
+		{
+			len=SPI_Read_Reg(R_RX_PL_WID_CMD);	// read len
+ ee0:	80 e6       	ldi	r24, 0x60	; 96
+ ee2:	6c de       	rcall	.-808    	; 0xbbc <SPI_Read_Reg>
+ ee4:	18 2f       	mov	r17, r24
+
+			if(len<=MAX_PACKET_LEN)
+ ee6:	81 32       	cpi	r24, 0x21	; 33
+ ee8:	28 f4       	brcc	.+10     	; 0xef4 <Receive_Packet+0x28>
+			{
+				SPI_Read_Buf(RD_RX_PLOAD,buf,len);// read receive payload from RX_FIFO buffer
+ eea:	81 e6       	ldi	r24, 0x61	; 97
+ eec:	be 01       	movw	r22, r28
+ eee:	41 2f       	mov	r20, r17
+ ef0:	6d de       	rcall	.-806    	; 0xbcc <SPI_Read_Buf>
+ ef2:	03 c0       	rjmp	.+6      	; 0xefa <Receive_Packet+0x2e>
+			}
+			else
+			{
+				SPI_Write_Reg(FLUSH_RX,0);//flush Rx
+ ef4:	82 ee       	ldi	r24, 0xE2	; 226
+ ef6:	60 e0       	ldi	r22, 0x00	; 0
+ ef8:	4f de       	rcall	.-866    	; 0xb98 <SPI_Write_Reg>
+			}
+
+			fifo_sta=SPI_Read_Reg(FIFO_STATUS);	// read register FIFO_STATUS's value
+ efa:	87 e1       	ldi	r24, 0x17	; 23
+ efc:	5f de       	rcall	.-834    	; 0xbbc <SPI_Read_Reg>
+							
+		}while((fifo_sta&FIFO_STATUS_RX_EMPTY)==0); //while not empty
+ efe:	80 ff       	sbrs	r24, 0
+ f00:	ef cf       	rjmp	.-34     	; 0xee0 <Receive_Packet+0x14>
+ f02:	01 c0       	rjmp	.+2      	; 0xf06 <Receive_Packet+0x3a>
+Return:
+	None
+**************************************************/
+char Receive_Packet(char * buf, char buf_len)
+{
+	UINT8 len,i,sta,fifo_sta,value,chksum,aa, res = 0;
+ f04:	10 e0       	ldi	r17, 0x00	; 0
+		}
+		
+*/
+		res = len;		
+	}
+	SPI_Write_Reg(WRITE_REG|STATUS,sta);// clear RX_DR or TX_DS or MAX_RT interrupt flag
+ f06:	87 e2       	ldi	r24, 0x27	; 39
+ f08:	60 2f       	mov	r22, r16
+ f0a:	46 de       	rcall	.-884    	; 0xb98 <SPI_Write_Reg>
+	
+	return res;	
+}
+ f0c:	81 2f       	mov	r24, r17
+ f0e:	df 91       	pop	r29
+ f10:	cf 91       	pop	r28
+ f12:	1f 91       	pop	r17
+ f14:	0f 91       	pop	r16
+ f16:	08 95       	ret
+
+00000f18 <__eerd_block_m8>:
+ f18:	dc 01       	movw	r26, r24
+ f1a:	cb 01       	movw	r24, r22
+
+00000f1c <__eerd_blraw_m8>:
+ f1c:	fc 01       	movw	r30, r24
+ f1e:	e1 99       	sbic	0x1c, 1	; 28
+ f20:	fe cf       	rjmp	.-4      	; 0xf1e <__eerd_blraw_m8+0x2>
+ f22:	06 c0       	rjmp	.+12     	; 0xf30 <__eerd_blraw_m8+0x14>
+ f24:	ff bb       	out	0x1f, r31	; 31
+ f26:	ee bb       	out	0x1e, r30	; 30
+ f28:	e0 9a       	sbi	0x1c, 0	; 28
+ f2a:	31 96       	adiw	r30, 0x01	; 1
+ f2c:	0d b2       	in	r0, 0x1d	; 29
+ f2e:	0d 92       	st	X+, r0
+ f30:	41 50       	subi	r20, 0x01	; 1
+ f32:	50 40       	sbci	r21, 0x00	; 0
+ f34:	b8 f7       	brcc	.-18     	; 0xf24 <__eerd_blraw_m8+0x8>
+ f36:	08 95       	ret
+
+00000f38 <__eewr_block_m8>:
+ f38:	dc 01       	movw	r26, r24
+ f3a:	cb 01       	movw	r24, r22
+ f3c:	02 c0       	rjmp	.+4      	; 0xf42 <__eewr_block_m8+0xa>
+ f3e:	2d 91       	ld	r18, X+
+ f40:	05 d0       	rcall	.+10     	; 0xf4c <__eewr_r18_m8>
+ f42:	41 50       	subi	r20, 0x01	; 1
+ f44:	50 40       	sbci	r21, 0x00	; 0
+ f46:	d8 f7       	brcc	.-10     	; 0xf3e <__eewr_block_m8+0x6>
+ f48:	08 95       	ret
+
+00000f4a <__eewr_byte_m8>:
+ f4a:	26 2f       	mov	r18, r22
+
+00000f4c <__eewr_r18_m8>:
+ f4c:	e1 99       	sbic	0x1c, 1	; 28
+ f4e:	fe cf       	rjmp	.-4      	; 0xf4c <__eewr_r18_m8>
+ f50:	9f bb       	out	0x1f, r25	; 31
+ f52:	8e bb       	out	0x1e, r24	; 30
+ f54:	2d bb       	out	0x1d, r18	; 29
+ f56:	0f b6       	in	r0, 0x3f	; 63
+ f58:	f8 94       	cli
+ f5a:	e2 9a       	sbi	0x1c, 2	; 28
+ f5c:	e1 9a       	sbi	0x1c, 1	; 28
+ f5e:	0f be       	out	0x3f, r0	; 63
+ f60:	01 96       	adiw	r24, 0x01	; 1
+ f62:	08 95       	ret
+
+00000f64 <_exit>:
+ f64:	f8 94       	cli
+
+00000f66 <__stop_program>:
+ f66:	ff cf       	rjmp	.-2      	; 0xf66 <__stop_program>

@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\workspace\nocking /I..\..\..\workspace /I..\..\..\workspace\nocking\cmsis /I..\..\..\workspace\nocking\stm_lib /I..\..\.. /I..\..\..\workspace\nocking\stm_lib\inc /I..\..\..\workspace\nocking\cmsis_boot">
+      <source file="..\..\..\leds.h" lastModified="149ec2e3b1d">
+      </source>
+      <source file="..\..\..\uart_logger.c" lastModified="149eb2f3d67">
+         <include file="..\..\..\uart_logger.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_usart.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_gpio.h"/>
+         <include file="..\..\..\stm_lib\inc\misc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f10x.h" lastModified="149eab7a5cd">
+         <include file="..\..\..\cmsis\core_cm3.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f10x.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f10x_conf.h"/>
+      </source>
+      <source file="..\..\..\leds.c" lastModified="149ec2ecfbc">
+         <include file="..\..\..\leds.h"/>
+         <include file="..\..\..\common_makros.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_gpio.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_tim.h" lastModified="149eab7b0da">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\buttons.h" lastModified="149ebfe694b">
+      </source>
+      <source file="..\..\..\softtimer.h" lastModified="149ec5f530c">
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f10x_conf.h" lastModified="149eab7a1e5">
+      </source>
+      <source file="..\..\..\common_makros.h" lastModified="149eab6b979">
+      </source>
+      <source file="..\..\..\buttons.c" lastModified="149ebff2066">
+         <include file="..\..\..\buttons.h"/>
+         <include file="..\..\..\common_makros.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_gpio.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_tim.c" lastModified="149eab7b0e9">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_tim.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_spi.h" lastModified="149eab7b9c3">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="149eab7a948">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_gpio.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_gpio.h" lastModified="149eab7a948">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_spi.c" lastModified="149eab7b9c3">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_spi.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_rcc.h" lastModified="149eab7a1d6">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm3.h" lastModified="149eab7a9c5">
+      </source>
+      <source file="..\..\..\stm_lib\src\misc.c" lastModified="149eb12638a">
+         <include file="..\..\..\stm_lib\inc\misc.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm3.c" lastModified="149eab7a5dd">
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="149eab7a1d6">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.h" lastModified="149eab7a1e5">
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_usart.c" lastModified="149eab7c125">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_usart.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\main.c" lastModified="149ec5fe326">
+         <include file="..\..\..\common_makros.h"/>
+         <include file="..\..\..\uart_logger.h"/>
+         <include file="..\..\..\buttons.h"/>
+         <include file="..\..\..\softtimer.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="149eab7a1e5">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\uart_logger.h" lastModified="149eb2ef003">
+      </source>
+      <source file="..\..\..\stm_lib\inc\misc.h" lastModified="149eb12638a">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_usart.h" lastModified="149eab7c125">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md_vl.c" lastModified="149eab7a1e5">
+      </source>
+   </includePath>
+</dependencies>
