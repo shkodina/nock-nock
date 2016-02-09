@@ -8,9 +8,11 @@
 #include "door.h"
 #include "eepromworker.h"
 
-#define LOGG
+#include <avr/interrupt.h>
+
+//#define LOGG
 //#define LOGGwrite
-#define LOGGread
+//#define LOGGread
 
 //#define LOGGRES
 //#define LOGGBUT
@@ -68,6 +70,7 @@ void initNockMachine(){
 	initGVals();
 	nockReadFromEEPROM(&g_nocks[NOCK_PATTERN]);
 	doorInit();
+	g_flags[FLAG_NOCK_CORRECT] = TRUE;
 }
 //=============================================================================
 void nockMachineCheck();
@@ -91,7 +94,7 @@ void nockMachineWriteNew(){
 		case WAIT_FIRST_NOCK:
 		//=========================
 			if (g_flags[FLAG_NOCK] == FALSE)	return;
-			g_nocks[NOCK_CURRENT].count = NOCK_NO_NOCK;
+			g_nocks[NOCK_CURRENT].count = 0;
 			timerSet(TIMER_NOCK_TIMEOUT,  TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_NOCK_TIMEOUT);
 			timerSet(TIMER_NOCK, TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_MAX);
 			#ifdef LOGGwrite	
@@ -168,12 +171,16 @@ void nockMachineWriteNew(){
 			#ifdef LOGGwrite	
 			loggerWriteToMarker((LogMesT)" in PROCESS_NEW_NOCK \r*", '*');
 			#endif
-			nockWriteToEEPROM(&g_nocks[NOCK_CURRENT]);
 			g_nocks[NOCK_PATTERN] = g_nocks[NOCK_CURRENT];
+			nockWriteToEEPROM(&g_nocks[NOCK_PATTERN]);
 			g_flags[FLAG_NEW_NOCK] = FALSE;
 			#ifdef LOGGwrite
 			loggerWriteToMarker((LogMesT)" goto PROCESS_RESSET \r*", '*');
 			#endif
+			for (char i = 0; i < g_nocks[NOCK_CURRENT].count; i++){ // shift all left to one pos
+				g_nocks[NOCK_CURRENT].nock[i] = 0;
+			}
+			g_nocks[NOCK_CURRENT].count = 0;
 			state = PROCESS_RESSET;
 		break;
 		//================================================
@@ -269,6 +276,12 @@ void nockMachineCheck(){
 			loggerWriteToMarker((LogMesT)" in PROCESS_RESSET \r*", '*');
 			#endif
 			timerSet(TIMER_NOCK, TIMER_VALUE_MAX, TIMER_VALUE_MAX);
+
+			for (char i = 0; i < NOCK_MAX_COUNT; i++){ 
+				g_nocks[NOCK_CURRENT].nock[i] = 0;
+			}
+			g_nocks[NOCK_CURRENT].count = 0;
+
 			#ifdef LOGGread	
 			loggerWriteToMarker((LogMesT)" goto WAIT_FIRST_NOCK \r*", '*');
 			#endif
@@ -318,13 +331,15 @@ char processCheckNock(){
 	#ifdef LOGG	
 	loggerWriteToMarker((LogMesT)" in processCheckNock() \r*", '*');
 	#endif
+	char cc = g_nocks[NOCK_PATTERN].count + 48;
+	loggerWrite(&cc,1);
 	unsigned char i;
-	for (i = 0; i < g_nocks[NOCK_CURRENT].count; i++){
+	for (i = 0; i < g_nocks[NOCK_PATTERN].count; i++){
 		if (g_nocks[NOCK_CURRENT].nock[i] < g_nocks[NOCK_PATTERN].nock[i] + NOCK_DELTA
 			&&
 			g_nocks[NOCK_CURRENT].nock[i] > g_nocks[NOCK_PATTERN].nock[i] - NOCK_DELTA)
 		{
-			continue;
+			;
 		}else{
 			return FALSE;
 		}
@@ -334,6 +349,7 @@ char processCheckNock(){
 //=======================================================================================
 //inline
 void nockReadFromEEPROM(Nock * nock){
+
 	#ifdef LOGG
 	loggerWriteToMarker((LogMesT)" in nockReadFromEEPROM\r*", '*'); 
 	#endif
@@ -345,16 +361,28 @@ void nockReadFromEEPROM(Nock * nock){
 		nock->count = 0;
 		return;
 	}
+	loggerWriteToMarker((LogMesT)" eeprom count: *", '*'); 
+	char cc = nock->count + 48;
+	loggerWrite(&cc,1);
 	eepromRead((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
+
 }
 //=======================================================================================
 //inline
 void nockWriteToEEPROM(Nock * nock){
+
 	#ifdef LOGG
 	loggerWriteToMarker((LogMesT)" in nockWriteToEEPROM\r*", '*'); 
 	#endif
+/*
+	char ch = 0;
+	for (char t = 0; t < NOCK_MAX_COUNT * 2 + 1; t++)
+		eepromWrite( &ch, 1, EEPROM_NOCK_START_ADDRESS + t);
+*/
 	eepromWrite(&(nock->count), 1, EEPROM_NOCK_START_ADDRESS);
 	eepromWrite((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
+
+
 }
 //=======================================================================================
 //=======================================================================================
@@ -464,12 +492,13 @@ void doorSignalMachine_4(){
 			state_door = DOORISOPEN;
 
 			timerSet(TIMER_DOOR_OPEN, 0, TIMER_VALUE_DOOR_OPEN);
+
 			break;
 		//========================
 		case DOORISOPEN:
 		//========================
-			if (timerIsElapsed(TIMER_DOOR_OPEN) == TRUE)
-				g_flags[FLAG_NOCK_CORRECT] = FALSE;
+			//if (timerIsElapsed(TIMER_DOOR_OPEN) == TRUE)
+			//	g_flags[FLAG_NOCK_CORRECT] = FALSE;
 			
 			if (buttonIsPressed(BUTTONDOOR) == TRUE){
 
@@ -492,6 +521,7 @@ void doorSignalMachine_4(){
 			ledOff(LEDGREEN2);
 
 			doorClose();
+			g_flags[FLAG_NOCK_CORRECT] = FALSE;
 
 			#ifdef LOGGBUT		
 			loggerWriteToMarker((LogMesT)" DOORNEEDCLOSE\r*", '*'); 

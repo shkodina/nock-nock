@@ -9,8 +9,7 @@ enum {	FLAG_TOTAL_COUNT = 5,
 //=============================================================================
 enum {	NOCK_MAX_COUNT = 30,
 		NOCK_NO_NOCK = 0,
-		NOCK_EEPROM_START_ADDRESS = 1,
-		NOCK_DELTA = 400};
+		NOCK_DELTA = 300};
 //=============================================================================
 typedef struct {
 	int nock[NOCK_MAX_COUNT];
