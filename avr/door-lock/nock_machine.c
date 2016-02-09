@@ -5,10 +5,14 @@
 #include "buttons.h"
 #include "softtimer.h"
 #include "leds.h"
+#include "door.h"
 #include "eepromworker.h"
 
-//#define LOGG
-#define LOGGRES
+#define LOGG
+//#define LOGGwrite
+#define LOGGread
+
+//#define LOGGRES
 //#define LOGGBUT
 
 //#ifdef LOGG 
@@ -28,9 +32,9 @@ Nock * getNock(char name){
 //=============================================================================
 //inline
 void initGVals(){
-	#ifdef LOGG	
-	loggerWriteToMarker((LogMesT)" initGVals() \r*", '*');
-	#endif
+//	#ifdef LOGG	
+//	loggerWriteToMarker((LogMesT)" initGVals() \r*", '*');
+//	#endif
 	unsigned char i, j;
 	// =======================================
 	for (j = 0; j < NOCK_G_NOCK_TOTAL_COUNT; j++){
@@ -63,9 +67,21 @@ void nockWriteToEEPROM(Nock * nock);
 void initNockMachine(){
 	initGVals();
 	nockReadFromEEPROM(&g_nocks[NOCK_PATTERN]);
+	doorInit();
 }
 //=============================================================================
+void nockMachineCheck();
+void nockMachineWriteNew();
+//=============================================================================
 void nockMachine_2(){
+	if (g_flags[FLAG_NEW_NOCK] == TRUE){ // we recording new nock
+		nockMachineWriteNew();
+	}else{
+		nockMachineCheck();
+	} 
+}
+//=============================================================================
+void nockMachineWriteNew(){
 	enum {WAIT_FIRST_NOCK, WAIT_NOISE, WAIT_CURRENT_NOCK, CHECK_NOCK, PROCESS_ERROR, PROCESS_OK, PROCESS_RESSET, PROCESS_NEW_NOCK};
 	static char state = WAIT_FIRST_NOCK;
 
@@ -75,9 +91,10 @@ void nockMachine_2(){
 		case WAIT_FIRST_NOCK:
 		//=========================
 			if (g_flags[FLAG_NOCK] == FALSE)	return;
+			g_nocks[NOCK_CURRENT].count = NOCK_NO_NOCK;
 			timerSet(TIMER_NOCK_TIMEOUT,  TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_NOCK_TIMEOUT);
 			timerSet(TIMER_NOCK, TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_MAX);
-			#ifdef LOGG	
+			#ifdef LOGGwrite	
 			loggerWriteToMarker((LogMesT)" goto WAIT_NOISE \r*", '*');
 			#endif
 			state = WAIT_NOISE;
@@ -87,12 +104,12 @@ void nockMachine_2(){
 		case WAIT_NOISE:
 		//=========================
 			if (processWaitNoise() == TRUE){
-				#ifdef LOGG	
+				#ifdef LOGGwrite	
 				loggerWriteToMarker((LogMesT)" goto CHECK_NOCK \r*", '*');
 				#endif
 				state = CHECK_NOCK;
 			}
-		break;
+			break;
 		//================================================
 		//=========================
 		case WAIT_CURRENT_NOCK:
@@ -102,7 +119,7 @@ void nockMachine_2(){
 					state = PROCESS_NEW_NOCK;
 					break;
 				}
-				#ifdef LOGG
+				#ifdef LOGGwrite
 				loggerWriteToMarker((LogMesT)" goto PROCESS_ERROR \r*", '*');
 				#endif
 				state = PROCESS_ERROR;
@@ -114,7 +131,91 @@ void nockMachine_2(){
 			g_nocks[NOCK_CURRENT].nock[(unsigned char)g_nocks[NOCK_CURRENT].count++] = timerGetCurrent(TIMER_NOCK);
 
 			timerSet(TIMER_NOCK, TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_MAX);
-			#ifdef LOGG
+			#ifdef LOGGwrite
+			loggerWriteToMarker((LogMesT)" goto WAIT_NOISE \r*", '*');
+			#endif
+			state = WAIT_NOISE;
+			break;
+		//================================================
+		//=========================
+		case CHECK_NOCK:
+		//=========================
+				state = WAIT_CURRENT_NOCK;
+			break;
+		//================================================
+		//=========================
+		case PROCESS_OK:
+		//=========================
+			state = PROCESS_RESSET;
+			break;
+		//================================================
+		//=========================
+		case PROCESS_ERROR:
+		//=========================
+			state = PROCESS_RESSET;
+			break;
+		//================================================
+		//=========================
+		case PROCESS_RESSET:
+		//=========================
+			state = WAIT_FIRST_NOCK;
+			break;
+		//================================================
+		//=========================
+		case PROCESS_NEW_NOCK:
+		//=========================
+
+			#ifdef LOGGwrite	
+			loggerWriteToMarker((LogMesT)" in PROCESS_NEW_NOCK \r*", '*');
+			#endif
+			nockWriteToEEPROM(&g_nocks[NOCK_CURRENT]);
+			g_nocks[NOCK_PATTERN] = g_nocks[NOCK_CURRENT];
+			g_flags[FLAG_NEW_NOCK] = FALSE;
+			#ifdef LOGGwrite
+			loggerWriteToMarker((LogMesT)" goto PROCESS_RESSET \r*", '*');
+			#endif
+			state = PROCESS_RESSET;
+		break;
+		//================================================
+		default:
+		break;
+	}
+}
+//=======================================================================================
+void nockMachineCheck(){
+	enum {WAIT_FIRST_NOCK, WAIT_NOISE, WAIT_CURRENT_NOCK, CHECK_NOCK, PROCESS_ERROR, PROCESS_OK, PROCESS_RESSET, PROCESS_NEW_NOCK};
+	static char state = WAIT_CURRENT_NOCK;
+
+	switch (state){
+
+		//================================================
+		//=========================
+		case WAIT_NOISE:
+		//=========================
+			if (processWaitNoise() == TRUE){
+				#ifdef LOGGread	
+				loggerWriteToMarker((LogMesT)" goto CHECK_NOCK \r*", '*');
+				#endif
+				state = CHECK_NOCK;
+			}
+		break;
+		//================================================
+		//=========================
+		case WAIT_CURRENT_NOCK:
+		//=========================
+
+			if (g_flags[FLAG_NOCK] == FALSE)	return;
+
+			g_nocks[NOCK_CURRENT].count = g_nocks[NOCK_PATTERN].count;
+	
+			for (char i = 0; i < g_nocks[NOCK_CURRENT].count - 1; i++){ // shift all left to one pos
+				g_nocks[NOCK_CURRENT].nock[i] = g_nocks[NOCK_CURRENT].nock[i + 1];
+			}
+
+			g_nocks[NOCK_CURRENT].nock[(unsigned char)g_nocks[NOCK_CURRENT].count - 1] = timerGetCurrent(TIMER_NOCK);
+
+			timerSet(TIMER_NOCK, TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_MAX);
+			#ifdef LOGGread
 			loggerWriteToMarker((LogMesT)" goto WAIT_NOISE \r*", '*');
 			#endif
 			state = WAIT_NOISE;
@@ -123,45 +224,22 @@ void nockMachine_2(){
 		//=========================
 		case CHECK_NOCK:
 		//=========================
-			if (g_flags[FLAG_NEW_NOCK] == TRUE){ // we recording new nock
-				#ifdef LOGG
-				loggerWriteToMarker((LogMesT)" goto WAIT_CURRENT_NOCK \r*", '*');
-				#endif
-				state = WAIT_CURRENT_NOCK;
-				break;
-			}
 
 
-			if (g_nocks[NOCK_CURRENT].count == g_nocks[NOCK_PATTERN].count){
 				if (processCheckNock() == TRUE){
-					#ifdef LOGG
+					#ifdef LOGGread
 					loggerWriteToMarker((LogMesT)" goto PROCESS_OK \r*", '*');
 					#endif
 					state = PROCESS_OK;
 				}else{
-					#ifdef LOGG
-					loggerWriteToMarker((LogMesT)" goto PROCESS_ERROR \r*", '*');
+					#ifdef LOGGread
+					loggerWriteToMarker((LogMesT)" goto WAIT_CURRENT_NOCK \r*", '*');
 					#endif
-					state = PROCESS_ERROR;
-				}
-			}else{
-				char pos = g_nocks[NOCK_CURRENT].count - 1;
-				if (g_nocks[NOCK_CURRENT].nock[pos] > g_nocks[NOCK_PATTERN].nock[pos] + NOCK_DELTA
-					||
-					g_nocks[NOCK_CURRENT].nock[pos] < g_nocks[NOCK_PATTERN].nock[pos] - NOCK_DELTA)
-				{
-					#ifdef LOGG
-					loggerWriteToMarker((LogMesT)" goto PROCESS_ERROR \r*", '*');
-					#endif
-					state = PROCESS_ERROR;
+					state = WAIT_CURRENT_NOCK;
 				}
 
-				#ifdef LOGG
-				loggerWriteToMarker((LogMesT)" goto WAIT_CURRENT_NOCK \r*", '*');
-				#endif
-				state = WAIT_CURRENT_NOCK;
-			}
-		break;
+			
+			break;
 		//================================================
 		//=========================
 		case PROCESS_OK:
@@ -187,32 +265,14 @@ void nockMachine_2(){
 		//=========================
 		case PROCESS_RESSET:
 		//=========================
-			#ifdef LOGG	
+			#ifdef LOGGread	
 			loggerWriteToMarker((LogMesT)" in PROCESS_RESSET \r*", '*');
 			#endif
-			timerSet(TIMER_NOCK_TIMEOUT, TIMER_VALUE_MAX, TIMER_VALUE_MAX);
 			timerSet(TIMER_NOCK, TIMER_VALUE_MAX, TIMER_VALUE_MAX);
-			g_nocks[NOCK_CURRENT].count = NOCK_NO_NOCK;
-			#ifdef LOGG	
+			#ifdef LOGGread	
 			loggerWriteToMarker((LogMesT)" goto WAIT_FIRST_NOCK \r*", '*');
 			#endif
-			state = WAIT_FIRST_NOCK;
-		break;
-		//================================================
-		//=========================
-		case PROCESS_NEW_NOCK:
-		//=========================
-
-			#ifdef LOGG	
-			loggerWriteToMarker((LogMesT)" in PROCESS_NEW_NOCK \r*", '*');
-			#endif
-			nockWriteToEEPROM(&g_nocks[NOCK_CURRENT]);
-			g_nocks[NOCK_PATTERN] = g_nocks[NOCK_CURRENT];
-			g_flags[FLAG_NEW_NOCK] = FALSE;
-			#ifdef LOGG
-			loggerWriteToMarker((LogMesT)" goto PROCESS_RESSET \r*", '*');
-			#endif
-			state = PROCESS_RESSET;
+			state = WAIT_CURRENT_NOCK;
 		break;
 		//================================================
 		default:
@@ -372,7 +432,7 @@ void doorSignalMachine_4(){
 #define BUTTONWAITDELAY 200
 
 	enum DOOR {DOORISOPEN, DOORISCLOSE, DOORNEEDOPEN, DOORNEEDCLOSE};
-	static char state_door = DOORNEEDCLOSE;
+	static char state_door = DOORNEEDOPEN;
 	switch (state_door){
 		//========================
 		case DOORISCLOSE:
@@ -394,6 +454,8 @@ void doorSignalMachine_4(){
 			ledOff(LEDRED1);
 			ledOn(LEDGREEN2);
 			ledOff(LEDRED2);
+
+			doorOpen();
 
 			#ifdef LOGGBUT		
 			loggerWriteToMarker((LogMesT)" DOORNEEDOPEN\r*", '*'); 
@@ -428,6 +490,8 @@ void doorSignalMachine_4(){
 			ledOff(LEDGREEN1);
 			ledOn(LEDRED2);
 			ledOff(LEDGREEN2);
+
+			doorClose();
 
 			#ifdef LOGGBUT		
 			loggerWriteToMarker((LogMesT)" DOORNEEDCLOSE\r*", '*'); 
