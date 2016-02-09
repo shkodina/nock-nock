@@ -112,6 +112,7 @@ void nockMachine_2(){
 			if (g_flags[FLAG_NOCK] == FALSE)	return;
 
 			g_nocks[NOCK_CURRENT].nock[(unsigned char)g_nocks[NOCK_CURRENT].count++] = timerGetCurrent(TIMER_NOCK);
+
 			timerSet(TIMER_NOCK, TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_MAX);
 			#ifdef LOGG
 			loggerWriteToMarker((LogMesT)" goto WAIT_NOISE \r*", '*');
@@ -368,7 +369,7 @@ void doorSignalMachine_4(){
 
 	}
 
-#define BUTTONWAITDELAY 30
+#define BUTTONWAITDELAY 200
 
 	enum DOOR {DOORISOPEN, DOORISCLOSE, DOORNEEDOPEN, DOORNEEDCLOSE};
 	static char state_door = DOORNEEDCLOSE;

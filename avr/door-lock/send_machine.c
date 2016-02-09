@@ -43,11 +43,11 @@ void sendMachine_3(){
 	#define ANSWERDATALEN 3
 	char ANSWERDATA[ANSWERDATALEN] = "+++";
 
-//SwitchToTxMode();
-
-//			Send_Packet(W_TX_PAYLOAD_NOACK_CMD, (unsigned char *)ASKDATA, ASKDATALEN);
 
 	static char data[DATAMAXLEN];
+
+	#define REPCOUNTER 3
+	static char repeat_counter = REPCOUNTER;
 
 
 	enum {WAITNEWCODE, WAITCODEDONE, WAITBOX, SENDTOBOX, WAITDELAY};
@@ -59,13 +59,15 @@ void sendMachine_3(){
 		//========================
 			if (getFlag(FLAG_NEW_NOCK) == TRUE)
 				state = WAITCODEDONE;
-		break;
+			break;
 		//========================
 		case WAITCODEDONE:
 		//========================
-			if (getFlag(FLAG_NEW_NOCK) == FALSE)
-				state = WAITBOX;
-		break;
+			if (getFlag(FLAG_NEW_NOCK) == FALSE){
+				//state = WAITBOX; //DEBUG
+				state = SENDTOBOX;
+			}
+			break;
 		//========================
 		case WAITBOX:{
 		//========================
@@ -91,7 +93,7 @@ void sendMachine_3(){
 			SwitchToRxMode();
 
 			state = WAITDELAY;
-		}break;
+			}break;
 		//========================
 		case WAITDELAY:
 		//========================
@@ -101,11 +103,10 @@ void sendMachine_3(){
 				#endif
 
 				state = WAITBOX;
-		break;
+			break;
 		//========================
 		case SENDTOBOX:{
 		//========================
-
 			#ifdef LOGG	
 			loggerWriteToMarker((LogMesT)" SENDTOBOX\r*", '*');
 			#endif
@@ -119,11 +120,15 @@ void sendMachine_3(){
 
 			unsigned char i;
 			for (i = 0; i < nock->count; i++){
-				data[DATACODEPOSION + i] = nock->nock[i];
+				int time = nock->nock[i];
+				char * p = &time; 
+				data[DATACODEPOSION + i*2] = *p;
+				p++;
+				data[DATACODEPOSION + i*2 + 1] = *p; 
 			}
 
-			data[DATACODEPOSION + i] = DATAMARKER;
-			Send_Packet(W_TX_PAYLOAD_NOACK_CMD, (unsigned char *)data, DATACODEPOSION + nock->count + 1);
+			data[DATACODEPOSION + i * 2] = DATAMARKER;
+			Send_Packet(W_TX_PAYLOAD_NOACK_CMD, (unsigned char *)data, DATACODEPOSION + nock->count * 2 + 1);
 			//Send_Packet(0, (unsigned char *)data, DATACODEPOSION + nock->count + 1);
 
 			#ifdef LOGG	
@@ -131,10 +136,14 @@ void sendMachine_3(){
 			char ch = nock->count + 48;
 			loggerWrite(&ch, 1);
 			#endif
+		
+			if (repeat_counter-- <= 0){
+				repeat_counter = REPCOUNTER;
+				state = WAITNEWCODE;
+			}
+			
 
-
-			state = WAITNEWCODE;
-		}break;
+			}break;
 		//========================
 		default: break;
 		//========================

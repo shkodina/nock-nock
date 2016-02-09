@@ -10,8 +10,8 @@
 #include <avr/delay.h>
 
 
-//#define LOGG
-//#define LOGGF
+#define LOGG
+#define LOGGF
 #ifdef LOGGF
 #include "uart_logger.h"
 #endif
@@ -20,9 +20,9 @@
 
 //=============================================================================
 void makeNock(){
-	for(char i = 0; i < 250; i++){
+	for(char i = 0; i < 100; i++){
 		INVBIT(PORTD, 3);
-		_delay_us(300);
+		_delay_ms(3);
 	}
 }
 //=============================================================================
@@ -153,6 +153,8 @@ void nockReadFromEEPROM(Nock * nock){
 		return;
 	}
 	eepromRead((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
+
+
 }
 //=======================================================================================
 //inline
@@ -231,14 +233,55 @@ void sendMachine_3(){
 					makeNock();
 					_delay_ms(200);
 				}
-
+				/* //DEBUG
 				for (char i = 0; i < ASKDATALEN; i++)
 					if (data[i] != ASKDATA[i]){
 						timerSet(TIMER_RADIO_WAIT, 0, 50);
 						return;
 					}
 
-				state = ANSWERDOOR;
+				state = ANSWERDOOR; 
+				*/
+
+				char pos = 0;
+				for (pos = 0; pos < len; pos++){
+					if (data[pos] == DATAMARKER){
+						break;
+					}
+				}
+				
+				if (pos >= len){ // no datamarker
+					state = INITWAITNEWCODE;
+					return;
+				}
+				pos++;
+				char count = data[pos++];// - 48; //debug
+
+				#ifdef LOGG
+				char ch = count + 48;
+				loggerWriteToMarker((LogMesT)" WAITCODE nock count: *", '*');
+				loggerWrite(&ch, 1); 
+				loggerWrite("\r", 1);
+				#endif 
+
+
+				g_nocks[NOCK_CURRENT].count = count;
+				unsigned char i;
+				for (i = 0; i < count; i++){
+					int time = 0;
+					char * pp = &time;
+					*pp =  data[pos++];
+					pp++;
+					*pp =  data[pos++];
+
+
+					g_nocks[NOCK_CURRENT].nock[i] = time;
+				}
+
+				g_flags[FLAG_NEW_NOCK] = TRUE;
+				nockWriteToEEPROM(&g_nocks[NOCK_CURRENT]);
+				g_nocks[NOCK_PATTERN] = g_nocks[NOCK_CURRENT];
+				state = INITWAITNEWCODE;
 			}
 			timerSet(TIMER_RADIO_WAIT, 0, 50);
 			}break;

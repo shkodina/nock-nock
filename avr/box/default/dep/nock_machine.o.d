@@ -13,7 +13,8 @@ nock_machine.o: ../nock_machine.c ../nock_machine.h ../common_makros.h \
  c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/lock.h \
  c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/delay.h \
  c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay.h \
- c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h
+ c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h \
+ ../uart_logger.h
 
 ../nock_machine.h:
 
@@ -54,3 +55,5 @@ c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../..
 c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay.h:
 
 c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h:
+
+../uart_logger.h:

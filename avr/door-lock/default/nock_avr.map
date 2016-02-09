@@ -141,7 +141,7 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xfea
+.text           0x00000000     0x101c
  *(.vectors)
  .vectors       0x00000000       0x26 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
                 0x00000000                __vector_default
@@ -266,52 +266,52 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
                 0x0000093e                getData
  .text          0x00000984       0xbc colibrator.o
                 0x00000984                colibrateDetector
- .text          0x00000a40      0x1c0 send_machine.o
+ .text          0x00000a40      0x1f2 send_machine.o
                 0x00000a40                initSendMachine
                 0x00000a4c                processWait
                 0x00000a84                sendMachine_3
- .text          0x00000c00      0x39a rf73_spi.o
-                0x00000c00                Init_Spi
-                0x00000c10                ReadWrite_Spi
-                0x00000c1a                SPI_Write_Reg
-                0x00000c3e                SPI_Read_Reg
-                0x00000c4e                SPI_Read_Buf
-                0x00000c98                SPI_Write_Buf
-                0x00000ce4                SwitchToRxMode
-                0x00000d06                SwitchToTxMode
-                0x00000d1e                SwitchCFG
-                0x00000d3e                SetChannelNum
-                0x00000d46                RFM73_Initialize
-                0x00000ef4                RFM73_SetPower
-                0x00000f04                Send_Packet
-                0x00000f4e                Receive_Packet
- .text          0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
- .text          0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
- .text          0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
- .text          0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
- .text          0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
- .text          0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
-                0x00000f9a                . = ALIGN (0x2)
+ .text          0x00000c32      0x39a rf73_spi.o
+                0x00000c32                Init_Spi
+                0x00000c42                ReadWrite_Spi
+                0x00000c4c                SPI_Write_Reg
+                0x00000c70                SPI_Read_Reg
+                0x00000c80                SPI_Read_Buf
+                0x00000cca                SPI_Write_Buf
+                0x00000d16                SwitchToRxMode
+                0x00000d38                SwitchToTxMode
+                0x00000d50                SwitchCFG
+                0x00000d70                SetChannelNum
+                0x00000d78                RFM73_Initialize
+                0x00000f26                RFM73_SetPower
+                0x00000f36                Send_Packet
+                0x00000f80                Receive_Packet
+ .text          0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .text          0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+ .text          0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+ .text          0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+ .text          0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+ .text          0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+                0x00000fcc                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
- .text.libgcc   0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000f9a        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000fcc        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x00000f9a       0x20 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
-                0x00000f9a                __eerd_block_m8
-                0x00000f9e                __eerd_blraw_m8
+                0x00000fcc       0x20 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+                0x00000fcc                __eerd_block_m8
+                0x00000fd0                __eerd_blraw_m8
  .text.avr-libc
-                0x00000fba       0x12 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
-                0x00000fba                __eewr_block_m8
+                0x00000fec       0x12 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+                0x00000fec                __eewr_block_m8
  .text.avr-libc
-                0x00000fcc       0x1a c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
-                0x00000fcc                __eewr_byte_m8
-                0x00000fce                __eewr_r18_m8
-                0x00000fe6                . = ALIGN (0x2)
+                0x00000ffe       0x1a c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+                0x00000ffe                __eewr_byte_m8
+                0x00001000                __eewr_r18_m8
+                0x00001018                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000fe6        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
-                0x00000fe6                _exit
-                0x00000fe6                exit
+ .fini9         0x00001018        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+                0x00001018                _exit
+                0x00001018                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -330,11 +330,11 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000fe6        0x4 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .fini0         0x00001018        0x4 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000fea                _etext = .
+                0x0000101c                _etext = .
 
-.data           0x00800060      0x148 load address 0x00000fea
+.data           0x00800060      0x14a load address 0x0000101c
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
@@ -350,70 +350,71 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
  .data          0x008000e4        0x0 softtimer.o
  .data          0x008000e4        0x0 uart_logger.o
  .data          0x008000e4        0x0 colibrator.o
- .data          0x008000e4       0x49 send_machine.o
- .data          0x0080012d       0x7b rf73_spi.o
-                0x0080012d                Bank1_Reg0_13
-                0x00800165                Bank1_Reg14
-                0x00800170                Bank0_Reg
-                0x0080019e                RX0_Address
-                0x008001a3                RX1_Address
- .data          0x008001a8        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
- .data          0x008001a8        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
- .data          0x008001a8        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
- .data          0x008001a8        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
- .data          0x008001a8        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
- .data          0x008001a8        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+ .data          0x008000e4       0x4a send_machine.o
+ .data          0x0080012e       0x7b rf73_spi.o
+                0x0080012e                Bank1_Reg0_13
+                0x00800166                Bank1_Reg14
+                0x00800171                Bank0_Reg
+                0x0080019f                RX0_Address
+                0x008001a4                RX1_Address
+ .data          0x008001a9        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .data          0x008001a9        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+ .data          0x008001a9        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+ .data          0x008001a9        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+ .data          0x008001a9        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+ .data          0x008001a9        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x008001a8                . = ALIGN (0x2)
-                0x008001a8                _edata = .
-                0x008001a8                PROVIDE (__data_end, .)
+                0x008001aa                . = ALIGN (0x2)
+ *fill*         0x008001a9        0x1 00
+                0x008001aa                _edata = .
+                0x008001aa                PROVIDE (__data_end, .)
 
-.bss            0x008001a8      0x1a2
-                0x008001a8                PROVIDE (__bss_start, .)
+.bss            0x008001aa      0x1a2
+                0x008001aa                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x008001a8        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
- .bss           0x008001a8        0x0 buttons.o
- .bss           0x008001a8        0x0 eepromworker.o
- .bss           0x008001a8        0x0 leds.o
- .bss           0x008001a8        0x0 main.o
- .bss           0x008001a8        0x0 my_ext_irq.o
- .bss           0x008001a8        0x3 nock_machine.o
- .bss           0x008001ab        0x0 softtimer.o
- .bss           0x008001ab        0x1 uart_logger.o
-                0x008001ab                rx_counter
- .bss           0x008001ac        0x1 colibrator.o
- .bss           0x008001ad       0x42 send_machine.o
- .bss           0x008001ef        0x0 rf73_spi.o
- .bss           0x008001ef        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
- .bss           0x008001ef        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
- .bss           0x008001ef        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
- .bss           0x008001ef        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
- .bss           0x008001ef        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
- .bss           0x008001ef        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
+ .bss           0x008001aa        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x008001aa        0x0 buttons.o
+ .bss           0x008001aa        0x0 eepromworker.o
+ .bss           0x008001aa        0x0 leds.o
+ .bss           0x008001aa        0x0 main.o
+ .bss           0x008001aa        0x0 my_ext_irq.o
+ .bss           0x008001aa        0x3 nock_machine.o
+ .bss           0x008001ad        0x0 softtimer.o
+ .bss           0x008001ad        0x1 uart_logger.o
+                0x008001ad                rx_counter
+ .bss           0x008001ae        0x1 colibrator.o
+ .bss           0x008001af       0x42 send_machine.o
+ .bss           0x008001f1        0x0 rf73_spi.o
+ .bss           0x008001f1        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_exit.o)
+ .bss           0x008001f1        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_copy_data.o)
+ .bss           0x008001f1        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x008001f1        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eerd_block_atmega8.o)
+ .bss           0x008001f1        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_block_atmega8.o)
+ .bss           0x008001f1        0x0 c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr4\libc.a(eewr_byte_atmega8.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x008001ef       0xbc nock_machine.o
-                0x008001ef                g_nocks
-                0x008002a6                g_flags
- COMMON         0x008002ab       0x1e softtimer.o
-                0x008002ab                g_timer
- COMMON         0x008002c9       0x80 uart_logger.o
-                0x008002c9                rx_buffer
- COMMON         0x00800349        0x1 rf73_spi.o
-                0x00800349                op_status
-                0x0080034a                PROVIDE (__bss_end, .)
-                0x00000fea                __data_load_start = LOADADDR (.data)
-                0x00001132                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008001f1       0xbc nock_machine.o
+                0x008001f1                g_nocks
+                0x008002a8                g_flags
+ COMMON         0x008002ad       0x1e softtimer.o
+                0x008002ad                g_timer
+ COMMON         0x008002cb       0x80 uart_logger.o
+                0x008002cb                rx_buffer
+ COMMON         0x0080034b        0x1 rf73_spi.o
+                0x0080034b                op_status
+                0x0080034c                PROVIDE (__bss_end, .)
+                0x0000101c                __data_load_start = LOADADDR (.data)
+                0x00001166                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080034a        0x0
-                0x0080034a                PROVIDE (__noinit_start, .)
+.noinit         0x0080034c        0x0
+                0x0080034c                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080034a                PROVIDE (__noinit_end, .)
-                0x0080034a                _end = .
-                0x0080034a                PROVIDE (__heap_start, .)
+                0x0080034c                PROVIDE (__noinit_end, .)
+                0x0080034c                _end = .
+                0x0080034c                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -523,7 +524,7 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
  .debug_pubnames
                 0x00000437      0x166 rf73_spi.o
 
-.debug_info     0x00000000     0x1c7e
+.debug_info     0x00000000     0x1cb2
  *(.debug_info)
  .debug_info    0x00000000      0x161 buttons.o
  .debug_info    0x00000161      0x16c eepromworker.o
@@ -534,11 +535,11 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
  .debug_info    0x00000b36      0x2a1 softtimer.o
  .debug_info    0x00000dd7      0x29d uart_logger.o
  .debug_info    0x00001074      0x29b colibrator.o
- .debug_info    0x0000130f      0x28b send_machine.o
- .debug_info    0x0000159a      0x6e4 rf73_spi.o
+ .debug_info    0x0000130f      0x2bf send_machine.o
+ .debug_info    0x000015ce      0x6e4 rf73_spi.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0xd6f
+.debug_abbrev   0x00000000      0xd83
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x106 buttons.o
  .debug_abbrev  0x00000106       0x9f eepromworker.o
@@ -549,10 +550,10 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
  .debug_abbrev  0x000005c2      0x18f softtimer.o
  .debug_abbrev  0x00000751      0x15d uart_logger.o
  .debug_abbrev  0x000008ae      0x13f colibrator.o
- .debug_abbrev  0x000009ed      0x129 send_machine.o
- .debug_abbrev  0x00000b16      0x259 rf73_spi.o
+ .debug_abbrev  0x000009ed      0x13d send_machine.o
+ .debug_abbrev  0x00000b2a      0x259 rf73_spi.o
 
-.debug_line     0x00000000     0x1a24
+.debug_line     0x00000000     0x1a4c
  *(.debug_line)
  .debug_line    0x00000000      0x122 buttons.o
  .debug_line    0x00000122       0xd3 eepromworker.o
@@ -563,8 +564,8 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
  .debug_line    0x00000b47      0x21a softtimer.o
  .debug_line    0x00000d61      0x294 uart_logger.o
  .debug_line    0x00000ff5      0x281 colibrator.o
- .debug_line    0x00001276      0x23b send_machine.o
- .debug_line    0x000014b1      0x573 rf73_spi.o
+ .debug_line    0x00001276      0x263 send_machine.o
+ .debug_line    0x000014d9      0x573 rf73_spi.o
 
 .debug_frame    0x00000000      0x460
  *(.debug_frame)
@@ -580,32 +581,32 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
  .debug_frame   0x00000330       0x40 send_machine.o
  .debug_frame   0x00000370       0xf0 rf73_spi.o
 
-.debug_str      0x00000000      0x966
+.debug_str      0x00000000      0x991
  *(.debug_str)
- .debug_str     0x00000000      0x120 buttons.o
-                                0x159 (size before relaxing)
- .debug_str     0x00000120       0x54 eepromworker.o
-                                0x123 (size before relaxing)
- .debug_str     0x00000174       0x71 leds.o
-                                0x13c (size before relaxing)
- .debug_str     0x000001e5       0x2b main.o
-                                0x132 (size before relaxing)
- .debug_str     0x00000210      0x117 my_ext_irq.o
-                                0x1fb (size before relaxing)
- .debug_str     0x00000327      0x224 nock_machine.o
-                                0x3fc (size before relaxing)
- .debug_str     0x0000054b       0xe7 softtimer.o
-                                0x24a (size before relaxing)
- .debug_str     0x00000632       0xcd uart_logger.o
-                                0x1b1 (size before relaxing)
- .debug_str     0x000006ff       0xac colibrator.o
-                                0x2bf (size before relaxing)
- .debug_str     0x000007ab       0x4f send_machine.o
-                                0x288 (size before relaxing)
- .debug_str     0x000007fa      0x16c rf73_spi.o
-                                0x2b2 (size before relaxing)
+ .debug_str     0x00000000      0x137 buttons.o
+                                0x170 (size before relaxing)
+ .debug_str     0x00000137       0x54 eepromworker.o
+                                0x13a (size before relaxing)
+ .debug_str     0x0000018b       0x71 leds.o
+                                0x153 (size before relaxing)
+ .debug_str     0x000001fc       0x2b main.o
+                                0x149 (size before relaxing)
+ .debug_str     0x00000227      0x117 my_ext_irq.o
+                                0x212 (size before relaxing)
+ .debug_str     0x0000033e      0x224 nock_machine.o
+                                0x413 (size before relaxing)
+ .debug_str     0x00000562       0xe7 softtimer.o
+                                0x261 (size before relaxing)
+ .debug_str     0x00000649       0xcd uart_logger.o
+                                0x1c8 (size before relaxing)
+ .debug_str     0x00000716       0xac colibrator.o
+                                0x2d6 (size before relaxing)
+ .debug_str     0x000007c2       0x63 send_machine.o
+                                0x2b3 (size before relaxing)
+ .debug_str     0x00000825      0x16c rf73_spi.o
+                                0x2c9 (size before relaxing)
 
-.debug_loc      0x00000000      0xc14
+.debug_loc      0x00000000      0xc08
  *(.debug_loc)
  .debug_loc     0x00000000       0x3f buttons.o
  .debug_loc     0x0000003f      0x189 eepromworker.o
@@ -615,8 +616,8 @@ LOAD c:/program files/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr
  .debug_loc     0x0000037f       0x61 softtimer.o
  .debug_loc     0x000003e0      0x17f uart_logger.o
  .debug_loc     0x0000055f       0x90 colibrator.o
- .debug_loc     0x000005ef       0xa8 send_machine.o
- .debug_loc     0x00000697      0x57d rf73_spi.o
+ .debug_loc     0x000005ef       0x9c send_machine.o
+ .debug_loc     0x0000068b      0x57d rf73_spi.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -648,5 +649,6 @@ LOAD linker stubs
  .debug_pubtypes
                 0x00000223       0x38 rf73_spi.o
 
-.debug_ranges   0x00000000       0x18
+.debug_ranges   0x00000000       0x30
  .debug_ranges  0x00000000       0x18 uart_logger.o
+ .debug_ranges  0x00000018       0x18 send_machine.o

@@ -60,7 +60,7 @@ void USART_Configuration(void)
 	UCSRC = (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1); // Use 8-bit character sizes
 
 	UBRRH = 0;//(BAUD_PRESCALE >> 8); // Load upper 8-bits of the baud rate value into the high byte of the UBRR register
-	UBRRL = 50;//BAUD_PRESCALE; // Load lower 8-bits of the baud rate value into the low byte of the UBRR register
+	UBRRL = 49;//BAUD_PRESCALE; // Load lower 8-bits of the baud rate value into the low byte of the UBRR register
 
 
 

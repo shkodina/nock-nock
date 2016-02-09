@@ -41,6 +41,8 @@ int main(void)
 
     while(1)
     {
+		//makeNock();
+		//continue;
     	nockMachine_2();
     	sendMachine_3();
     }
