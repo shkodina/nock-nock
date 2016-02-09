@@ -2,7 +2,7 @@
 
 #include "softtimer.h"
 #include "eepromworker.h"
-#include "leds.h"
+#include "rf73_spi.h"
 
 #include <avr/io.h>
 #include <avr/delay.h>
@@ -16,6 +16,7 @@ void initMyExtIRQ();
 
 int main(void)
 {
+
 	eepromInit();
 	timerInit();
 

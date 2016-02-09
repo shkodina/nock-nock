@@ -6,7 +6,7 @@
 #include "softtimer.h"
 
 
-//#define LOGG
+#define LOGG
 
 #ifdef LOGG
 #include "uart_logger.h"
@@ -43,7 +43,9 @@ void sendMachine_3(){
 	#define ANSWERDATALEN 3
 	char ANSWERDATA[ANSWERDATALEN] = "+++";
 
+//SwitchToTxMode();
 
+//			Send_Packet(W_TX_PAYLOAD_NOACK_CMD, (unsigned char *)ASKDATA, ASKDATALEN);
 
 	static char data[DATAMAXLEN];
 

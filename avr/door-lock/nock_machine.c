@@ -8,12 +8,12 @@
 #include "eepromworker.h"
 
 //#define LOGG
-//#define LOGGRES
+#define LOGGRES
 //#define LOGGBUT
 
-#ifdef LOGG 
+//#ifdef LOGG 
 #include "uart_logger.h"
-#endif
+//#endif
 
 //=============================================================================
 volatile
@@ -129,10 +129,6 @@ void nockMachine_2(){
 				state = WAIT_CURRENT_NOCK;
 				break;
 			}
-
-
-
-
 
 
 			if (g_nocks[NOCK_CURRENT].count == g_nocks[NOCK_PATTERN].count){

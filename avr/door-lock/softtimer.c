@@ -75,7 +75,7 @@ ISR (TIMER1_OVF_vect)
 {
     inIRQTimer();
 	// run timer
-	TCNT1 = 65536 - 7; //  31220;
+	TCNT1 = 65536 - 10; //  31220;
     TCCR1B = (1<<CS12 | 1<<CS10);
     TIMSK |= (1<<TOIE1);
 

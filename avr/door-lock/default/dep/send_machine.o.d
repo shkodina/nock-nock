@@ -1,5 +1,5 @@
 send_machine.o: ../send_machine.c ../rf73_spi.h ../nock_machine.h \
- ../send_machine.h ../common_makros.h ../softtimer.h
+ ../send_machine.h ../common_makros.h ../softtimer.h ../uart_logger.h
 
 ../rf73_spi.h:
 
@@ -10,3 +10,5 @@ send_machine.o: ../send_machine.c ../rf73_spi.h ../nock_machine.h \
 ../common_makros.h:
 
 ../softtimer.h:
+
+../uart_logger.h:

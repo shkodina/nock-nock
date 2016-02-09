@@ -75,6 +75,7 @@ void nockMachine_2(){
 	if (g_flags[FLAG_NEW_NOCK] == TRUE){
 		g_flags[FLAG_NEW_NOCK] = FALSE;
 		state = NEXT_LOOP;
+
 	}
 
 
@@ -90,12 +91,12 @@ void nockMachine_2(){
 		case PLAY_NOCK:
 		//=========================
 			if (nock_pos == g_nocks[NOCK_PATTERN].count){
-				//makeNock();
+				makeNock();
 				state = NEXT_LOOP;
 				break;
 			}
 				
-			//makeNock();
+			makeNock();
 			timerSet(TIMER_NOCK, 0, g_nocks[NOCK_PATTERN].nock[nock_pos++]);
 			state = TIMER_NOCK_DELAY;
 			break;
@@ -130,23 +131,25 @@ void nockReadFromEEPROM(Nock * nock){
 	#ifdef LOGG
 	loggerWriteToMarker((LogMesT)" in nockReadFromEEPROM\r*", '*'); 
 	#endif
+
+
 	eepromRead(&(nock->count), 1, EEPROM_NOCK_START_ADDRESS);
-
-
-		#ifdef DEBUG
-		nock->nock[0] = 150;
-		nock->nock[1] = 150;
-		nock->nock[2] = 150;
-
-		nock->count = 3;
-		return;
-		#endif
-
 	if (nock->count < 0 || nock->count > NOCK_MAX_COUNT){
 		#ifdef LOGG
 		loggerWriteToMarker((LogMesT)" no nock in eeprom\r*", '*'); 
 		#endif
 		nock->count = 0;
+
+		
+	#ifdef DEBUG
+	nock->nock[0] = 50;
+	nock->nock[1] = 50;
+	nock->nock[2] = 50;
+
+	nock->count = 3;
+	return;
+	#endif
+
 		return;
 	}
 	eepromRead((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);

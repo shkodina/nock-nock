@@ -14,7 +14,7 @@
 
 void initMyExtIRQ();
 
-//#define LOGGDEBUG
+#define LOGGDEBUG
 
 int main(void)
 {
@@ -52,16 +52,16 @@ int main(void)
 	#endif
 
 //	ledOn(LEDRED2);
-//timerSet(TIMER_NOCK,0,100);
+//timerSet(TIMER_NOCK,0,50);
 
    while(1)
     {
 
-//		if(timerIsElapsed(TIMER_NOCK) == TRUE){
-//			timerSet(TIMER_NOCK,0,100);
-//			ledTaggle(LEDRED1);
-//		}
-//		continue;
+		//if(timerIsElapsed(TIMER_NOCK) == TRUE){
+		//	timerSet(TIMER_NOCK,0,50);
+		//	ledTaggle(LEDRED1);
+		//}
+		//continue;
 		
     	userNewNockCommandMachine_1();
     	nockMachine_2();

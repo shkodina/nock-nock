@@ -7,6 +7,7 @@
 #define UPBIT(port, bit) port = port | (1<<bit);
 #define DOWNBIT(port, bit) port = port & (~(1<<bit));
 
+
 #define CE 1
 #define SS 2
 #define CSN 2

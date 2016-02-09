@@ -1,5 +1,5 @@
 main.o: ../main.c ../common_makros.h ../softtimer.h ../eepromworker.h \
- ../leds.h \
+ ../rf73_spi.h \
  c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/io.h \
  c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/sfr_defs.h \
  c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/inttypes.h \
@@ -22,7 +22,7 @@ main.o: ../main.c ../common_makros.h ../softtimer.h ../eepromworker.h \
 
 ../eepromworker.h:
 
-../leds.h:
+../rf73_spi.h:
 
 c:\program\ files\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/io.h:
 
