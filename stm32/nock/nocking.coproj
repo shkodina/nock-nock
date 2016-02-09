@@ -79,37 +79,42 @@
     <File name="cmsis_boot/startup/startup_stm32f10x_md_vl.c" path="cmsis_boot/startup/startup_stm32f10x_md_vl.c" type="1"/>
     <File name="cmsis_boot/system_stm32f10x.c" path="cmsis_boot/system_stm32f10x.c" type="1"/>
     <File name="stm_lib/inc/misc.h" path="stm_lib/inc/misc.h" type="1"/>
-    <File name="common_makros.h" path="common_makros.h" type="1"/>
-    <File name="leds.h" path="leds.h" type="1"/>
-    <File name="softtimer.h" path="softtimer.h" type="1"/>
-    <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
+    <File name="framework/buttons.h" path="buttons.h" type="1"/>
     <File name="stm_lib/inc/stm32f10x_tim.h" path="stm_lib/inc/stm32f10x_tim.h" type="1"/>
+    <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
+    <File name="framework/softtimer.c" path="softtimer.c" type="1"/>
     <File name="stm_lib/src/stm32f10x_rcc.c" path="stm_lib/src/stm32f10x_rcc.c" type="1"/>
+    <File name="nock_machine.c" path="nock_machine.c" type="1"/>
+    <File name="framework/uart_logger.c" path="uart_logger.c" type="1"/>
     <File name="stm_lib/src/stm32f10x_tim.c" path="stm_lib/src/stm32f10x_tim.c" type="1"/>
+    <File name="framework/leds.h" path="leds.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="framework/eepromworker.c" path="eepromworker.c" type="1"/>
+    <File name="nock_machine.h" path="nock_machine.h" type="1"/>
     <File name="stm_lib/src/misc.c" path="stm_lib/src/misc.c" type="1"/>
     <File name="stm_lib/src/stm32f10x_spi.c" path="stm_lib/src/stm32f10x_spi.c" type="1"/>
     <File name="cmsis_boot/stm32f10x.h" path="cmsis_boot/stm32f10x.h" type="1"/>
     <File name="cmsis_boot/stm32f10x_conf.h" path="cmsis_boot/stm32f10x_conf.h" type="1"/>
+    <File name="framework/softtimer.h" path="softtimer.h" type="1"/>
     <File name="stm_lib/src" path="" type="2"/>
+    <File name="framework/leds.c" path="leds.c" type="1"/>
     <File name="cmsis" path="" type="2"/>
     <File name="stm_lib" path="" type="2"/>
     <File name="cmsis/core_cm3.c" path="cmsis/core_cm3.c" type="1"/>
     <File name="stm_lib/inc/stm32f10x_spi.h" path="stm_lib/inc/stm32f10x_spi.h" type="1"/>
     <File name="cmsis_boot/system_stm32f10x.h" path="cmsis_boot/system_stm32f10x.h" type="1"/>
-    <File name="buttons.c" path="buttons.c" type="1"/>
+    <File name="framework/common_makros.h" path="common_makros.h" type="1"/>
     <File name="stm_lib/inc/stm32f10x_rcc.h" path="stm_lib/inc/stm32f10x_rcc.h" type="1"/>
-    <File name="leds.c" path="leds.c" type="1"/>
-    <File name="uart_logger.c" path="uart_logger.c" type="1"/>
+    <File name="framework/uart_logger.h" path="uart_logger.h" type="1"/>
     <File name="stm_lib/src/stm32f10x_usart.c" path="stm_lib/src/stm32f10x_usart.c" type="1"/>
-    <File name="softtimer.c" path="cofttimer.c" type="1"/>
-    <File name="uart_logger.h" path="uart_logger.h" type="1"/>
     <File name="stm_lib/src/stm32f10x_gpio.c" path="stm_lib/src/stm32f10x_gpio.c" type="1"/>
     <File name="stm_lib/inc" path="" type="2"/>
     <File name="stm_lib/inc/stm32f10x_gpio.h" path="stm_lib/inc/stm32f10x_gpio.h" type="1"/>
-    <File name="buttons.h" path="buttons.h" type="1"/>
-    <File name="main.c" path="main.c" type="1"/>
+    <File name="framework/buttons.c" path="buttons.c" type="1"/>
+    <File name="framework" path="" type="2"/>
+    <File name="framework/eepromworker.h" path="eepromworker.h" type="1"/>
     <File name="stm_lib/inc/stm32f10x_usart.h" path="stm_lib/inc/stm32f10x_usart.h" type="1"/>
+    <File name="main.c" path="main.c" type="1"/>
   </Files>
 </Project>

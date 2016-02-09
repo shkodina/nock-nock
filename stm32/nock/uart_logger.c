@@ -99,13 +99,13 @@ void NVIC_Configuration(void)
   NVIC_Init(&NVIC_InitStructure);
 }
 //=============================================================================
-inline void UARTSend(const unsigned char *pucBuffer)
+inline void UARTSend(const unsigned char *pucBuffer, char ulCount)
 {
     //
     // Loop while there are more characters to send.
     //
-	while(*pucBuffer != LOGGER_END_MARKER)
-    //while(ulCount--)
+	//while(*pucBuffer != LOGGER_END_MARKER)
+    while(ulCount--)
     {
         USART_SendData(USART1, *pucBuffer++);// Last Version USART_SendData(USART1,(uint16_t) *pucBuffer++);
         /* Loop until the end of transmission */
@@ -121,10 +121,28 @@ void loggerInit(){
 	usart_init();
 }
 //=============================================================================
-void loggerWrite(const unsigned char *message){
-	UARTSend(message);
+void loggerWrite(const unsigned char *message, char count){
+    while(count--)
+    {
+        USART_SendData(USART1, *message++);// Last Version USART_SendData(USART1,(uint16_t) *pucBuffer++);
+        /* Loop until the end of transmission */
+        while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
+        {
+        }
+    }
 }
-
+//=============================================================================
+void loggerWriteToMarker(const unsigned char *message, char end_markser){
+    while(*message++ != end_markser)
+    {
+        USART_SendData(USART1, *message);// Last Version USART_SendData(USART1,(uint16_t) *pucBuffer++);
+        /* Loop until the end of transmission */
+        while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
+        {
+        }
+    }
+}
+//=============================================================================
 
 
 

@@ -11,7 +11,8 @@ enum {	TIMER_TOTAL_COUNT = 4,
 enum {	TIMER_VALUE_NOCK_TIMEOUT = 1000,
 		TIMER_VALUE_NOISE = 5,
 		TIMER_VALUE_RADIO_DELAY = 5,
-		TIMER_VALUE_MAX = 65535
+		TIMER_VALUE_MAX = 65535,
+		TIMER_VALUE_INIT_ZERRO = 0
 	};
 
 //-------------------------------------------------------------------
