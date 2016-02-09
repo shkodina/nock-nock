@@ -5,32 +5,40 @@
 #include "softtimer.h"
 #include "eepromworker.h"
 //=============================================================================
-enum {	FLAG_TOTAL_COUNT = 5,
-		FLAG_NOCK = 0,
-		FLAG_NOCK_CORRECT = 1,
-		FLAG_NEW_NOCK = 2};
 //volatile
 char g_flags[FLAG_TOTAL_COUNT];
 //=============================================================================
-enum {	NOCK_MAX_COUNT = 30,
-		NOCK_NO_NOCK = 0,
-		NOCK_EEPROM_START_ADDRESS = 1,
-		NOCK_DELTA = 5};
-typedef struct {
-	int nock[NOCK_MAX_COUNT];
-	char count;
-} Nock;
-enum {	NOCK_G_NOCK_TOTAL_COUNT = 3,
-		NOCK_PATTERN = 0,
-		NOCK_CURRENT = 1,
-		NOCK_NEW = 2};
 //volatile
 Nock g_nocks[NOCK_G_NOCK_TOTAL_COUNT];
+//=============================================================================
+//inline
+void initGVals(){
+	char i, j;
+	// =======================================
+	for (j = 0; j < NOCK_G_NOCK_TOTAL_COUNT; j++){
+		g_nocks[j].count = NOCK_NO_NOCK;
+		for (i = 0; i < NOCK_MAX_COUNT; i++){
+			g_nocks[j].nock[i] = NOCK_NO_NOCK;
+		}
+	}
+	//========================================
+	for (i = 0; i < FLAG_TOTAL_COUNT; i++){
+		g_flags[i] = FALSE;
+	}
+}
 //=============================================================================
 char processWaitNoise();
 char processCheckNock();
 //=============================================================================
-void nockMachine(){
+void nockReadFromEEPROM(Nock * nock);
+void nockWriteToEEPROM(Nock * nock);
+//=============================================================================
+void initNockMachine_0(){
+	initGVals();
+	nockReadFromEEPROM(&g_nocks[NOCK_PATTERN]);
+}
+//=============================================================================
+void nockMachine_2(){
 	enum {WAIT_FIRST_NOCK, WAIT_NOISE, WAIT_CURRENT_NOCK, CHECK_NOCK, PROCESS_ERROR, PROCESS_OK, PROCESS_RESSET, PROCESS_NEW_NOCK};
 	static char state = WAIT_FIRST_NOCK;
 
@@ -131,16 +139,16 @@ void nockMachine(){
 //=======================================================================================
 //inline
 char processWaitNoise(){
-	enum {FIRST, NOTFIRST};
+	enum {FIRST, SECOND};
 	static char local_state = FIRST;
 
 	switch (local_state){
 		case FIRST:
-			setTimer(TIMER_NOCK_NOISE, 0, TIMER_VALUE_NOISE); // run nock noise timer
-			local_state = NOTFIRST;
+			timerSet(TIMER_NOCK_NOISE, 0, TIMER_VALUE_NOISE); // run nock noise timer
+			local_state = SECOND;
 		break;
 
-		case NOTFIRST:
+		case SECOND:
 			if (timerIsElapsed(TIMER_NOCK_NOISE) != TRUE) return;
 			g_flags[FLAG_NOCK] = FALSE; // clear flag if it was noise
 			local_state = FIRST;
@@ -169,3 +177,138 @@ char processCheckNock(){
 }
 //=======================================================================================
 //inline
+void nockReadFromEEPROM(Nock * nock){
+	eepromRead(&(nock->count), 1, EEPROM_NOCK_START_ADDRESS);
+	eepromRead((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
+}
+//=======================================================================================
+//inline
+void nockWriteToEEPROM(Nock * nock){
+	eepromWrite(&(nock->count), 1, EEPROM_NOCK_START_ADDRESS);
+	eepromWrite((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
+}
+//=======================================================================================
+//inline
+void userCommandMachine_1(){
+	enum {WAIT_ACTION, NEW_NOCK_CODE_BUTTON_PRESSED};
+	static char state = WAIT_ACTION;
+	switch(state){
+		case WAIT_ACTION:
+			if (buttonIsPressed(BUTOONNEWCODE)){
+				state = NEW_NOCK_CODE_BUTTON_PRESSED;
+				g_flags[FLAG_NEW_NOCK] == TRUE;
+			}
+		break;
+
+		case NEW_NOCK_CODE_BUTTON_PRESSED:
+			if (g_flags[FLAG_NEW_NOCK] == FALSE)
+				state = WAIT_ACTION;
+		break;
+
+		default:
+		break;
+	}
+}
+//=======================================================================================
+//=======================================================================================
+//===========         RADIO    RADIO    RADIO    RADIO    RADIO    ======================
+//=======================================================================================
+//=======================================================================================
+char processWaitRadio();
+//=======================================================================================
+//inline
+void radioSendMachine_3(){
+	enum {	DATAMAXLEN = 64,
+			DATAMARKERPOSITION = 0, DATAMARKER = '*',
+			DATAIDPOSITION = 1, 	DATAID = 0b11011011,
+			DATACODELENPOSITION = 2,
+			DATACODEPOSION = 3		};
+	static char data[DATAMAXLEN];
+
+
+	enum {RADIOWAITNEWCODE, RADIOWAITCODEDONE, RADIOWAITBOX, RADIOSENDTOBOX, RADIOWAITDELAY};
+	static char state = RADIOWAITNEWCODE;
+
+	switch (state){
+		//========================
+		case RADIOWAITNEWCODE:
+		//========================
+			if (g_flags[FLAG_NEW_NOCK] == TRUE)
+				state = RADIOWAITCODEDONE;
+		break;
+		//========================
+		case RADIOWAITCODEDONE:
+		//========================
+			if (g_flags[FLAG_NEW_NOCK] == FALSE)
+				state = RADIOWAITBOX;
+		break;
+		//========================
+		case RADIOWAITBOX:{
+		//========================
+			int len = 0;//rfmReadData(data);
+			if (len > 0){
+				if (data[DATAIDPOSITION] == DATAID){
+					state = RADIOSENDTOBOX;
+					break;
+				}
+			}
+			//rfmToTxMode();
+
+			enum {ASKMESLEN = 3};
+			char mes[ASKMESLEN] = {DATAMARKER, DATAID, DATAID};
+
+			//rfmSend(mes, ASKMESLEN);
+			//rfmToRxMode();
+
+			state = RADIOWAITDELAY;
+		}break;
+		//========================
+		case RADIOWAITDELAY:
+		//========================
+			if (processWaitRadio() == TRUE)
+				state = RADIOWAITBOX;
+		break;
+		//========================
+		case RADIOSENDTOBOX:{
+		//========================
+			//rfmToTxMode();
+
+			data[DATAMARKERPOSITION] = DATAMARKER;
+			data[DATAIDPOSITION] = DATAID;
+			data[DATACODELENPOSITION] = g_nocks[NOCK_CURRENT].count;
+
+			char i;
+			for (i = 0; g_nocks[NOCK_CURRENT].count; i++){
+				data[DATACODEPOSION + i] = g_nocks[NOCK_CURRENT].nock[i];
+			}
+
+			//rfmSend(data, DATACODEPOSION + g_nocks[NOCK_CURRENT].count + 1);
+			state = RADIOWAITNEWCODE;
+		}break;
+		//========================
+		default: break;
+		//========================
+	}
+}
+//=======================================================================================
+char processWaitRadio(){
+	enum {FIRST, SECOND};
+	static char local_state = FIRST;
+
+	switch (local_state){
+		case FIRST:
+			timerSet(TIMER_RADIO_WAIT, 0, TIMER_VALUE_RADIO_WAIT); // run nock noise timer
+			local_state = SECOND;
+		break;
+
+		case SECOND:
+			if (timerIsElapsed(TIMER_RADIO_WAIT) != TRUE) return;
+			local_state = FIRST;
+			return TRUE;
+		break;
+
+		default: break;
+	}
+	return FALSE;
+}
+//=======================================================================================

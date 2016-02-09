@@ -1,7 +1,7 @@
 #ifndef MY_EEPROM_WORKER_H
 #define MY_EEPROM_WORKER_H
 
-#define EEPROM_NOCK_START_ADDRESS 12
+enum {EEPROM_NOCK_START_ADDRESS = 12};
 
 void eepromInit();
 void eepromWrite(char * data, char len, unsigned int address);

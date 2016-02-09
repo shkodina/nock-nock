@@ -251,32 +251,12 @@ Discarded input sections
                 0x00000000      0x13c ..\obj\system_stm32f10x.o
  .text          0x00000000        0x0 ..\obj\nock_machine.o
  .data          0x00000000        0x0 ..\obj\nock_machine.o
- .bss           0x00000000        0x2 ..\obj\nock_machine.o
- .text.nockMachine
-                0x00000000      0x274 ..\obj\nock_machine.o
- .text.processWaitNoise
-                0x00000000       0x78 ..\obj\nock_machine.o
- .text.processCheckNock
-                0x00000000       0x90 ..\obj\nock_machine.o
- .debug_info    0x00000000      0x241 ..\obj\nock_machine.o
- .debug_abbrev  0x00000000      0x122 ..\obj\nock_machine.o
- .debug_loc     0x00000000       0x90 ..\obj\nock_machine.o
- .debug_aranges
-                0x00000000       0x30 ..\obj\nock_machine.o
- .debug_ranges  0x00000000       0x38 ..\obj\nock_machine.o
- .debug_line    0x00000000      0x103 ..\obj\nock_machine.o
- .debug_str     0x00000000      0x295 ..\obj\nock_machine.o
- .comment       0x00000000       0x71 ..\obj\nock_machine.o
- .ARM.attributes
-                0x00000000       0x33 ..\obj\nock_machine.o
- .debug_frame   0x00000000       0x68 ..\obj\nock_machine.o
- COMMON         0x00000000      0x179 ..\obj\nock_machine.o
+ .text.nockWriteToEEPROM
+                0x00000000       0x40 ..\obj\nock_machine.o
  .text          0x00000000        0x0 ..\obj\eepromworker.o
  .data          0x00000000        0x0 ..\obj\eepromworker.o
  .bss           0x00000000        0x0 ..\obj\eepromworker.o
  .text.eepromWrite
-                0x00000000       0x30 ..\obj\eepromworker.o
- .text.eepromRead
                 0x00000000       0x30 ..\obj\eepromworker.o
  .text.eepromReadToMark
                 0x00000000       0x50 ..\obj\eepromworker.o
@@ -320,12 +300,6 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\softtimer.o
  .data          0x00000000        0x0 ..\obj\softtimer.o
  .bss           0x00000000        0x0 ..\obj\softtimer.o
- .text.timerSet
-                0x00000000       0x78 ..\obj\softtimer.o
- .text.timerIsElapsed
-                0x00000000       0x8c ..\obj\softtimer.o
- .text.timerGetCurrent
-                0x00000000       0x30 ..\obj\softtimer.o
  .text          0x00000000        0x0 ..\obj\main.o
  .data          0x00000000        0x0 ..\obj\main.o
  .bss           0x00000000        0x0 ..\obj\main.o
@@ -527,15 +501,9 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\buttons.o
  .data          0x00000000        0x0 ..\obj\buttons.o
  .bss           0x00000000        0x0 ..\obj\buttons.o
- .text.buttonIsPressed
-                0x00000000       0x30 ..\obj\buttons.o
  .text          0x00000000        0x0 c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
  .data          0x00000000        0x0 c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
  .bss           0x00000000        0x0 c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
- .text.memcpy   0x00000000      0x15c c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
- .ARM.attributes
-                0x00000000       0x2d c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
- .debug_frame   0x00000000       0x30 c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
 
 Memory Configuration
 
@@ -548,7 +516,7 @@ Linker script and memory map
 
                 0x20002000                _eram = 0x20002000
 
-.text           0x08000000     0x1398
+.text           0x08000000     0x1d50
  *(.isr_vector .isr_vector.*)
  .isr_vector    0x08000000      0x124 ..\obj\startup_stm32f10x_md_vl.o
                 0x08000000                g_pfnVectors
@@ -631,118 +599,163 @@ Linker script and memory map
                 0x080004b8        0xc ..\obj\system_stm32f10x.o
  .text.SetSysClockTo24
                 0x080004c4      0x15c ..\obj\system_stm32f10x.o
+ .text.initGVals
+                0x08000620       0xa4 ..\obj\nock_machine.o
+                0x08000620                initGVals
+ .text.initNockMachine_0
+                0x080006c4       0x18 ..\obj\nock_machine.o
+                0x080006c4                initNockMachine_0
+ .text.nockMachine_2
+                0x080006dc      0x274 ..\obj\nock_machine.o
+                0x080006dc                nockMachine_2
+ .text.processWaitNoise
+                0x08000950       0x78 ..\obj\nock_machine.o
+                0x08000950                processWaitNoise
+ .text.processCheckNock
+                0x080009c8       0x90 ..\obj\nock_machine.o
+                0x080009c8                processCheckNock
+ .text.nockReadFromEEPROM
+                0x08000a58       0x40 ..\obj\nock_machine.o
+                0x08000a58                nockReadFromEEPROM
+ .text.userCommandMachine_1
+                0x08000a98       0x60 ..\obj\nock_machine.o
+                0x08000a98                userCommandMachine_1
+ .text.radioSendMachine_3
+                0x08000af8      0x174 ..\obj\nock_machine.o
+                0x08000af8                radioSendMachine_3
+ .text.processWaitRadio
+                0x08000c6c       0x68 ..\obj\nock_machine.o
+                0x08000c6c                processWaitRadio
  .text.eepromInit
-                0x08000620        0xc ..\obj\eepromworker.o
-                0x08000620                eepromInit
+                0x08000cd4        0xc ..\obj\eepromworker.o
+                0x08000cd4                eepromInit
+ .text.eepromRead
+                0x08000ce0       0x30 ..\obj\eepromworker.o
+                0x08000ce0                eepromRead
  .text.GPIO_Init
-                0x0800062c      0x1b0 ..\obj\stm32f10x_gpio.o
-                0x0800062c                GPIO_Init
+                0x08000d10      0x1b0 ..\obj\stm32f10x_gpio.o
+                0x08000d10                GPIO_Init
  .text.NVIC_EnableIRQ
-                0x080007dc       0x38 ..\obj\softtimer.o
+                0x08000ec0       0x38 ..\obj\softtimer.o
+ .text.timerSet
+                0x08000ef8       0x78 ..\obj\softtimer.o
+                0x08000ef8                timerSet
+ .text.timerIsElapsed
+                0x08000f70       0x8c ..\obj\softtimer.o
+                0x08000f70                timerIsElapsed
+ .text.timerGetCurrent
+                0x08000ffc       0x30 ..\obj\softtimer.o
+                0x08000ffc                timerGetCurrent
  .text.timerInit
-                0x08000814       0x8c ..\obj\softtimer.o
-                0x08000814                timerInit
+                0x0800102c       0x8c ..\obj\softtimer.o
+                0x0800102c                timerInit
  .text.inIRQTimer
-                0x080008a0      0x13c ..\obj\softtimer.o
-                0x080008a0                inIRQTimer
+                0x080010b8      0x13c ..\obj\softtimer.o
+                0x080010b8                inIRQTimer
  .text.initHardWareTimer
-                0x080009dc       0x70 ..\obj\softtimer.o
-                0x080009dc                initHardWareTimer
+                0x080011f4       0x70 ..\obj\softtimer.o
+                0x080011f4                initHardWareTimer
  .text.TIM6_DAC_IRQHandler
-                0x08000a4c       0x30 ..\obj\softtimer.o
-                0x08000a4c                TIM6_DAC_IRQHandler
- .text.main     0x08000a7c       0x2c ..\obj\main.o
-                0x08000a7c                main
+                0x08001264       0x30 ..\obj\softtimer.o
+                0x08001264                TIM6_DAC_IRQHandler
+ .text.main     0x08001294       0x3c ..\obj\main.o
+                0x08001294                main
  .text.USART1_IRQHandler
-                0x08000aa8       0x3c ..\obj\uart_logger.o
-                0x08000aa8                USART1_IRQHandler
+                0x080012d0       0x3c ..\obj\uart_logger.o
+                0x080012d0                USART1_IRQHandler
  .text.usart_init
-                0x08000ae4       0x34 ..\obj\uart_logger.o
-                0x08000ae4                usart_init
+                0x0800130c       0x34 ..\obj\uart_logger.o
+                0x0800130c                usart_init
  .text.GPIO_Configuration
-                0x08000b18       0x50 ..\obj\uart_logger.o
-                0x08000b18                GPIO_Configuration
+                0x08001340       0x50 ..\obj\uart_logger.o
+                0x08001340                GPIO_Configuration
  .text.USART_Configuration
-                0x08000b68       0x54 ..\obj\uart_logger.o
-                0x08000b68                USART_Configuration
+                0x08001390       0x54 ..\obj\uart_logger.o
+                0x08001390                USART_Configuration
  .text.NVIC_Configuration
-                0x08000bbc       0x30 ..\obj\uart_logger.o
-                0x08000bbc                NVIC_Configuration
+                0x080013e4       0x30 ..\obj\uart_logger.o
+                0x080013e4                NVIC_Configuration
  .text.loggerInit
-                0x08000bec        0xc ..\obj\uart_logger.o
-                0x08000bec                loggerInit
+                0x08001414        0xc ..\obj\uart_logger.o
+                0x08001414                loggerInit
  .text.loggerWriteToMarker
-                0x08000bf8       0x5c ..\obj\uart_logger.o
-                0x08000bf8                loggerWriteToMarker
+                0x08001420       0x5c ..\obj\uart_logger.o
+                0x08001420                loggerWriteToMarker
  .text.RCC_GetClocksFreq
-                0x08000c54      0x1cc ..\obj\stm32f10x_rcc.o
-                0x08000c54                RCC_GetClocksFreq
+                0x0800147c      0x1cc ..\obj\stm32f10x_rcc.o
+                0x0800147c                RCC_GetClocksFreq
  .text.RCC_APB2PeriphClockCmd
-                0x08000e20       0x54 ..\obj\stm32f10x_rcc.o
-                0x08000e20                RCC_APB2PeriphClockCmd
+                0x08001648       0x54 ..\obj\stm32f10x_rcc.o
+                0x08001648                RCC_APB2PeriphClockCmd
  .text.RCC_APB1PeriphClockCmd
-                0x08000e74       0x54 ..\obj\stm32f10x_rcc.o
-                0x08000e74                RCC_APB1PeriphClockCmd
+                0x0800169c       0x54 ..\obj\stm32f10x_rcc.o
+                0x0800169c                RCC_APB1PeriphClockCmd
  .text.USART_Init
-                0x08000ec8      0x1ac ..\obj\stm32f10x_usart.o
-                0x08000ec8                USART_Init
+                0x080016f0      0x1ac ..\obj\stm32f10x_usart.o
+                0x080016f0                USART_Init
  .text.USART_Cmd
-                0x08001074       0x40 ..\obj\stm32f10x_usart.o
-                0x08001074                USART_Cmd
+                0x0800189c       0x40 ..\obj\stm32f10x_usart.o
+                0x0800189c                USART_Cmd
  .text.USART_ITConfig
-                0x080010b4       0xa4 ..\obj\stm32f10x_usart.o
-                0x080010b4                USART_ITConfig
+                0x080018dc       0xa4 ..\obj\stm32f10x_usart.o
+                0x080018dc                USART_ITConfig
  .text.USART_SendData
-                0x08001158       0x28 ..\obj\stm32f10x_usart.o
-                0x08001158                USART_SendData
+                0x08001980       0x28 ..\obj\stm32f10x_usart.o
+                0x08001980                USART_SendData
  .text.USART_ReceiveData
-                0x08001180       0x24 ..\obj\stm32f10x_usart.o
-                0x08001180                USART_ReceiveData
+                0x080019a8       0x24 ..\obj\stm32f10x_usart.o
+                0x080019a8                USART_ReceiveData
  .text.USART_GetFlagStatus
-                0x080011a4       0x40 ..\obj\stm32f10x_usart.o
-                0x080011a4                USART_GetFlagStatus
- .text.ledInit  0x080011e4       0x74 ..\obj\leds.o
-                0x080011e4                ledInit
+                0x080019cc       0x40 ..\obj\stm32f10x_usart.o
+                0x080019cc                USART_GetFlagStatus
+ .text.ledInit  0x08001a0c       0x74 ..\obj\leds.o
+                0x08001a0c                ledInit
  .text.NVIC_Init
-                0x08001258       0xe8 ..\obj\misc.o
-                0x08001258                NVIC_Init
+                0x08001a80       0xe8 ..\obj\misc.o
+                0x08001a80                NVIC_Init
  .text.gpioInit
-                0x08001340       0x38 ..\obj\buttons.o
-                0x08001340                gpioInit
+                0x08001b68       0x38 ..\obj\buttons.o
+                0x08001b68                gpioInit
  .text.buttonsInit
-                0x08001378        0xc ..\obj\buttons.o
-                0x08001378                buttonsInit
+                0x08001ba0        0xc ..\obj\buttons.o
+                0x08001ba0                buttonsInit
+ .text.buttonIsPressed
+                0x08001bac       0x30 ..\obj\buttons.o
+                0x08001bac                buttonIsPressed
+ .text.memcpy   0x08001bdc      0x15c c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
+                0x08001bdc                memcpy
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
- .rodata        0x08001384       0x14 ..\obj\main.o
+ .rodata        0x08001d38        0x4 ..\obj\nock_machine.o
+ .rodata        0x08001d3c       0x14 ..\obj\main.o
 
-.vfp11_veneer   0x08001398        0x0
+.vfp11_veneer   0x08001d50        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08001398        0x0
+.v4_bx          0x08001d50        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08001398        0x0
+.iplt           0x08001d50        0x0
  .iplt          0x00000000        0x0 ..\obj\stm32f10x_tim.o
 
-.rel.dyn        0x08001398        0x0
+.rel.dyn        0x08001d50        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\stm32f10x_tim.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08001398                __exidx_start = .
+                0x08001d50                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08001398                __exidx_end = .
-                0x08001398                . = ALIGN (0x4)
-                0x08001398                _etext = .
-                0x08001398                _sidata = .
+                0x08001d50                __exidx_end = .
+                0x08001d50                . = ALIGN (0x4)
+                0x08001d50                _etext = .
+                0x08001d50                _sidata = .
 
-.data           0x20000000       0x18 load address 0x08001398
+.data           0x20000000       0x18 load address 0x08001d50
                 0x20000000                _sdata = .
  *(.data .data.*)
  .data          0x20000000       0x14 ..\obj\stm32f10x_rcc.o
@@ -751,25 +764,31 @@ Linker script and memory map
                 0x20000018                . = ALIGN (0x4)
                 0x20000018                _edata = .
 
-.igot.plt       0x20000018        0x0 load address 0x080013b0
+.igot.plt       0x20000018        0x0 load address 0x08001d68
  .igot.plt      0x00000000        0x0 ..\obj\stm32f10x_tim.o
 
-.bss            0x20000018       0x30 load address 0x080013b0
+.bss            0x20000018      0x1f4 load address 0x08001d68
                 0x20000018                _sbss = .
  *(.bss .bss.*)
+ .bss           0x20000018       0x48 ..\obj\nock_machine.o
  *(COMMON)
- COMMON         0x20000018       0x30 ..\obj\softtimer.o
-                0x20000018                g_timer
-                0x20000048                . = ALIGN (0x4)
-                0x20000048                _ebss = .
+ COMMON         0x20000060      0x179 ..\obj\nock_machine.o
+                0x20000060                g_nocks
+                0x200001d4                g_flags
+ *fill*         0x200001d9        0x3 00
+ COMMON         0x200001dc       0x30 ..\obj\softtimer.o
+                0x200001dc                g_timer
+                0x2000020c                . = ALIGN (0x4)
+                0x2000020c                _ebss = .
 
-.co_stack       0x20000048      0x400 load address 0x080013e0
-                0x20000048                . = ALIGN (0x8)
+.co_stack       0x2000020c      0x404 load address 0x08001f5c
+                0x20000210                . = ALIGN (0x8)
+ *fill*         0x2000020c        0x4 00
  *(.co_stack .co_stack.*)
- .co_stack      0x20000048      0x400 ..\obj\startup_stm32f10x_md_vl.o
-                0x20000048                pulStack
-                0x20000448                . = ALIGN (0x4)
-                0x20000448                _end = .
+ .co_stack      0x20000210      0x400 ..\obj\startup_stm32f10x_md_vl.o
+                0x20000210                pulStack
+                0x20000610                . = ALIGN (0x4)
+                0x20000610                _end = .
 LOAD ..\obj\stm32f10x_tim.o
 LOAD ..\obj\startup_stm32f10x_md_vl.o
 LOAD ..\obj\core_cm3.o
@@ -793,52 +812,55 @@ LOAD c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-
 END GROUP
 OUTPUT(nocking.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x5a06
+.debug_info     0x00000000     0x5e34
  .debug_info    0x00000000     0x1e6c ..\obj\stm32f10x_tim.o
  .debug_info    0x00001e6c       0xff ..\obj\startup_stm32f10x_md_vl.o
  .debug_info    0x00001f6b      0x40c ..\obj\system_stm32f10x.o
- .debug_info    0x00002377      0x14c ..\obj\eepromworker.o
- .debug_info    0x000024c3      0x72e ..\obj\stm32f10x_gpio.o
- .debug_info    0x00002bf1      0x84e ..\obj\softtimer.o
- .debug_info    0x0000343f       0x78 ..\obj\main.o
- .debug_info    0x000034b7      0x6ac ..\obj\uart_logger.o
- .debug_info    0x00003b63      0x990 ..\obj\stm32f10x_rcc.o
- .debug_info    0x000044f3      0xa82 ..\obj\stm32f10x_usart.o
- .debug_info    0x00004f75      0x2e4 ..\obj\leds.o
- .debug_info    0x00005259      0x544 ..\obj\misc.o
- .debug_info    0x0000579d      0x269 ..\obj\buttons.o
+ .debug_info    0x00002377      0x3d8 ..\obj\nock_machine.o
+ .debug_info    0x0000274f      0x14c ..\obj\eepromworker.o
+ .debug_info    0x0000289b      0x72e ..\obj\stm32f10x_gpio.o
+ .debug_info    0x00002fc9      0x84e ..\obj\softtimer.o
+ .debug_info    0x00003817       0xce ..\obj\main.o
+ .debug_info    0x000038e5      0x6ac ..\obj\uart_logger.o
+ .debug_info    0x00003f91      0x990 ..\obj\stm32f10x_rcc.o
+ .debug_info    0x00004921      0xa82 ..\obj\stm32f10x_usart.o
+ .debug_info    0x000053a3      0x2e4 ..\obj\leds.o
+ .debug_info    0x00005687      0x544 ..\obj\misc.o
+ .debug_info    0x00005bcb      0x269 ..\obj\buttons.o
 
-.debug_abbrev   0x00000000     0x1138
+.debug_abbrev   0x00000000     0x1305
  .debug_abbrev  0x00000000      0x1b2 ..\obj\stm32f10x_tim.o
  .debug_abbrev  0x000001b2       0xa9 ..\obj\startup_stm32f10x_md_vl.o
  .debug_abbrev  0x0000025b      0x179 ..\obj\system_stm32f10x.o
- .debug_abbrev  0x000003d4       0x9d ..\obj\eepromworker.o
- .debug_abbrev  0x00000471      0x1ca ..\obj\stm32f10x_gpio.o
- .debug_abbrev  0x0000063b      0x20e ..\obj\softtimer.o
- .debug_abbrev  0x00000849       0x79 ..\obj\main.o
- .debug_abbrev  0x000008c2      0x18a ..\obj\uart_logger.o
- .debug_abbrev  0x00000a4c      0x1bc ..\obj\stm32f10x_rcc.o
- .debug_abbrev  0x00000c08      0x164 ..\obj\stm32f10x_usart.o
- .debug_abbrev  0x00000d6c      0x157 ..\obj\leds.o
- .debug_abbrev  0x00000ec3      0x138 ..\obj\misc.o
- .debug_abbrev  0x00000ffb      0x13d ..\obj\buttons.o
+ .debug_abbrev  0x000003d4      0x1b1 ..\obj\nock_machine.o
+ .debug_abbrev  0x00000585       0x9d ..\obj\eepromworker.o
+ .debug_abbrev  0x00000622      0x1ca ..\obj\stm32f10x_gpio.o
+ .debug_abbrev  0x000007ec      0x20e ..\obj\softtimer.o
+ .debug_abbrev  0x000009fa       0x95 ..\obj\main.o
+ .debug_abbrev  0x00000a8f      0x18a ..\obj\uart_logger.o
+ .debug_abbrev  0x00000c19      0x1bc ..\obj\stm32f10x_rcc.o
+ .debug_abbrev  0x00000dd5      0x164 ..\obj\stm32f10x_usart.o
+ .debug_abbrev  0x00000f39      0x157 ..\obj\leds.o
+ .debug_abbrev  0x00001090      0x138 ..\obj\misc.o
+ .debug_abbrev  0x000011c8      0x13d ..\obj\buttons.o
 
-.debug_loc      0x00000000     0x2d8c
+.debug_loc      0x00000000     0x2f80
  .debug_loc     0x00000000     0x13e8 ..\obj\stm32f10x_tim.o
  .debug_loc     0x000013e8       0x64 ..\obj\startup_stm32f10x_md_vl.o
  .debug_loc     0x0000144c       0xc8 ..\obj\system_stm32f10x.o
- .debug_loc     0x00001514       0xd4 ..\obj\eepromworker.o
- .debug_loc     0x000015e8      0x3e4 ..\obj\stm32f10x_gpio.o
- .debug_loc     0x000019cc      0x1b4 ..\obj\softtimer.o
- .debug_loc     0x00001b80       0x2c ..\obj\main.o
- .debug_loc     0x00001bac      0x1e0 ..\obj\uart_logger.o
- .debug_loc     0x00001d8c      0x714 ..\obj\stm32f10x_rcc.o
- .debug_loc     0x000024a0      0x658 ..\obj\stm32f10x_usart.o
- .debug_loc     0x00002af8       0xe0 ..\obj\leds.o
- .debug_loc     0x00002bd8      0x118 ..\obj\misc.o
- .debug_loc     0x00002cf0       0x9c ..\obj\buttons.o
+ .debug_loc     0x00001514      0x1f4 ..\obj\nock_machine.o
+ .debug_loc     0x00001708       0xd4 ..\obj\eepromworker.o
+ .debug_loc     0x000017dc      0x3e4 ..\obj\stm32f10x_gpio.o
+ .debug_loc     0x00001bc0      0x1b4 ..\obj\softtimer.o
+ .debug_loc     0x00001d74       0x2c ..\obj\main.o
+ .debug_loc     0x00001da0      0x1e0 ..\obj\uart_logger.o
+ .debug_loc     0x00001f80      0x714 ..\obj\stm32f10x_rcc.o
+ .debug_loc     0x00002694      0x658 ..\obj\stm32f10x_usart.o
+ .debug_loc     0x00002cec       0xe0 ..\obj\leds.o
+ .debug_loc     0x00002dcc      0x118 ..\obj\misc.o
+ .debug_loc     0x00002ee4       0x9c ..\obj\buttons.o
 
-.debug_aranges  0x00000000      0x7d0
+.debug_aranges  0x00000000      0x838
  .debug_aranges
                 0x00000000      0x2f0 ..\obj\stm32f10x_tim.o
  .debug_aranges
@@ -846,82 +868,88 @@ OUTPUT(nocking.elf elf32-littlearm)
  .debug_aranges
                 0x00000318       0x38 ..\obj\system_stm32f10x.o
  .debug_aranges
-                0x00000350       0x38 ..\obj\eepromworker.o
+                0x00000350       0x68 ..\obj\nock_machine.o
  .debug_aranges
-                0x00000388       0xa8 ..\obj\stm32f10x_gpio.o
+                0x000003b8       0x38 ..\obj\eepromworker.o
  .debug_aranges
-                0x00000430       0x58 ..\obj\softtimer.o
+                0x000003f0       0xa8 ..\obj\stm32f10x_gpio.o
  .debug_aranges
-                0x00000488       0x20 ..\obj\main.o
+                0x00000498       0x58 ..\obj\softtimer.o
  .debug_aranges
-                0x000004a8       0x60 ..\obj\uart_logger.o
+                0x000004f0       0x20 ..\obj\main.o
  .debug_aranges
-                0x00000508      0x120 ..\obj\stm32f10x_rcc.o
+                0x00000510       0x60 ..\obj\uart_logger.o
  .debug_aranges
-                0x00000628      0x100 ..\obj\stm32f10x_usart.o
+                0x00000570      0x120 ..\obj\stm32f10x_rcc.o
  .debug_aranges
-                0x00000728       0x38 ..\obj\leds.o
+                0x00000690      0x100 ..\obj\stm32f10x_usart.o
  .debug_aranges
-                0x00000760       0x40 ..\obj\misc.o
+                0x00000790       0x38 ..\obj\leds.o
  .debug_aranges
-                0x000007a0       0x30 ..\obj\buttons.o
+                0x000007c8       0x40 ..\obj\misc.o
+ .debug_aranges
+                0x00000808       0x30 ..\obj\buttons.o
 
-.debug_ranges   0x00000000      0x700
+.debug_ranges   0x00000000      0x758
  .debug_ranges  0x00000000      0x2e0 ..\obj\stm32f10x_tim.o
  .debug_ranges  0x000002e0       0x18 ..\obj\startup_stm32f10x_md_vl.o
  .debug_ranges  0x000002f8       0x28 ..\obj\system_stm32f10x.o
- .debug_ranges  0x00000320       0x28 ..\obj\eepromworker.o
- .debug_ranges  0x00000348       0x98 ..\obj\stm32f10x_gpio.o
- .debug_ranges  0x000003e0       0x48 ..\obj\softtimer.o
- .debug_ranges  0x00000428       0x10 ..\obj\main.o
- .debug_ranges  0x00000438       0x50 ..\obj\uart_logger.o
- .debug_ranges  0x00000488      0x110 ..\obj\stm32f10x_rcc.o
- .debug_ranges  0x00000598       0xf0 ..\obj\stm32f10x_usart.o
- .debug_ranges  0x00000688       0x28 ..\obj\leds.o
- .debug_ranges  0x000006b0       0x30 ..\obj\misc.o
- .debug_ranges  0x000006e0       0x20 ..\obj\buttons.o
+ .debug_ranges  0x00000320       0x58 ..\obj\nock_machine.o
+ .debug_ranges  0x00000378       0x28 ..\obj\eepromworker.o
+ .debug_ranges  0x000003a0       0x98 ..\obj\stm32f10x_gpio.o
+ .debug_ranges  0x00000438       0x48 ..\obj\softtimer.o
+ .debug_ranges  0x00000480       0x10 ..\obj\main.o
+ .debug_ranges  0x00000490       0x50 ..\obj\uart_logger.o
+ .debug_ranges  0x000004e0      0x110 ..\obj\stm32f10x_rcc.o
+ .debug_ranges  0x000005f0       0xf0 ..\obj\stm32f10x_usart.o
+ .debug_ranges  0x000006e0       0x28 ..\obj\leds.o
+ .debug_ranges  0x00000708       0x30 ..\obj\misc.o
+ .debug_ranges  0x00000738       0x20 ..\obj\buttons.o
 
-.debug_line     0x00000000     0x2497
+.debug_line     0x00000000     0x26d3
  .debug_line    0x00000000      0xa40 ..\obj\stm32f10x_tim.o
  .debug_line    0x00000a40       0xa2 ..\obj\startup_stm32f10x_md_vl.o
  .debug_line    0x00000ae2      0x1c9 ..\obj\system_stm32f10x.o
- .debug_line    0x00000cab       0xb3 ..\obj\eepromworker.o
- .debug_line    0x00000d5e      0x35a ..\obj\stm32f10x_gpio.o
- .debug_line    0x000010b8      0x282 ..\obj\softtimer.o
- .debug_line    0x0000133a       0x72 ..\obj\main.o
- .debug_line    0x000013ac      0x288 ..\obj\uart_logger.o
- .debug_line    0x00001634      0x478 ..\obj\stm32f10x_rcc.o
- .debug_line    0x00001aac      0x446 ..\obj\stm32f10x_usart.o
- .debug_line    0x00001ef2      0x1e9 ..\obj\leds.o
- .debug_line    0x000020db      0x1ef ..\obj\misc.o
- .debug_line    0x000022ca      0x1cd ..\obj\buttons.o
+ .debug_line    0x00000cab      0x22c ..\obj\nock_machine.o
+ .debug_line    0x00000ed7       0xb3 ..\obj\eepromworker.o
+ .debug_line    0x00000f8a      0x35a ..\obj\stm32f10x_gpio.o
+ .debug_line    0x000012e4      0x282 ..\obj\softtimer.o
+ .debug_line    0x00001566       0x82 ..\obj\main.o
+ .debug_line    0x000015e8      0x288 ..\obj\uart_logger.o
+ .debug_line    0x00001870      0x478 ..\obj\stm32f10x_rcc.o
+ .debug_line    0x00001ce8      0x446 ..\obj\stm32f10x_usart.o
+ .debug_line    0x0000212e      0x1e9 ..\obj\leds.o
+ .debug_line    0x00002317      0x1ef ..\obj\misc.o
+ .debug_line    0x00002506      0x1cd ..\obj\buttons.o
 
-.debug_str      0x00000000     0x2378
+.debug_str      0x00000000     0x25cc
  .debug_str     0x00000000      0xcdc ..\obj\stm32f10x_tim.o
                                 0xd7d (size before relaxing)
  .debug_str     0x00000cdc       0xb0 ..\obj\startup_stm32f10x_md_vl.o
                                 0x114 (size before relaxing)
  .debug_str     0x00000d8c      0x159 ..\obj\system_stm32f10x.o
                                 0x274 (size before relaxing)
- .debug_str     0x00000ee5       0x7a ..\obj\eepromworker.o
+ .debug_str     0x00000ee5      0x2c6 ..\obj\nock_machine.o
+                                0x33b (size before relaxing)
+ .debug_str     0x000011ab       0x7a ..\obj\eepromworker.o
                                  0xda (size before relaxing)
- .debug_str     0x00000f5f      0x37b ..\obj\stm32f10x_gpio.o
+ .debug_str     0x00001225      0x37b ..\obj\stm32f10x_gpio.o
                                 0x4b9 (size before relaxing)
- .debug_str     0x000012da      0x47a ..\obj\softtimer.o
-                                0x716 (size before relaxing)
- .debug_str     0x00001754       0x3e ..\obj\main.o
-                                 0x95 (size before relaxing)
- .debug_str     0x00001792      0x243 ..\obj\uart_logger.o
+ .debug_str     0x000015a0      0x40e ..\obj\softtimer.o
+                                0x715 (size before relaxing)
+ .debug_str     0x000019ae       0x3e ..\obj\main.o
+                                 0xdd (size before relaxing)
+ .debug_str     0x000019ec      0x23d ..\obj\uart_logger.o
                                 0x774 (size before relaxing)
- .debug_str     0x000019d5      0x400 ..\obj\stm32f10x_rcc.o
+ .debug_str     0x00001c29      0x400 ..\obj\stm32f10x_rcc.o
                                 0x60d (size before relaxing)
- .debug_str     0x00001dd5      0x3a6 ..\obj\stm32f10x_usart.o
+ .debug_str     0x00002029      0x3a6 ..\obj\stm32f10x_usart.o
                                 0x630 (size before relaxing)
- .debug_str     0x0000217b       0x7b ..\obj\leds.o
+ .debug_str     0x000023cf       0x7b ..\obj\leds.o
                                 0x2bc (size before relaxing)
- .debug_str     0x000021f6      0x125 ..\obj\misc.o
+ .debug_str     0x0000244a      0x125 ..\obj\misc.o
                                 0x363 (size before relaxing)
- .debug_str     0x0000231b       0x5d ..\obj\buttons.o
+ .debug_str     0x0000256f       0x5d ..\obj\buttons.o
                                 0x2a9 (size before relaxing)
 
 .comment        0x00000000       0x70
@@ -929,6 +957,7 @@ OUTPUT(nocking.elf elf32-littlearm)
                                  0x71 (size before relaxing)
  .comment       0x00000000       0x71 ..\obj\startup_stm32f10x_md_vl.o
  .comment       0x00000000       0x71 ..\obj\system_stm32f10x.o
+ .comment       0x00000000       0x71 ..\obj\nock_machine.o
  .comment       0x00000000       0x71 ..\obj\eepromworker.o
  .comment       0x00000000       0x71 ..\obj\stm32f10x_gpio.o
  .comment       0x00000000       0x71 ..\obj\softtimer.o
@@ -949,37 +978,43 @@ OUTPUT(nocking.elf elf32-littlearm)
  .ARM.attributes
                 0x00000066       0x33 ..\obj\system_stm32f10x.o
  .ARM.attributes
-                0x00000099       0x33 ..\obj\eepromworker.o
+                0x00000099       0x33 ..\obj\nock_machine.o
  .ARM.attributes
-                0x000000cc       0x33 ..\obj\stm32f10x_gpio.o
+                0x000000cc       0x33 ..\obj\eepromworker.o
  .ARM.attributes
-                0x000000ff       0x33 ..\obj\softtimer.o
+                0x000000ff       0x33 ..\obj\stm32f10x_gpio.o
  .ARM.attributes
-                0x00000132       0x33 ..\obj\main.o
+                0x00000132       0x33 ..\obj\softtimer.o
  .ARM.attributes
-                0x00000165       0x33 ..\obj\uart_logger.o
+                0x00000165       0x33 ..\obj\main.o
  .ARM.attributes
-                0x00000198       0x33 ..\obj\stm32f10x_rcc.o
+                0x00000198       0x33 ..\obj\uart_logger.o
  .ARM.attributes
-                0x000001cb       0x33 ..\obj\stm32f10x_usart.o
+                0x000001cb       0x33 ..\obj\stm32f10x_rcc.o
  .ARM.attributes
-                0x000001fe       0x33 ..\obj\leds.o
+                0x000001fe       0x33 ..\obj\stm32f10x_usart.o
  .ARM.attributes
-                0x00000231       0x33 ..\obj\misc.o
+                0x00000231       0x33 ..\obj\leds.o
  .ARM.attributes
-                0x00000264       0x33 ..\obj\buttons.o
+                0x00000264       0x33 ..\obj\misc.o
+ .ARM.attributes
+                0x00000297       0x33 ..\obj\buttons.o
+ .ARM.attributes
+                0x000002ca       0x2d c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
 
-.debug_frame    0x00000000     0x1834
+.debug_frame    0x00000000     0x199c
  .debug_frame   0x00000000      0xa20 ..\obj\stm32f10x_tim.o
  .debug_frame   0x00000a20       0x48 ..\obj\startup_stm32f10x_md_vl.o
  .debug_frame   0x00000a68       0x80 ..\obj\system_stm32f10x.o
- .debug_frame   0x00000ae8       0x7c ..\obj\eepromworker.o
- .debug_frame   0x00000b64      0x210 ..\obj\stm32f10x_gpio.o
- .debug_frame   0x00000d74       0xfc ..\obj\softtimer.o
- .debug_frame   0x00000e70       0x2c ..\obj\main.o
- .debug_frame   0x00000e9c      0x128 ..\obj\uart_logger.o
- .debug_frame   0x00000fc4      0x3a4 ..\obj\stm32f10x_rcc.o
- .debug_frame   0x00001368      0x344 ..\obj\stm32f10x_usart.o
- .debug_frame   0x000016ac       0x84 ..\obj\leds.o
- .debug_frame   0x00001730       0x9c ..\obj\misc.o
- .debug_frame   0x000017cc       0x68 ..\obj\buttons.o
+ .debug_frame   0x00000ae8      0x138 ..\obj\nock_machine.o
+ .debug_frame   0x00000c20       0x7c ..\obj\eepromworker.o
+ .debug_frame   0x00000c9c      0x210 ..\obj\stm32f10x_gpio.o
+ .debug_frame   0x00000eac       0xfc ..\obj\softtimer.o
+ .debug_frame   0x00000fa8       0x2c ..\obj\main.o
+ .debug_frame   0x00000fd4      0x128 ..\obj\uart_logger.o
+ .debug_frame   0x000010fc      0x3a4 ..\obj\stm32f10x_rcc.o
+ .debug_frame   0x000014a0      0x344 ..\obj\stm32f10x_usart.o
+ .debug_frame   0x000017e4       0x84 ..\obj\leds.o
+ .debug_frame   0x00001868       0x9c ..\obj\misc.o
+ .debug_frame   0x00001904       0x68 ..\obj\buttons.o
+ .debug_frame   0x0000196c       0x30 c:/program files/gnu tools arm embedded/4.7 2013q3/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
