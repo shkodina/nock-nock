@@ -5,14 +5,15 @@
 #include "softtimer.h"
 #include "eepromworker.h"
 //=============================================================================
-//volatile
+volatile
 char g_flags[FLAG_TOTAL_COUNT];
 //=============================================================================
-//volatile
+volatile
 Nock g_nocks[NOCK_G_NOCK_TOTAL_COUNT];
 //=============================================================================
 //inline
 void initGVals(){
+	loggerWriteToMarker((LogMesT)" initGVals() \n*", '*');
 	char i, j;
 	// =======================================
 	for (j = 0; j < NOCK_G_NOCK_TOTAL_COUNT; j++){
@@ -28,6 +29,7 @@ void initGVals(){
 }
 //=============================================================================
 void changeFlag(char name, char state){
+	//loggerWriteToMarker((LogMesT)" changing flags \n*", '*');
 	g_flags[name] = state;
 }
 //=============================================================================
@@ -38,6 +40,7 @@ void nockReadFromEEPROM(Nock * nock);
 void nockWriteToEEPROM(Nock * nock);
 //=============================================================================
 void initNockMachine_0(){
+	loggerWriteToMarker((LogMesT)" initNockMachine_0() \n*", '*');
 	initGVals();
 	nockReadFromEEPROM(&g_nocks[NOCK_PATTERN]);
 }
@@ -54,14 +57,17 @@ void nockMachine_2(){
 			if (g_flags[FLAG_NOCK] == FALSE)	return;
 			timerSet(TIMER_NOCK_TIMEOUT,  TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_NOCK_TIMEOUT);
 			timerSet(TIMER_NOCK, TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_MAX);
+			loggerWriteToMarker((LogMesT)" goto WAIT_NOISE \n*", '*');
 			state = WAIT_NOISE;
 		break;
 		//================================================
 		//=========================
 		case WAIT_NOISE:
 		//=========================
-			if (processWaitNoise() == TRUE)
+			if (processWaitNoise() == TRUE){
+				loggerWriteToMarker((LogMesT)" goto CHECK_NOCK \n*", '*');
 				state = CHECK_NOCK;
+			}
 		break;
 		//================================================
 		//=========================
@@ -72,7 +78,7 @@ void nockMachine_2(){
 					state = PROCESS_NEW_NOCK;
 					break;
 				}
-
+				loggerWriteToMarker((LogMesT)" goto PROCESS_ERROR \n*", '*');
 				state = PROCESS_ERROR;
 				break;
 			}
@@ -82,6 +88,7 @@ void nockMachine_2(){
 			g_nocks[NOCK_CURRENT].nock[g_nocks[NOCK_CURRENT].count++] = timerGetCurrent(TIMER_NOCK);
 			timerSet(TIMER_NOCK, TIMER_VALUE_INIT_ZERRO, TIMER_VALUE_MAX);
 
+			loggerWriteToMarker((LogMesT)" goto WAIT_NOISE \n*", '*');
 			state = WAIT_NOISE;
 		break;
 		//================================================
@@ -89,17 +96,21 @@ void nockMachine_2(){
 		case CHECK_NOCK:
 		//=========================
 			if (g_flags[FLAG_NEW_NOCK] == TRUE){ // we recording new nock
+				loggerWriteToMarker((LogMesT)" goto WAIT_CURRENT_NOCK \n*", '*');
 				state = WAIT_CURRENT_NOCK;
 				break;
 			}
 
 			if (g_nocks[NOCK_CURRENT].count == g_nocks[NOCK_PATTERN].count){
 				if (processCheckNock() == TRUE){
+					loggerWriteToMarker((LogMesT)" goto PROCESS_OK \n*", '*');
 					state = PROCESS_OK;
 				}else{
+					loggerWriteToMarker((LogMesT)" goto PROCESS_ERROR \n*", '*');
 					state = PROCESS_ERROR;
 				}
 			}else{
+				loggerWriteToMarker((LogMesT)" goto WAIT_CURRENT_NOCK \n*", '*');
 				state = WAIT_CURRENT_NOCK;
 			}
 		break;
@@ -107,32 +118,40 @@ void nockMachine_2(){
 		//=========================
 		case PROCESS_OK:
 		//=========================
+			loggerWriteToMarker((LogMesT)" in PROCESS_OK \n*", '*');
 			g_flags[FLAG_NOCK_CORRECT] = TRUE;
+			loggerWriteToMarker((LogMesT)" goto PROCESS_RESSET \n*", '*');
 			state = PROCESS_RESSET;
 		break;
 		//================================================
 		//=========================
 		case PROCESS_ERROR:
 		//=========================
+			loggerWriteToMarker((LogMesT)" in PROCESS_ERROR \n*", '*');
 			g_flags[FLAG_NOCK_CORRECT] = FALSE;
+			loggerWriteToMarker((LogMesT)" goto PROCESS_RESSET \n*", '*');
 			state = PROCESS_RESSET;
 		break;
 		//================================================
 		//=========================
 		case PROCESS_RESSET:
 		//=========================
+			loggerWriteToMarker((LogMesT)" in PROCESS_RESSET \n*", '*');
 			timerSet(TIMER_NOCK_TIMEOUT, TIMER_VALUE_MAX, TIMER_VALUE_MAX);
 			timerSet(TIMER_NOCK, TIMER_VALUE_MAX, TIMER_VALUE_MAX);
 			g_nocks[NOCK_CURRENT].count = NOCK_NO_NOCK;
+			loggerWriteToMarker((LogMesT)" goto WAIT_FIRST_NOCK \n*", '*');
 			state = WAIT_FIRST_NOCK;
 		break;
 		//================================================
 		//=========================
 		case PROCESS_NEW_NOCK:
 		//=========================
+			loggerWriteToMarker((LogMesT)" in PROCESS_NEW_NOCK \n*", '*');
 			//writeNockToEEPROM(&g_nocks[NOCK_CURRENT]);
 			g_nocks[NOCK_PATTERN] = g_nocks[NOCK_CURRENT];
-			g_flags[FLAG_NEW_NOCK] == FALSE;
+			g_flags[FLAG_NEW_NOCK] = FALSE;
+			loggerWriteToMarker((LogMesT)" goto PROCESS_RESSET \n*", '*');
 			state = PROCESS_RESSET;
 		break;
 		//================================================
@@ -148,12 +167,13 @@ char processWaitNoise(){
 
 	switch (local_state){
 		case FIRST:
+			loggerWriteToMarker((LogMesT)" in processWaitNoise() first \n*", '*');
 			timerSet(TIMER_NOCK_NOISE, 0, TIMER_VALUE_NOISE); // run nock noise timer
 			local_state = SECOND;
 		break;
 
 		case SECOND:
-			if (timerIsElapsed(TIMER_NOCK_NOISE) != TRUE) return;
+			if (timerIsElapsed(TIMER_NOCK_NOISE) != TRUE) return FALSE;
 			g_flags[FLAG_NOCK] = FALSE; // clear flag if it was noise
 			local_state = FIRST;
 			return TRUE;
@@ -166,6 +186,7 @@ char processWaitNoise(){
 //=======================================================================================
 //inline
 char processCheckNock(){
+	loggerWriteToMarker((LogMesT)" in processCheckNock() \n*", '*');
 	char i;
 	for (i = 0; i < g_nocks[NOCK_CURRENT].count; i++){
 		if (g_nocks[NOCK_CURRENT].nock[i] < g_nocks[NOCK_PATTERN].nock[i] + NOCK_DELTA
@@ -182,15 +203,21 @@ char processCheckNock(){
 //=======================================================================================
 //inline
 void nockReadFromEEPROM(Nock * nock){
+	loggerWriteToMarker((LogMesT)" in nockReadFromEEPROM() \n*", '*');
 	eepromRead(&(nock->count), 1, EEPROM_NOCK_START_ADDRESS);
 	eepromRead((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
 }
 //=======================================================================================
 //inline
 void nockWriteToEEPROM(Nock * nock){
+	loggerWriteToMarker((LogMesT)" in nockWriteToEEPROM() \n*", '*');
 	eepromWrite(&(nock->count), 1, EEPROM_NOCK_START_ADDRESS);
 	eepromWrite((char *)nock->nock, nock->count * 2, EEPROM_NOCK_START_ADDRESS + 1);
 }
+//=======================================================================================
+//=======================================================================================
+//========   COMMANDS     COMMANDS     COMMANDS      COMMANDS             ===============
+//=======================================================================================
 //=======================================================================================
 //inline
 void userCommandMachine_1(){
@@ -199,14 +226,18 @@ void userCommandMachine_1(){
 	switch(state){
 		case WAIT_ACTION:
 			if (buttonIsPressed(BUTOONNEWCODE)){
+				changeFlag(FLAG_NOCK, TRUE); break; //DEBUG
 				state = NEW_NOCK_CODE_BUTTON_PRESSED;
-				g_flags[FLAG_NEW_NOCK] == TRUE;
+				g_flags[FLAG_NEW_NOCK] = TRUE;
+				loggerWriteToMarker((LogMesT)" in userCommandMachine_1() NEW_NOCK_CODE_BUTTON_PRESSED \n*", '*');
 			}
 		break;
 
 		case NEW_NOCK_CODE_BUTTON_PRESSED:
-			if (g_flags[FLAG_NEW_NOCK] == FALSE)
+			if (g_flags[FLAG_NEW_NOCK] == FALSE){
+				loggerWriteToMarker((LogMesT)" in userCommandMachine_1() g_flags[FLAG_NEW_NOCK] == FALSE \n*", '*');
 				state = WAIT_ACTION;
+			}
 		break;
 
 		default:

@@ -16,14 +16,18 @@ int main(void)
 	timerInit();
 
 	loggerInit();
-	loggerWriteToMarker((LogMesT)"Starting program *", '*');
+	loggerWriteToMarker((LogMesT)" \nStarting program \n*", '*');
 
 	initNockMachine_0();
 
+
     while(1)
     {
+
     	userCommandMachine_1();
     	nockMachine_2();
     	radioSendMachine_3();
+
+
     }
 }

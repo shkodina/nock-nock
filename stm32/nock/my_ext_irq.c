@@ -6,6 +6,8 @@
 #include "stm32f10x_exti.h"
 #include "misc.h"
 
+#include "uart_logger.h"
+
 #define KEY_BUTTON_IRQn             EXTI9_5_IRQn
 #define KEY_BUTTON_NOCK_EXTI_LINE        EXTI_Line8
 #define KEY_BUTTON_NEW_NOCK_EXTI_LINE        EXTI_Line9
@@ -32,7 +34,7 @@ void initMyExtIRQ(){
 	  /* Configure Button EXTI line */
 	  EXTI_InitStructure.EXTI_Line = EXTI_Line8 | EXTI_Line9;
 	  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
+	  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;//EXTI_Trigger_Falling;
 	  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
 	  EXTI_Init(&EXTI_InitStructure);
 
@@ -52,7 +54,8 @@ void EXTI9_5_IRQHandler(void)
     // Clear KEY_BUTTON_EXTI_LINE pending bit
     EXTI_ClearITPendingBit(KEY_BUTTON_NOCK_EXTI_LINE);
 
-   	changeFlag(FLAG_NOCK, TRUE);
+   	//changeFlag(FLAG_NOCK, TRUE);
+   	//loggerWriteToMarker((LogMesT)" EXTI9_5_IRQHandler KEY_BUTTON_NOCK_EXTI_LINE \n*", '*');
   }
 
   if(EXTI_GetITStatus(KEY_BUTTON_NEW_NOCK_EXTI_LINE) != RESET)
@@ -61,6 +64,7 @@ void EXTI9_5_IRQHandler(void)
     EXTI_ClearITPendingBit(KEY_BUTTON_NEW_NOCK_EXTI_LINE);
 
    	changeFlag(FLAG_NEW_NOCK, TRUE);
+   	//loggerWriteToMarker((LogMesT)" EXTI9_5_IRQHandler KEY_BUTTON_NEW_NOCK_EXTI_LINE \n*", '*');
   }
 
 }

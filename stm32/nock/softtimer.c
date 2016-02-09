@@ -73,7 +73,7 @@ void initHardWareTimer()
   TIM_TimeBaseInitTypeDef base_timer;
   TIM_TimeBaseStructInit(&base_timer);
   /* Делитель учитывается как TIM_Prescaler + 1, поэтому отнимаем 1 */
-  base_timer.TIM_Prescaler = 24000 - 1;
+  base_timer.TIM_Prescaler = 1000 - 1;
   base_timer.TIM_Period = 500;
   TIM_TimeBaseInit(TIM6, &base_timer);
 

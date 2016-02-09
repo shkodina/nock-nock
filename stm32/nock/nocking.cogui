@@ -16,43 +16,50 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.coocox.welcome.ui.WelcomePage" name="" partName="welcome" title="welcome" tooltip="" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">
-<org.coocox.welcome.ui.WelcomePage/>
+<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.welcome.ui.WelcomePage/>
 </input>
 </editor>
 <editor id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">
-<subPage horizontalPosition="0" selectedItemId="467" subPageIndex="2" verticalPosition="465"/>
+<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="467" subPageIndex="2" verticalPosition="465"/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/nocking/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/nocking/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/nocking/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/nocking/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/nocking/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="232" selectionTopPixel="59"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="383" selectionTopPixel="286"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="softtimer.c" partName="softtimer.c" path="C:/CooCox/CoIDE/workspace/nocking/cofttimer.c" title="softtimer.c" tooltip="C:/CooCox/CoIDE/workspace/nocking/cofttimer.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/nocking/softtimer.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="547" selectionTopPixel="204"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="nock_machine.c" partName="nock_machine.c" path="C:/CooCox/CoIDE/workspace/nocking/nock_machine.c" title="nock_machine.c" tooltip="C:/CooCox/CoIDE/workspace/nocking/nock_machine.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/nocking/nock_machine.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3353" selectionTopPixel="1391"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="softtimer.h" partName="softtimer.h" path="C:/CooCox/CoIDE/workspace/nocking/softtimer.h" title="softtimer.h" tooltip="C:/CooCox/CoIDE/workspace/nocking/softtimer.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/nocking/softtimer.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="397" selectionTopPixel="161"/>
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/nocking/framework/softtimer.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="249" selectionTopPixel="167"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="cofttimer.c" partName="cofttimer.c" title="cofttimer.c" tooltip="C:\CooCox\CoIDE\workspace\nocking\cofttimer.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/CooCox/CoIDE/workspace/nocking/cofttimer.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="300" selectionTopPixel="1504"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="softtimer.c" partName="softtimer.c" path="C:/CooCox/CoIDE/workspace/nocking/softtimer.c" title="softtimer.c" tooltip="C:/CooCox/CoIDE/workspace/nocking/softtimer.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/nocking/framework/softtimer.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2630" selectionTopPixel="1122"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="my_ext_irq.c" partName="my_ext_irq.c" path="C:/CooCox/CoIDE/workspace/nocking/my_ext_irq.c" title="my_ext_irq.c" tooltip="C:/CooCox/CoIDE/workspace/nocking/my_ext_irq.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/nocking/my_ext_irq.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="28" selectionOffset="1963" selectionTopPixel="813"/>
 </editor>
 </editors>
 <views>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="7">
 <expanded>
 <element path="/nocking"/>
+<element path="/nocking/framework"/>
 </expanded>
+<selection>
+<element path="/nocking/my_ext_irq.c"/>
+</selection>
 </viewState>
 </view>
 <view id="org.coocox.component.ui.ComponentView" partName="Components">
@@ -64,9 +71,6 @@
 </viewState>
 </view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
-</view>
-<view id="org.coocox.component.ui.Help" partName="Help">
 <viewState/>
 </view>
 </views>
@@ -83,26 +87,25 @@
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.coocox.userspace.actionSet"/>
-<hide_menu_item_id id="org.coocox.codebugger.configuration.showConsoleAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.configuration.showDebugAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryAction"/>
+<hide_menu_item_id id="org.eclipse.jdt.ui.refactoring.menu"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.ShowDisassemblyAction"/>
 <hide_menu_item_id id="org.coocox.codebugger.configuration.showExpressionsAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
-<hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
-<hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
-<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showDebugAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showConsoleAction"/>
 <hide_menu_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
-<hide_menu_item_id id="org.eclipse.jdt.ui.refactoring.menu"/>
 <hide_menu_item_id id="org.eclipse.jdt.ui.source.menu"/>
-<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
+<hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
+<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <view id="org.coocox.component.ui.ComponentView"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
-<view id="org.coocox.component.ui.Help"/>
 <view id="org.coocox.builder.ui.exampleView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars/>
@@ -130,7 +133,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@25684e" ratio="0.21970706" ratioLeft="330" ratioRight="1172" relationship="2" relative="org.eclipse.ui.internal.ViewStack@9851a">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@25684e" ratio="0.21340887" ratioLeft="226" ratioRight="833" relationship="2" relative="org.eclipse.ui.internal.ViewStack@9851a">
 <folder activePageID="org.coocox.builder.ui.exampleView" appearance="2" expanded="2">
 <page content="org.coocox.builder.ui.exampleView" label="USART Examples"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -139,15 +142,13 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@e86f3a" ratio="0.7192833" ratioLeft="843" ratioRight="329" relationship="2" relative="org.eclipse.ui.internal.ViewStack@25684e">
-<folder activePageID="org.coocox.component.ui.Help" appearance="2" expanded="2">
-<page content="org.coocox.component.ui.Help" label="Help"/>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
 <page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.2847222" ratioLeft="123" ratioRight="309" relationship="4" relative="org.eclipse.ui.internal.ViewStack@25684e"/>
@@ -166,161 +167,164 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/leds.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/softtimer.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/softtimer.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/main.c"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" uri="file:/C:/CooCox/CoIDE/workspace/nocking/cofttimer.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/nock_machine.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/framework/buttons.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/my_ext_irq.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/stm_lib/inc/stm32f10x_exti.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/stm_lib/inc/stm32f10x_gpio.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/framework/softtimer.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/nocking/framework/softtimer.c"/>
 </editors>
-<item historyLabel="leds.c" index="0">
-<position info="not_deleted" x="0" y="45"/>
+<item historyLabel="stm32f10x_exti.h" index="4">
+<position info="not_deleted" x="1841" y="20"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="586" y="0"/>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="1324" y="0"/>
 </item>
-<item historyLabel="softtimer.c" index="1">
-<position/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="307" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="586" y="0"/>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="1346" y="0"/>
 </item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="307" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="392" y="0"/>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="6167" y="0"/>
 </item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="669" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="392" y="0"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
+<item historyLabel="buttons.c" index="2">
 <position info="not_deleted" x="577" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="310" y="0"/>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="2562" y="0"/>
 </item>
-<item historyLabel="softtimer.c" index="1">
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="847" y="0"/>
+</item>
+<item historyLabel="stm32f10x_gpio.h" index="5">
+<position info="not_deleted" x="2396" y="21"/>
+</item>
+<item historyLabel="buttons.c" index="2">
+<position info="not_deleted" x="483" y="13"/>
+</item>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="1313" y="0"/>
+</item>
+<item historyLabel="stm32f10x_exti.h" index="4">
+<position info="not_deleted" x="1810" y="19"/>
+</item>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="1020" y="0"/>
+</item>
+<item historyLabel="buttons.c" index="2">
+<position info="not_deleted" x="483" y="13"/>
+</item>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="1590" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="324" y="0"/>
+</item>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="8242" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="344" y="0"/>
+</item>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="5679" y="0"/>
+</item>
+<item historyLabel="buttons.c" index="2">
+<position info="not_deleted" x="483" y="13"/>
+</item>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="1020" y="0"/>
+</item>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="1132" y="0"/>
+</item>
+<item historyLabel="softtimer.h" index="6">
+<position info="not_deleted" x="176" y="0"/>
+</item>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="1050" y="57"/>
+</item>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="2315" y="0"/>
+</item>
+<item historyLabel="buttons.c" index="2">
+<position info="not_deleted" x="483" y="13"/>
+</item>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="2315" y="0"/>
+</item>
+<item historyLabel="buttons.c" index="2">
+<position info="not_deleted" x="483" y="13"/>
+</item>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="2315" y="0"/>
+</item>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="1050" y="57"/>
+</item>
+<item historyLabel="softtimer.h" index="6">
+<position info="not_deleted" x="176" y="0"/>
+</item>
+<item historyLabel="softtimer.c" index="7">
+<position info="not_deleted" x="2670" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="344" y="0"/>
+</item>
+<item historyLabel="softtimer.c" index="7">
+<position info="not_deleted" x="2670" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="470" y="0"/>
+</item>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="3234" y="62"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="470" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
 <position/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position/>
+<item historyLabel="softtimer.h" index="6">
+<position info="not_deleted" x="524" y="37"/>
 </item>
-<item historyLabel="softtimer.c" index="1">
-<position/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="468" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position/>
+<item historyLabel="softtimer.c" index="7">
+<position info="not_deleted" x="2630" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="491" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="383" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="530" y="0"/>
+<item historyLabel="softtimer.h" index="6">
+<position info="not_deleted" x="249" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="578" y="0"/>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="3156" y="0"/>
 </item>
-<item historyLabel="softtimer.c" index="1">
-<position/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="383" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="392" y="17"/>
+<item historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="8448" y="0"/>
 </item>
-<item historyLabel="softtimer.c" index="1">
-<position/>
+<item historyLabel="my_ext_irq.c" index="3">
+<position info="not_deleted" x="1963" y="28"/>
 </item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="1507" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="383" y="0"/>
 </item>
-<item historyLabel="softtimer.h" index="2">
-<position/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="1511" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="411" y="171"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="446" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="156" y="17"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="446" y="0"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="1096" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="1096" y="0"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="892" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="895" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="56" y="0"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="547" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="50" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="102" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="98" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="397" y="9"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="547" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="98" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="166" y="0"/>
-</item>
-<item historyLabel="cofttimer.c" index="4">
-<position info="not_deleted" x="1678" y="43"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="547" y="0"/>
-</item>
-<item historyLabel="cofttimer.c" index="4">
-<position info="not_deleted" x="1684" y="0"/>
-</item>
-<item historyLabel="cofttimer.c" index="4">
-<position info="not_deleted" x="2144" y="56"/>
-</item>
-<item historyLabel="softtimer.c" index="1">
-<position info="not_deleted" x="547" y="0"/>
-</item>
-<item historyLabel="softtimer.h" index="2">
-<position info="not_deleted" x="397" y="9"/>
-</item>
-<item historyLabel="cofttimer.c" index="4">
-<position info="not_deleted" x="300" y="0"/>
-</item>
-<item active="true" historyLabel="main.c" index="3">
-<position info="not_deleted" x="166" y="0"/>
+<item active="true" historyLabel="nock_machine.c" index="1">
+<position info="not_deleted" x="8448" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -329,48 +333,53 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cofttimer.c" tooltip="C:\CooCox\CoIDE\workspace\nocking\cofttimer.c">
-<persistable uri="file:/C:/CooCox/CoIDE/workspace/nocking/cofttimer.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="my_ext_irq.c" tooltip="nocking/my_ext_irq.c">
+<persistable path="/nocking/my_ext_irq.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="leds.h" tooltip="nocking/leds.h">
-<persistable path="/nocking/leds.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="softtimer.c" tooltip="nocking/framework/softtimer.c">
+<persistable path="/nocking/framework/softtimer.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="leds.c" tooltip="nocking/leds.c">
-<persistable path="/nocking/leds.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="softtimer.h" tooltip="nocking/framework/softtimer.h">
+<persistable path="/nocking/framework/softtimer.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="buttons.h" tooltip="nocking/buttons.h">
-<persistable path="/nocking/buttons.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" tooltip="nocking/stm_lib/inc/stm32f10x_gpio.h">
+<persistable path="/nocking/stm_lib/inc/stm32f10x_gpio.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="softtimer.h" tooltip="nocking/softtimer.h">
-<persistable path="/nocking/softtimer.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_exti.h" tooltip="nocking/stm_lib/inc/stm32f10x_exti.h">
+<persistable path="/nocking/stm_lib/inc/stm32f10x_exti.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cofttimer.c" tooltip="nocking/cofttimer.c">
-<persistable path="/nocking/cofttimer.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="buttons.c" tooltip="nocking/framework/buttons.c">
+<persistable path="/nocking/framework/buttons.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart_logger.c" tooltip="nocking/uart_logger.c">
-<persistable path="/nocking/uart_logger.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="nock_machine.c" tooltip="nocking/nock_machine.c">
+<persistable path="/nocking/nock_machine.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart_logger.h" tooltip="nocking/uart_logger.h">
-<persistable path="/nocking/uart_logger.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="buttons.c" tooltip="nocking/buttons.c">
-<persistable path="/nocking/buttons.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="nocking/main.c">
-<persistable path="/nocking/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="common_makros.h" tooltip="nocking/common_makros.h">
-<persistable path="/nocking/common_makros.h"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>
-<subPage horizontalPosition="0" selectedItemId="467" subPageIndex="2" verticalPosition="465"/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart_logger.c" tooltip="nocking/framework/uart_logger.c">
+<persistable path="/nocking/framework/uart_logger.c"/>
 </file>
 <file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
 <persistable>
 <org.coocox.welcome.ui.WelcomePage/>
 </persistable>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="all_in_one.c" tooltip="nock/all_in_one.c">
+<persistable path="/nock/all_in_one.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="all_in_one.cpp" tooltip="C:\CooCox\CoIDE\workspace\nock\all_in_one.cpp">
+<persistable uri="file:/C:/CooCox/CoIDE/workspace/nock/all_in_one.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart_rxtx.c" tooltip="nock/example/usart_rxtx.c">
+<persistable path="/nock/example/usart_rxtx.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="all_in_one.cpp" tooltip="nock/all_in_one.cpp">
+<persistable path="/nock/all_in_one.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="nock/main.c">
+<persistable path="/nock/main.c"/>
 </file>
 </mruList>
 </workbench>
