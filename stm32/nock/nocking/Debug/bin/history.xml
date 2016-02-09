@@ -1,18 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.7.4 -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=nocking.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\nocking -TC:\CooCox\CoIDE\configuration\ProgramData\nocking/arm-gcc-link.ld -g">
-      <target file="nocking.elf" lastModified="149f18f6ef0">
+      <target file="nocking.elf" lastModified="149f531757d">
+         <source file="..\obj\my_ext_irq.o" lastModified="149f531733b"/>
          <source file="..\obj\stm32f10x_tim.o" lastModified="149eb20cfbd"/>
          <source file="..\obj\startup_stm32f10x_md_vl.o" lastModified="149eb20cfec"/>
          <source file="..\obj\core_cm3.o" lastModified="149eb20d059"/>
          <source file="..\obj\system_stm32f10x.o" lastModified="149eb20d0a7"/>
-         <source file="..\obj\nock_machine.o" lastModified="149f18f6cdd"/>
-         <source file="..\obj\eepromworker.o" lastModified="149f047fd7f"/>
+         <source file="..\obj\nock_machine.o" lastModified="149f52eb052"/>
+         <source file="..\obj\eepromworker.o" lastModified="149f4f3e432"/>
          <source file="..\obj\stm32f10x_gpio.o" lastModified="149eb20d124"/>
-         <source file="..\obj\softtimer.o" lastModified="149f18905a4"/>
-         <source file="..\obj\main.o" lastModified="149f189094d"/>
+         <source file="..\obj\softtimer.o" lastModified="149f50d0a00"/>
+         <source file="..\obj\main.o" lastModified="149f5305cba"/>
          <source file="..\obj\uart_logger.o" lastModified="149f048a3c2"/>
          <source file="..\obj\stm32f10x_rcc.o" lastModified="149eb20d309"/>
+         <source file="..\obj\stm32f10x_exti.o" lastModified="149f52eb0bf"/>
          <source file="..\obj\stm32f10x_usart.o" lastModified="149eb20d395"/>
          <source file="..\obj\leds.o" lastModified="149ec5ff799"/>
          <source file="..\obj\misc.o" lastModified="149eb20d3f3"/>

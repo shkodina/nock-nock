@@ -4,9 +4,12 @@
 #include "softtimer.h"
 #include "eepromworker.h"
 
+void initMyExtIRQ();
 
 int main(void)
 {
+	initMyExtIRQ();
+
 	eepromInit();
 	buttonsInit();
 	ledInit();

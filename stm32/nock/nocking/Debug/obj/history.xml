@@ -1,56 +1,62 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F100RB -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\nocking -I..\..\..\workspace -I..\..\..\workspace\nocking\cmsis -I..\..\..\workspace\nocking\stm_lib -I..\..\.. -I..\..\..\workspace\nocking\stm_lib\inc -I..\..\..\workspace\nocking\cmsis_boot">
-      <target file="startup_stm32f10x_md_vl.o" lastModified="149eb20cfec">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md_vl.c" lastModified="149eab7a1e5"/>
-      </target>
-      <target file="softtimer.o" lastModified="149f18905a4">
-         <source file="..\..\..\softtimer.c" lastModified="149f16e4f53"/>
-      </target>
-      <target file="cofttimer.o" lastModified="149ec60ad5c">
-         <source file="..\..\..\cofttimer.c" lastModified="149ec60a34a"/>
-      </target>
-      <target file="stm32f10x_tim.o" lastModified="149eb20cfbd">
-         <source file="..\..\..\stm_lib\src\stm32f10x_tim.c" lastModified="149eab7b0e9"/>
-      </target>
-      <target file="leds.o" lastModified="149ec5ff799">
-         <source file="..\..\..\leds.c" lastModified="149ec2ecfbc"/>
-      </target>
-      <target file="core_cm3.o" lastModified="149eb20d059">
-         <source file="..\..\..\cmsis\core_cm3.c" lastModified="149eab7a1f5"/>
-      </target>
-      <target file="system_stm32f10x.o" lastModified="149eb20d0a7">
-         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="149eab7a1e5"/>
-      </target>
-      <target file="uart_logger.o" lastModified="149f048a3c2">
-         <source file="..\..\..\uart_logger.c" lastModified="149f048a0a5"/>
-      </target>
-      <target file="nock_machine.o" lastModified="149f18f6cdd">
-         <source file="..\..\..\nock_machine.c" lastModified="149f18ed010"/>
-      </target>
-      <target file="eepromworker.o" lastModified="149f047fd7f">
-         <source file="..\..\..\eepromworker.c" lastModified="149f031d2e0"/>
-      </target>
       <target file="stm32f10x_spi.o" lastModified="149eb20d461">
          <source file="..\..\..\stm_lib\src\stm32f10x_spi.c" lastModified="149eab7b9c3"/>
-      </target>
-      <target file="main.o" lastModified="149f189094d">
-         <source file="..\..\..\main.c" lastModified="149f046b2df"/>
-      </target>
-      <target file="stm32f10x_usart.o" lastModified="149eb20d395">
-         <source file="..\..\..\stm_lib\src\stm32f10x_usart.c" lastModified="149eab7c125"/>
-      </target>
-      <target file="stm32f10x_gpio.o" lastModified="149eb20d124">
-         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="149eab7a948"/>
-      </target>
-      <target file="stm32f10x_rcc.o" lastModified="149eb20d309">
-         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="149eab7a1d6"/>
       </target>
       <target file="buttons.o" lastModified="149ec10b8ab">
          <source file="..\..\..\buttons.c" lastModified="149ebff2066"/>
       </target>
+      <target file="stm32f10x_rcc.o" lastModified="149eb20d309">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="149eab7a1d6"/>
+      </target>
+      <target file="core_cm3.o" lastModified="149eb20d059">
+         <source file="..\..\..\cmsis\core_cm3.c" lastModified="149eab7a1f5"/>
+      </target>
+      <target file="uart_logger.o" lastModified="149f048a3c2">
+         <source file="..\..\..\uart_logger.c" lastModified="149f048a0a5"/>
+      </target>
       <target file="misc.o" lastModified="149eb20d3f3">
          <source file="..\..\..\stm_lib\src\misc.c" lastModified="149eb12638a"/>
+      </target>
+      <target file="leds.o" lastModified="149ec5ff799">
+         <source file="..\..\..\leds.c" lastModified="149ec2ecfbc"/>
+      </target>
+      <target file="cofttimer.o" lastModified="149ec60ad5c">
+         <source file="..\..\..\cofttimer.c" lastModified="149ec60a34a"/>
+      </target>
+      <target file="stm32f10x_gpio.o" lastModified="149eb20d124">
+         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="149eab7a948"/>
+      </target>
+      <target file="eepromworker.o" lastModified="149f4f3e432">
+         <source file="..\..\..\eepromworker.c" lastModified="149f031d2e0"/>
+      </target>
+      <target file="stm32f10x_exti.o" lastModified="149f52eb0bf">
+         <source file="..\..\..\stm_lib\src\stm32f10x_exti.c" lastModified="149f525f21a"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="149eb20d0a7">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="149eab7a1e5"/>
+      </target>
+      <target file="stm32f10x_tim.o" lastModified="149eb20cfbd">
+         <source file="..\..\..\stm_lib\src\stm32f10x_tim.c" lastModified="149eab7b0e9"/>
+      </target>
+      <target file="my_ext_irq.o" lastModified="149f531733b">
+         <source file="..\..\..\my_ext_irq.c" lastModified="149f5316a23"/>
+      </target>
+      <target file="nock_machine.o" lastModified="149f52eb052">
+         <source file="..\..\..\nock_machine.c" lastModified="149f51aab33"/>
+      </target>
+      <target file="softtimer.o" lastModified="149f50d0a00">
+         <source file="..\..\..\softtimer.c" lastModified="149f16e4f53"/>
+      </target>
+      <target file="startup_stm32f10x_md_vl.o" lastModified="149eb20cfec">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md_vl.c" lastModified="149eab7a1e5"/>
+      </target>
+      <target file="stm32f10x_usart.o" lastModified="149eb20d395">
+         <source file="..\..\..\stm_lib\src\stm32f10x_usart.c" lastModified="149eab7c125"/>
+      </target>
+      <target file="main.o" lastModified="149f5305cba">
+         <source file="..\..\..\main.c" lastModified="149f52f6913"/>
       </target>
    </processor>
 </history>

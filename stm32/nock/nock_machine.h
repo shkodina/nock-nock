@@ -25,5 +25,6 @@ void initNockMachine_0();
 void userCommandMachine_1();
 void nockMachine_2();
 void radioSendMachine_3();
+void changeFlag(char name, char state);
 //=============================================================================
 #endif
